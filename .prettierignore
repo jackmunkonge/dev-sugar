@@ -1,0 +1,12 @@
+# SENSITIVE INFO
+.env
+
+# root
+node_modules
+
+# styles
+/app/styles/tailwind.css
+
+# build artifacts
+/build
+/public/build

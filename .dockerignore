@@ -1,0 +1,12 @@
+# SENSITIVE INFO
+.env
+
+#root
+/node_modules
+*.log
+.DS_Store
+/.cache
+
+# build artifacts
+/public/build
+/build

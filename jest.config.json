@@ -1,0 +1,30 @@
+{
+  "verbose": true,
+  "clearMocks": true,
+  "setupFilesAfterEnv": ["jest-extended"],
+  "testEnvironment": "node",
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "<rootDir>/app/**/*.{js,jsx,ts,tsx}",
+    "!<rootDir>/app/*",
+    "!**/node_modules/**",
+    "!**/vendor/**"
+  ],
+  "coverageDirectory": "<rootDir>/coverage",
+  "coverageThreshold": {
+    "global": {
+      "branches": 10,
+      "functions": 10,
+      "lines": 10,
+      "statements": 10
+    }
+  },
+  "moduleNameMapper": {
+    "@app/(.*)": "<rootDir>/app/$1",
+    "@assets/(.*)": "<rootDir>/app/assets/$1",
+    "@components/(.*)": "<rootDir>/app/components/$1"
+  },
+  "fakeTimers": {
+    "enableGlobally": true
+  }
+}
