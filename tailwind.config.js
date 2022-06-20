@@ -39,6 +39,13 @@ module.exports = {
         dark5: "#2A2E2B",
       },
     },
+    fontFamily: {
+      filled: ['"8-bit Arcade In"', "sans-serif"],
+      outline: ['"8-bit Arcade Out"', "sans-serif"],
+      sc: ['"Pixel Operator SC"', "sans-serif"],
+      mono: ['"Pixel Operator Mono"', "sans-serif"],
+      default: ['"Pixel Operator"', "sans-serif"],
+    },
     screens: {
       tablet: { min: "480px" },
       // => @media (min-width: 480px) { ... }
