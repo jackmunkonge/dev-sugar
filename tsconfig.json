@@ -15,11 +15,11 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./*"],
       "@app/*": ["./app/*"],
       "@assets/*": ["./app/assets/*"],
       "@components/*": ["./app/components/*"],
-      "@styles/*": ["./app/styles/*"]
+      "@styles/*": ["./app/styles/*"],
+      "@utils/*": ["./app/utils/*"]
     },
     "skipLibCheck": true,
 
