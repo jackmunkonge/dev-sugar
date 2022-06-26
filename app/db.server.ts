@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { default as $prisma } from "../test/client";
+import { default as $prisma } from "test/client";
 
 let prisma: PrismaClient;
 
