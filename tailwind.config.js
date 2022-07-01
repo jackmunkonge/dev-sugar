@@ -38,6 +38,10 @@ module.exports = {
         dark4: "#323733",
         dark5: "#2A2E2B",
       },
+      info: {
+        DEFAULT: "#C8DAF5",
+        dark: "#3175DA",
+      },
     },
     fontFamily: {
       filled: ['"8-bit Arcade In"', "sans-serif"],
