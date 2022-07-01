@@ -1,0 +1,15 @@
+export { default as H1Filled } from "./H1Filled";
+export { default as H1Outlined } from "./H1Outlined";
+export { default as H2 } from "./H2";
+export { default as H3 } from "./H3";
+export { default as H4 } from "./H4";
+export { default as H5 } from "./H5";
+export { default as H6 } from "./H6";
+export { default as Subtitle1 } from "./Subtitle1";
+export { default as Subtitle2 } from "./Subtitle2";
+export { default as Body1 } from "./Body1";
+export { default as Body2 } from "./Body2";
+export { default as Button1 } from "./Button1";
+export { default as Button2 } from "./Button2";
+export { default as Caption } from "./Caption";
+export { default as Overline } from "./Overline";
