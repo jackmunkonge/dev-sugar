@@ -13,6 +13,10 @@ type TextProps = {
   color: string;
 };
 
+type ButtonActionWrapperProps = {
+  children: React.ReactNode;
+};
+
 const TextButton: React.FC<ButtonProps> = ({
   text,
   size = ComponentSize.LARGE,
@@ -31,7 +35,7 @@ const TextButton: React.FC<ButtonProps> = ({
   const { SMALL, MEDIUM, LARGE } = ComponentSize;
   const { colors } = theme;
 
-  const ButtonActionWrapper: React.FC = (children: React.ReactNode) => {
+  const ButtonActionWrapper: React.FC<ButtonActionWrapperProps> = ({ children }) => {
     if (isLink) {
       return <Link to={{ pathname: pathName, search: searchParams.toString() }}>{children}</Link>;
     } else if (buttonType === "button") {
@@ -109,12 +113,12 @@ const TextButton: React.FC<ButtonProps> = ({
 
   return (
     <ButtonActionWrapper>
-      {state === DEFAULT && renderDefault}
-      {state === HOVER && renderHover}
-      {state === FOCUS && renderFocus}
-      {state === ACTIVE && renderActive}
-      {state === LOADING && renderLoading}
-      {state === DISABLED && renderDisabled}
+      {state === DEFAULT && renderDefault()}
+      {state === HOVER && renderHover()}
+      {state === FOCUS && renderFocus()}
+      {state === ACTIVE && renderActive()}
+      {state === LOADING && renderLoading()}
+      {state === DISABLED && renderDisabled()}
     </ButtonActionWrapper>
   );
 };
