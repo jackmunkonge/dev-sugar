@@ -1,24 +1,24 @@
 @font-face {
-  font-family: "8-bit Arcade In";
-  src: url("../../public/fonts/8-bit-arcade/8-bit\ Arcade\ In.ttf");
+  font-family: "8-bit Arcade In Medium";
+  src: url("../../public/fonts/8-bit-arcade/8-bit\ Arcade\ In.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "8-bit Arcade Out";
-  src: url("../../public/fonts/8-bit-arcade/8-bit\ Arcade\ Out.ttf");
+  font-family: "8-bit Arcade Out Medium";
+  src: url("../../public/fonts/8-bit-arcade/8-bit\ Arcade\ Out.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "Pixel Operator";
-  src: url("../../public/fonts/pixel-operator/PixelOperator.ttf");
+  font-family: "Pixel Operator Regular";
+  src: url("../../public/fonts/pixel-operator/PixelOperator.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "Pixel Operator SC";
-  src: url("../../public/fonts/pixel-operator/PixelOperatorSC.ttf");
+  font-family: "Pixel Operator SC Regular";
+  src: url("../../public/fonts/pixel-operator/PixelOperatorSC.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: "Pixel Operator Mono";
-  src: url("../../public/fonts/pixel-operator/PixelOperatorMono.ttf");
+  font-family: "Pixel Operator Mono Regular";
+  src: url("../../public/fonts/pixel-operator/PixelOperatorMono.ttf") format("truetype");
 }
