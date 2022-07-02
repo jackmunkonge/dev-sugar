@@ -10,6 +10,7 @@ export type ButtonProps = {
   icon?: React.FC<IconProps>;
   iconPosition?: ButtonIconPosition;
   isLink?: boolean;
+  isNavbarLink?: boolean;
   isDisabled?: boolean;
   isLoading?: boolean;
   searchParams?: URLSearchParams;

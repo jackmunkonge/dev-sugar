@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import { Link, NavLink } from "@remix-run/react";
 import React from "react";
 import { theme } from "tailwind.config";
 
@@ -14,6 +14,7 @@ const TextButton: React.FC<ButtonProps> = ({
   icon: Icon,
   iconPosition = ButtonIconPosition.RIGHT,
   isLink = false,
+  isNavbarLink = false,
   isDisabled = false,
   isLoading = false,
   searchParams = "",
@@ -29,6 +30,13 @@ const TextButton: React.FC<ButtonProps> = ({
   const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({ children }) => {
     const styles = "group";
 
+    if (isNavbarLink) {
+      return (
+        <NavLink className={styles} to={{ pathname: pathName, search: searchParams.toString() }}>
+          {children}
+        </NavLink>
+      );
+    }
     if (isLink) {
       return (
         <Link className={styles} to={{ pathname: pathName, search: searchParams.toString() }}>
