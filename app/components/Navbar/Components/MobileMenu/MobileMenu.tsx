@@ -16,7 +16,7 @@ const renderLinks = () => {
   const { colors } = theme;
 
   return (
-    <div className="space-y-1 px-2 pt-2 pb-3">
+    <div className="space-y-1 px-2 pt-2 pb-3 outline-line outline-4 outline-dotted">
       {links.map((link) => {
         const current = path === link.path;
         return (
