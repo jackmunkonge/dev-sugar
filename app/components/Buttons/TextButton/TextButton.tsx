@@ -4,26 +4,18 @@ import { theme } from "tailwind.config";
 
 import { ICON_SIZE_LARGE, ICON_SIZE_MEDIUM, ICON_SIZE_SMALL } from "@app/assets/icons/consts";
 import { Button1, Button2, H6 } from "@app/components/Typography";
-import { ComponentSize, ComponentState } from "@app/utils/globalTypes";
+import { ComponentSize } from "@app/utils/globalTypes";
 
-import { ButtonIconPosition, ButtonProps } from "../types";
-
-type TextProps = {
-  children: React.ReactNode;
-  color: string;
-};
-
-type ButtonActionWrapperProps = {
-  children: React.ReactNode;
-};
+import { ButtonActionWrapperProps, ButtonIconPosition, ButtonProps, TextProps } from "../types";
 
 const TextButton: React.FC<ButtonProps> = ({
   text,
   size = ComponentSize.LARGE,
   icon: Icon,
   iconPosition = ButtonIconPosition.RIGHT,
-  state = ComponentState.DEFAULT,
   isLink = false,
+  isDisabled = false,
+  isLoading = false,
   searchParams = "",
   pathName = "/",
   buttonType = "submit",
@@ -31,22 +23,31 @@ const TextButton: React.FC<ButtonProps> = ({
   ariaExpanded = false,
 }) => {
   const { LEFT, RIGHT } = ButtonIconPosition;
-  const { DEFAULT, HOVER, FOCUS, ACTIVE, LOADING, DISABLED } = ComponentState;
   const { SMALL, MEDIUM, LARGE } = ComponentSize;
   const { colors } = theme;
 
-  const ButtonActionWrapper: React.FC<ButtonActionWrapperProps> = ({ children }) => {
+  const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({ children }) => {
+    const styles = "group";
+
     if (isLink) {
-      return <Link to={{ pathname: pathName, search: searchParams.toString() }}>{children}</Link>;
+      return (
+        <Link className={styles} to={{ pathname: pathName, search: searchParams.toString() }}>
+          {children}
+        </Link>
+      );
     }
     if (buttonType === "button") {
       return (
-        <button type={buttonType} aria-controls={ariaControlId} aria-expanded={ariaExpanded}>
+        <button className={styles} type={buttonType} aria-controls={ariaControlId} aria-expanded={ariaExpanded}>
           {children}
         </button>
       );
     }
-    return <button type={buttonType}>{children}</button>;
+    return (
+      <button className={styles} type={buttonType}>
+        {children}
+      </button>
+    );
   };
 
   const Text: React.FC<TextProps> = ({ children, color }) => {
@@ -67,7 +68,7 @@ const TextButton: React.FC<ButtonProps> = ({
   };
 
   const renderDefault = () => (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center group-hover:hidden group-focus:hidden group-active:hidden">
       {iconPosition === LEFT && renderIcon(colors.primary.DEFAULT)}
       <Text color={colors.primary.DEFAULT}>{text}</Text>
       {iconPosition === RIGHT && renderIcon(colors.primary.DEFAULT)}
@@ -75,7 +76,7 @@ const TextButton: React.FC<ButtonProps> = ({
   );
 
   const renderHover = () => (
-    <div className="flex items-center justify-center">
+    <div className="hidden items-center justify-center group-hover:flex group-focus:hidden group-active:hidden">
       {iconPosition === LEFT && renderIcon(colors.primary.dark3)}
       <Text color={colors.primary.dark3}>{text}</Text>
       {iconPosition === RIGHT && renderIcon(colors.primary.dark3)}
@@ -83,7 +84,7 @@ const TextButton: React.FC<ButtonProps> = ({
   );
 
   const renderFocus = () => (
-    <div className="flex items-center justify-center">
+    <div className="hidden items-center justify-center group-focus:flex group-active:hidden group-hover:hidden">
       {iconPosition === LEFT && renderIcon(colors.info.dark)}
       <Text color={colors.info.dark}>{text}</Text>
       {iconPosition === RIGHT && renderIcon(colors.info.dark)}
@@ -91,7 +92,7 @@ const TextButton: React.FC<ButtonProps> = ({
   );
 
   const renderActive = () => (
-    <div className="flex items-center justify-center">
+    <div className="hidden items-center justify-center group-active:flex group-focus:hidden group-hover:hidden">
       {iconPosition === LEFT && renderIcon(colors.primary.dark5)}
       <Text color={colors.primary.dark5}>{text}</Text>
       {iconPosition === RIGHT && renderIcon(colors.primary.dark5)}
@@ -112,22 +113,21 @@ const TextButton: React.FC<ButtonProps> = ({
     </div>
   );
 
-  if (state === LOADING || state === DISABLED) {
-    return (
-      <>
-        {state === LOADING && renderLoading()}
-        {state === DISABLED && renderDisabled()}
-      </>
-    );
+  if (isLoading) {
+    return <>{renderLoading()}</>;
+  }
+
+  if (isDisabled) {
+    return <>{renderDisabled()}</>;
   }
 
   return (
-    <ButtonActionWrapper>
-      {state === DEFAULT && renderDefault()}
-      {state === HOVER && renderHover()}
-      {state === FOCUS && renderFocus()}
-      {state === ACTIVE && renderActive()}
-    </ButtonActionWrapper>
+    <ButtonWrapper>
+      {renderDefault()}
+      {renderHover()}
+      {renderFocus()}
+      {renderActive()}
+    </ButtonWrapper>
   );
 };
 
