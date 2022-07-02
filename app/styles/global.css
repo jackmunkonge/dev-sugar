@@ -22,3 +22,21 @@
   font-family: "Pixel Operator Mono Regular";
   src: url("../../public/fonts/pixel-operator/PixelOperatorMono.ttf") format("truetype");
 }
+
+*:focus {
+  outline: 0px;
+  -webkit-animation: pulse 2s infinite;
+  animation: pulse 2s infinite;
+}
+
+@-webkit-keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
