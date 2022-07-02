@@ -6,7 +6,7 @@ type LogoTextProps = {
 };
 
 const LogoText: React.FC<LogoTextProps> = ({ width = 225, height = 28 }) => (
-  <svg width={width} height={height} viewBox="0 0 450 56">
+  <svg style={{ marginTop: -10 }} width={width} height={height} viewBox="0 0 450 56">
     <path d="M277 48h4v4h-4v-4Z" fill="#F1789C" />
     <path d="M273 48h4v4h-4v-4Z" fill="#F880A4" />
     <path d="M269 48h4v4h-4v-4Z" fill="#EF497A" />
