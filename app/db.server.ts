@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
-import { default as $prisma } from "test/client";
+
+import { default as $prisma } from "../test/client";
 
 let prisma: PrismaClient;
 
@@ -15,7 +16,7 @@ if (process.env.NODE_ENV === "production") {
   prisma = new PrismaClient();
 } else {
   if (!global.__db__) {
-    global.__db__ = $prisma;
+    global.__db__ = process.env.NODE_ENV === "test" ? $prisma : new PrismaClient();
   }
   prisma = global.__db__;
   prisma.$connect();

@@ -1,14 +1,13 @@
-import { mockDeep, mockReset } from "jest-mock-extended";
-import bcrypt from "bcryptjs";
-import { createUser, deleteUserByEmail, getUserByEmail, getUserById, verifyLogin } from "./user.server";
-
 import type { User } from "@prisma/client";
 import type { PrismaClient } from "@prisma/client";
+import bcrypt from "bcryptjs";
+import { mockDeep, mockReset } from "jest-mock-extended";
 import type { DeepMockProxy } from "jest-mock-extended";
 
-import { default as prisma } from "test/client";
+import { default as prisma } from "../../test/client";
+import { createUser, deleteUserByEmail, getUserByEmail, getUserById, verifyLogin } from "./user.server";
 
-jest.mock("test/client.ts", () => ({
+jest.mock("../../test/client.ts", () => ({
   __esModule: true,
   default: mockDeep<PrismaClient>(),
 }));
