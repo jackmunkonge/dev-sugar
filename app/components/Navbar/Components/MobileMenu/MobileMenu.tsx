@@ -6,7 +6,12 @@ import { Button1 } from "@app/components/Typography";
 import { MobileMenuProps } from "./types";
 
 const renderLinks = () => {
-  const links = [{ path: "/", text: "Submission" }];
+  // TODO: connect navlinks and mobile navlinks to one central const file
+  const links = [
+    { path: "/", text: "About" },
+    { path: "/", text: "Donate" },
+    { path: "/", text: "Submission" },
+  ];
   const { path } = useLoaderData();
   const { colors } = theme;
 

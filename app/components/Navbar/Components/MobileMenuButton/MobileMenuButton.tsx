@@ -5,6 +5,7 @@ import { Cross, Hamburger } from "@app/assets/icons";
 import { MobileMenuButtonProps } from "./types";
 
 const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({ toggleMobileMenu, isMobileMenuOpen }) => {
+  // TODO: Convert into IconButton
   const { colors } = theme;
 
   return (
