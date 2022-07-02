@@ -40,7 +40,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="bg-transparent">
+    <nav className="bg-background border-b-2 border-line border-opacity-30">
       <div className="px-4 laptop:px-8">{renderContent()}</div>
       <MobileMenu isOpen={isMobileMenuOpen} />
     </nav>
