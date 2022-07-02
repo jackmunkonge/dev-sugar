@@ -1,6 +1,7 @@
 import type { LinksFunction, LoaderFunction, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
+import { theme } from "tailwind.config";
 
 import { getUser } from "./session.server";
 import global from "./styles/global.css";
@@ -17,6 +18,7 @@ export const meta: MetaFunction = () => ({
   charset: "utf-8",
   title: "Dev Sugar",
   viewport: "width=device-width,initial-scale=1",
+  "theme-color": theme.colors.background,
 });
 
 type LoaderData = {
