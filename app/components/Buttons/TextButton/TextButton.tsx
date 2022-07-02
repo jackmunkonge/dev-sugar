@@ -111,14 +111,21 @@ const TextButton: React.FC<ButtonProps> = ({
     </div>
   );
 
+  if (state === LOADING || state === DISABLED) {
+    return (
+      <>
+        {state === LOADING && renderLoading()}
+        {state === DISABLED && renderDisabled()}
+      </>
+    );
+  }
+
   return (
     <ButtonActionWrapper>
       {state === DEFAULT && renderDefault()}
       {state === HOVER && renderHover()}
       {state === FOCUS && renderFocus()}
       {state === ACTIVE && renderActive()}
-      {state === LOADING && renderLoading()}
-      {state === DISABLED && renderDisabled()}
     </ButtonActionWrapper>
   );
 };
