@@ -38,7 +38,8 @@ const TextButton: React.FC<ButtonProps> = ({
   const ButtonActionWrapper: React.FC<ButtonActionWrapperProps> = ({ children }) => {
     if (isLink) {
       return <Link to={{ pathname: pathName, search: searchParams.toString() }}>{children}</Link>;
-    } else if (buttonType === "button") {
+    }
+    if (buttonType === "button") {
       return (
         <button type={buttonType} aria-controls={ariaControlId} aria-expanded={ariaExpanded}>
           {children}
