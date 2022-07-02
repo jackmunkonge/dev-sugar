@@ -1,9 +1,6 @@
 import React from "react";
 
-type LogoTextProps = {
-  width?: number;
-  height?: number;
-};
+import { LogoTextProps } from "./types";
 
 const LogoText: React.FC<LogoTextProps> = ({ width = 225, height = 28 }) => (
   <svg style={{ marginTop: -10 }} width={width} height={height} viewBox="0 0 450 56">
