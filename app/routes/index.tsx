@@ -11,7 +11,7 @@ export async function loader({ request }: { request: any }) {
 export default function Index() {
   return (
     <main className="relative min-h-screen bg-background">
-      <div className="inset-0">
+      <div className="inset-0 sticky">
         <Navbar />
       </div>
 
