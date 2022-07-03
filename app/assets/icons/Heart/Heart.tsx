@@ -1,0 +1,47 @@
+import * as React from "react";
+import { theme } from "tailwind.config";
+
+import { IconProps } from "../types";
+
+const Heart: React.FC<IconProps> = ({
+  width = 24,
+  height = 24,
+  isSelected = false,
+  outlineColor = theme.colors.primary.DEFAULT,
+  fillColor = theme.colors.primary.DEFAULT,
+  selectedOutlineColor = theme.colors.primary.light3,
+  selectedFillColor = theme.colors.primary.light3,
+}) => (
+  <svg className="block" width={width} height={height} viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M10 6H11V7H10V6Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M14 6H13V7H14V6Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M6 6H7V7H6V6Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M18 6H17V7H18V6Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M5 7H6V8H5V7Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M19 7H18V8H19V7Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M5 12H6V13H5V12Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M19 12H18V13H19V12Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M9 16H10V17H9V16Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M15 16H14V17H15V16Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M10 17H11V18H10V17Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M14 17H13V18H14V17Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M8 15H9V16H8V15Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M16 15H15V16H16V15Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M7 14H8V15H7V14Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M17 14H16V15H17V14Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M6 13H7V14H6V13Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M18 13H17V14H18V13Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M7 5V6H10V5H7Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M17 6V5H14V6H17Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M19 12H20V8H19V12Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M4 12H5V8H4V12Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M11 18V19H13V18H11Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M11 7V8H13V7H11Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path
+      d="M13 18H11V17H10V16H9V15H8V14H7V13H6V12H5V8H6V7H7V6H10V7H11V8H13V7H14V6H17V7H18V8H19V12H18V13H17V14H16V15H15V16H14V17H13V18Z"
+      fill={isSelected ? selectedFillColor : fillColor}
+    />
+  </svg>
+);
+
+export default Heart;
