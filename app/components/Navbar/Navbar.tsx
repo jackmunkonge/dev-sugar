@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Lightbulb } from "@app/assets/icons";
+// TODO: Remove unused imports automatically
 import { ComponentSize } from "@app/utils/globalTypes";
 
 import { TextButton } from "../Buttons";
@@ -31,6 +31,7 @@ const NavLinks = () => (
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navStyles = isMobileMenuOpen ? "bg-background" : "bg-background border-b-2 border-line border-opacity-30";
 
   const renderContent = () => (
     <div className="relative flex h-16 items-center justify-between">
@@ -45,7 +46,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="bg-background border-b-2 border-line border-opacity-30">
+    <nav className={navStyles}>
       <div className="px-4 laptop:px-8">{renderContent()}</div>
       <MobileMenu isOpen={isMobileMenuOpen} />
     </nav>
