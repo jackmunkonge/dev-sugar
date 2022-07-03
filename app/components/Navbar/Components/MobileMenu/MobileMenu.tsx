@@ -3,21 +3,16 @@ import { theme } from "tailwind.config";
 
 import { Button1 } from "@app/components/Typography";
 
+import { LINKS } from "../../consts";
 import { MobileMenuProps } from "./types";
 
 const renderLinks = () => {
-  // TODO: connect navlinks and mobile navlinks to one central const file
-  const links = [
-    { path: "/", text: "About" },
-    { path: "/", text: "Donate" },
-    { path: "/", text: "Submission" },
-  ];
   const { path } = useLoaderData();
   const { colors } = theme;
 
   return (
     <div className="space-y-1 px-2 pt-2 pb-3 outline-line outline-4 outline-dotted">
-      {links.map((link) => {
+      {LINKS.map((link) => {
         const current = path === link.path;
         return (
           <a href={link.path} className="block px-3 py-2" aria-current={current ? "page" : "false"}>

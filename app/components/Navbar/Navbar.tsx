@@ -8,18 +8,23 @@ import { ButtonIconPosition } from "../Buttons/types";
 import HomeButton from "./Components/HomeButton/HomeButton";
 import MobileMenu from "./Components/MobileMenu/MobileMenu";
 import MobileMenuButton from "./Components/MobileMenuButton/MobileMenuButton";
+import { LINKS } from "./consts";
 
 const NavLinks = () => (
   <div className="hidden items-center laptop:flex pr-4">
     <div className="flex space-x-4">
-      <TextButton
-        text="Submission"
-        size={ComponentSize.LARGE}
-        iconPosition={ButtonIconPosition.LEFT}
-        icon={Lightbulb}
-        isNavbarLink
-        pathName="/"
-      />
+      {LINKS.map((link) => {
+        return (
+          <TextButton
+            text={link.text}
+            size={ComponentSize.MEDIUM}
+            iconPosition={ButtonIconPosition.LEFT}
+            icon={link.icon}
+            isNavbarLink
+            pathName={link.path}
+          />
+        );
+      })}
     </div>
   </div>
 );
