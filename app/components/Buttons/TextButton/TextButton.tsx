@@ -2,7 +2,7 @@ import { Link, NavLink } from "@remix-run/react";
 import React from "react";
 import { theme } from "tailwind.config";
 
-import { ICON_SIZE_LARGE, ICON_SIZE_MEDIUM, ICON_SIZE_SMALL } from "@app/assets/icons/consts";
+import { BUTTON_ICON_SIZE_LARGE, BUTTON_ICON_SIZE_MEDIUM, BUTTON_ICON_SIZE_SMALL } from "@app/assets/icons/consts";
 import { Button1, Button2, H6 } from "@app/components/Typography";
 import { ComponentSize } from "@app/utils/globalTypes";
 
@@ -69,9 +69,9 @@ const TextButton: React.FC<ButtonProps> = ({
 
   const renderIcon = (color: string) => {
     let iconSize;
-    if (size === SMALL) iconSize = ICON_SIZE_SMALL;
-    if (size === MEDIUM) iconSize = ICON_SIZE_MEDIUM;
-    if (size === LARGE) iconSize = ICON_SIZE_LARGE;
+    if (size === SMALL) iconSize = BUTTON_ICON_SIZE_SMALL;
+    if (size === MEDIUM) iconSize = BUTTON_ICON_SIZE_MEDIUM;
+    if (size === LARGE) iconSize = BUTTON_ICON_SIZE_LARGE;
     return Icon && <Icon width={iconSize} height={iconSize} outlineColor={color} fillColor={colors.transparent} />;
   };
 
