@@ -1,6 +1,6 @@
 import { json } from "@remix-run/server-runtime";
 
-import { useOptionalUser } from "@app/utils/utils";
+import Spinner from "@app/assets/icons/Spinner/Spinner";
 import Navbar from "@components/Navbar/Navbar";
 
 export async function loader({ request }: { request: any }) {
@@ -16,8 +16,7 @@ export default function Index() {
       </div>
 
       {/* Page Main Content */}
-      <div className="relative mx-auto max-w-7xl border-4 border-primary py-6"></div>
-
+      <div className="relative mx-auto max-w-7xl py-6 bg-primary-light5"></div>
       {/* Footer */}
       {/* TODO: Add footer x-platform */}
     </main>
