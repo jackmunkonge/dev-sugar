@@ -9,7 +9,7 @@ const rect = {
     opacity: [1, 0, 1],
     transition: {
       repeat: Infinity,
-      repeatDelay: 2,
+      repeatDelay: 0.6,
     },
   },
   initial: {
@@ -19,15 +19,20 @@ const rect = {
 
 const svg = {
   animating: {
+    opacity: 1,
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.1,
     },
+  },
+  initial: {
+    opacity: 0,
   },
 };
 
 const Spinner: React.FC<IconProps> = ({ width = 24, height = 24, outlineColor = theme.colors.primary.dark5 }) => (
   <motion.svg
     variants={svg}
+    initial="initial"
     animate="animating"
     className="block"
     width={width}
