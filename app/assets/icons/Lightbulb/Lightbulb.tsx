@@ -18,8 +18,8 @@ const Lightbulb: React.FC<IconProps> = ({
       fill={isSelected ? selectedFillColor : fillColor}
     />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M13 4H10.0004V5H8V6H7V8H6V12H7V14H8V18.9952H9V19.9952L14 20V19H15V14H16V12H17V8H16V6H15V5H13V4ZM13 5V6H15V8H16V12H15V14H14L14.0004 15L12.0007 14.9959V9H13V7.99524L10 8V9H11V14.9959L9 15V14H8V12H7V8H8V6H10.0004V5H13ZM14 19L9 18.9952V17.9952H14.0004L14 19ZM9 16.9952V16H14L14.0004 16.9952H9Z"
       fill={isSelected ? selectedOutlineColor : outlineColor}
     />

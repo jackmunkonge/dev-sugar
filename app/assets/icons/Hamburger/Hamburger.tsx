@@ -14,14 +14,14 @@ const Hamburger: React.FC<IconProps> = ({
 }) => (
   <svg className="block" width={width} height={height} viewBox="0 0 24 24" aria-hidden="true">
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M18 5H6V6H5V8H6V9H18V8H19V6H18V5ZM18 6V8H6V6H18Z"
       fill={isSelected ? selectedOutlineColor : outlineColor}
     />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M18 10H6V11H5V13H6V14H18V13H19V11H18V10ZM18 11V13H6V11H18Z"
       fill={isSelected ? selectedOutlineColor : outlineColor}
     />
