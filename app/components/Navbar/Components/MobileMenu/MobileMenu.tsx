@@ -2,6 +2,7 @@ import { useLoaderData } from "@remix-run/react";
 import { theme } from "tailwind.config";
 
 import { Button1 } from "@app/components/Typography";
+import { ariaControlIds } from "@app/components/consts";
 
 import { LINKS } from "../../consts";
 import { MobileMenuProps } from "./types";
@@ -15,7 +16,7 @@ const renderLinks = () => {
       {LINKS.map((link) => {
         const current = path === link.path;
         return (
-          <a href={link.path} className="block px-3 py-2" aria-current={current ? "page" : "false"}>
+          <a key={link.text} href={link.path} className="block px-3 py-2" aria-current={current ? "page" : "false"}>
             <Button1 color={current ? colors.primary.light3 : colors.body}>{link.text}</Button1>
           </a>
         );
@@ -25,7 +26,7 @@ const renderLinks = () => {
 };
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen }) => (
-  <div className={`${isOpen ? "block" : "hidden"}`} id="mobile-menu">
+  <div className={`${isOpen ? "block" : "hidden"}`} id={ariaControlIds.MOBILE_MENU}>
     {renderLinks()}
   </div>
 );
