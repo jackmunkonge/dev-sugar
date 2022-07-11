@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-// TODO: Remove unused imports automatically
 import { ComponentSize } from "@app/utils/globalTypes";
 
 import { TextButton } from "../Buttons";
