@@ -1,6 +1,5 @@
 import { json } from "@remix-run/server-runtime";
 
-import Spinner from "@app/assets/icons/Spinner/Spinner";
 import Navbar from "@components/Navbar/Navbar";
 
 export async function loader({ request }: { request: any }) {

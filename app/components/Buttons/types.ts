@@ -1,4 +1,4 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 
 import { IconProps } from "@app/assets/icons/types";
 import { ComponentSize } from "@app/utils/globalTypes";
@@ -18,15 +18,12 @@ export type ButtonProps = {
   buttonType?: ButtonActionType;
   ariaControlId?: string;
   ariaExpanded?: boolean;
+  clickHandler?: MouseEventHandler<HTMLButtonElement>;
 };
 
 export type TextProps = {
   children: React.ReactNode;
   color: string;
-};
-
-export type ButtonActionWrapperProps = {
-  children: React.ReactNode;
 };
 
 // Types

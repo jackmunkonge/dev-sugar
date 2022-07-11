@@ -1,12 +1,12 @@
-import { Link, NavLink } from "@remix-run/react";
 import React from "react";
 import { theme } from "tailwind.config";
 
 import { BUTTON_ICON_SIZE_LARGE, BUTTON_ICON_SIZE_MEDIUM, BUTTON_ICON_SIZE_SMALL } from "@app/assets/icons/consts";
 import { Button1, Button2, H6 } from "@app/components/Typography";
 import { ComponentSize } from "@app/utils/globalTypes";
+import { ButtonWrapper } from "@app/utils/ui/utils";
 
-import { ButtonActionWrapperProps, ButtonIconPosition, ButtonProps, TextProps } from "../types";
+import { ButtonIconPosition, ButtonProps, TextProps } from "../types";
 
 const TextButton: React.FC<ButtonProps> = ({
   text,
@@ -17,46 +17,16 @@ const TextButton: React.FC<ButtonProps> = ({
   isNavbarLink = false,
   isDisabled = false,
   isLoading = false,
-  searchParams = "",
+  searchParams,
   pathName = "/",
   buttonType = "submit",
   ariaControlId = "",
   ariaExpanded = false,
+  clickHandler,
 }) => {
   const { LEFT, RIGHT } = ButtonIconPosition;
   const { SMALL, MEDIUM, LARGE } = ComponentSize;
   const { colors } = theme;
-
-  const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({ children }) => {
-    const styles = "group";
-
-    if (isNavbarLink) {
-      return (
-        <NavLink className={styles} to={{ pathname: pathName, search: searchParams.toString() }}>
-          {children}
-        </NavLink>
-      );
-    }
-    if (isLink) {
-      return (
-        <Link className={styles} to={{ pathname: pathName, search: searchParams.toString() }}>
-          {children}
-        </Link>
-      );
-    }
-    if (buttonType === "button") {
-      return (
-        <button className={styles} type={buttonType} aria-controls={ariaControlId} aria-expanded={ariaExpanded}>
-          {children}
-        </button>
-      );
-    }
-    return (
-      <button className={styles} type={buttonType}>
-        {children}
-      </button>
-    );
-  };
 
   const Text: React.FC<TextProps> = ({ children, color }) => {
     if (size === ComponentSize.SMALL) {
@@ -130,7 +100,16 @@ const TextButton: React.FC<ButtonProps> = ({
   }
 
   return (
-    <ButtonWrapper>
+    <ButtonWrapper
+      isNavbarLink={isNavbarLink}
+      isLink={isLink}
+      searchParams={searchParams}
+      pathName={pathName}
+      buttonType={buttonType}
+      ariaControlId={ariaControlId}
+      ariaExpanded={ariaExpanded}
+      clickHandler={clickHandler}
+    >
       {renderDefault()}
       {renderHover()}
       {renderFocus()}

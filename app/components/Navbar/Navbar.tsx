@@ -10,6 +10,7 @@ import MobileMenu from "./Components/MobileMenu/MobileMenu";
 import MobileMenuButton from "./Components/MobileMenuButton/MobileMenuButton";
 import { LINKS } from "./consts";
 
+// TODO: Add keys to navlinks
 const NavLinks = () => (
   <div className="hidden items-center laptop:flex pr-4">
     <div className="flex space-x-4">
