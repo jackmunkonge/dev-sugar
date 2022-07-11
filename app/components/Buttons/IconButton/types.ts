@@ -14,5 +14,6 @@ export type IconButtonProps = {
   buttonType?: ButtonActionType;
   ariaControlId?: string;
   ariaExpanded?: boolean;
+  srOnlyText?: string;
   clickHandler?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 };

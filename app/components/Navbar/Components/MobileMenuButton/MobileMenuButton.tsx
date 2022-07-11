@@ -10,17 +10,6 @@ const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({ toggleMobileMenu, i
     toggleMobileMenu(!isMobileMenuOpen);
   };
   return (
-    // <IconButton
-    //   size={44}
-    //   icon={isMobileMenuOpen ? Cross : Hamburger}
-    //   buttonType="button"
-    //   ariaControlId={ariaControlIds.MOBILE_MENU}
-    //   ariaExpanded={isMobileMenuOpen}
-    //   clickHandler={clickHandler}
-    // >
-    //   <span className="sr-only">Open mobile/tablet menu</span>
-    // </IconButton>
-    // TODO: Add srOnly text prop to IconButton
     <IconButton
       size={44}
       icon={isMobileMenuOpen ? Cross : Hamburger}
@@ -28,6 +17,7 @@ const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({ toggleMobileMenu, i
       ariaControlId={ariaControlIds.MOBILE_MENU}
       ariaExpanded={isMobileMenuOpen}
       clickHandler={clickHandler}
+      srOnlyText="Open mobile/tablet menu"
     />
   );
 };

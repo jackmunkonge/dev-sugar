@@ -18,6 +18,7 @@ const IconButton: React.FC<IconButtonProps> = ({
   buttonType = "submit",
   ariaControlId = "",
   ariaExpanded = false,
+  srOnlyText = buttonType,
   clickHandler,
 }) => {
   const { colors } = theme;
@@ -85,6 +86,7 @@ const IconButton: React.FC<IconButtonProps> = ({
       {renderHover()}
       {renderFocus()}
       {renderActive()}
+      <span className="sr-only">{srOnlyText}</span>
     </ButtonWrapper>
   );
 };
