@@ -1,4 +1,4 @@
-/* TODO: make fonts cross-platform using https://www.fontsquirrel.com/tools/webfont-generator */
+/* TODO: Host fonts externally for Safari compatibility (see: https://stackoverflow.com/questions/59986432/safari-user-installed-fonts-dont-render/63208227#63208227) */
 @font-face {
   font-family: "8-bit Arcade In Medium";
   src: url("../../public/fonts/8-bit-arcade/8-bit\ Arcade\ In.ttf") format("truetype");
