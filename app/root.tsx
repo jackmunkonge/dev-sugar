@@ -38,8 +38,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      {/* TODO: Add tailwind scrollbar plugin to remove scrollbar here */}
-      <body className="h-full">
+      <body className="h-full scrollbar-none">
         <Outlet />
         <ScrollRestoration />
         <Scripts />
