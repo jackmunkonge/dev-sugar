@@ -39,6 +39,7 @@ const Navbar = () => {
         <HomeButton />
         <NavLinks />
       </div>
+      {/*TODO: Make mobile menu modal instead of inline*/}
       <div className="absolute inset-y-0 right-0 flex items-center laptop:hidden">
         <MobileMenuButton toggleMobileMenu={setIsMobileMenuOpen} isMobileMenuOpen={isMobileMenuOpen} />
       </div>

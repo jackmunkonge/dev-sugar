@@ -3,6 +3,7 @@ import { theme } from "tailwind.config";
 
 import { TypographyProps } from "./types";
 
+// TODO: Rename header components to be titles instead
 const H2: React.FC<TypographyProps> = ({ children, color = theme.colors.body, selectable = false }) => {
   const isSelectable = selectable ? "select-auto" : "select-none";
   return (
