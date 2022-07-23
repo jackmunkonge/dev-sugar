@@ -18,21 +18,25 @@ export default function Index() {
         <Navbar />
       </header>
 
-      <main className={`relative mx-auto max-w-7xl py-6 inset-0 ${contentHeight}`}>
-        <header className="px-2">
-          <h1 className="text-center">
-            <H5>the best learning resources for software devs</H5>
-          </h1>
-          <p className="flex flex-row justify-center items-center">
-            <H5 color={theme.colors.primary.DEFAULT}>26,344</H5>
-            <span className="ml-2">
-              <Body1>links and counting!</Body1>
-            </span>
-          </p>
-        </header>
+      <main className={`relative mx-auto max-w-7xl py-6 break-words ${contentHeight}`}>
+        <div className="w-100 h-full flex flex-col overflow-scroll">
+          <header className="px-2">
+            <h1 className="text-center">
+              <H5>the best learning resources for software devs</H5>
+            </h1>
+            <p className="flex flex-row justify-center items-center">
+              <H5 color={theme.colors.primary.DEFAULT}>26,344</H5>
+              <span className="ml-2">
+                <Body1>links and counting!</Body1>
+              </span>
+            </p>
+          </header>
+          {/* Categories */}
+          <div className="flex-1 bg-secondary-light5"></div>
+        </div>
       </main>
 
-      <footer className="relative inset-x-0 bottom-0">
+      <footer className="fixed inset-x-0 bottom-0 w-100">
         <Footer />
       </footer>
     </div>
