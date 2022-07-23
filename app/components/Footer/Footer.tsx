@@ -13,9 +13,9 @@ const renderLeftContent = () => (
       <IconButton size={22} icon={Twitter} externalLink="https://twitter.com/jackmunkonge" />
     </div>
     {/* Divider */}
-    <div className="border-r-[1px] border-line h-full mx-3"></div>
+    <div className="hidden laptop:block border-r-[1px] border-line h-full mx-3"></div>
     {/* Internal Links */}
-    <div className="flex flex-row space-x-3">
+    <div className="hidden laptop:flex laptop:flex-row space-x-3">
       <TextButton text="sitemap" size={ComponentSize.SMALL} isLink pathName="/sitemap" />
       <TextButton text="cookies" size={ComponentSize.SMALL} isLink pathName="/cookies" />
     </div>
@@ -31,7 +31,7 @@ const renderCenterContent = () => (
 const renderRightContent = () => {
   const currentDate = new Date();
   return (
-    <div className="flex justify-center items-center h-full px-3">
+    <div className="hidden tablet:flex justify-center items-center h-full px-3">
       <Body2 color={theme.colors.primary.dark3}>&copy; {currentDate.getFullYear()} jack munkonge</Body2>
     </div>
   );
