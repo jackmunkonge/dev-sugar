@@ -45,7 +45,8 @@ export default function App() {
           <header className="inset-x-0 top-0 sticky z-50">
             <Navbar />
           </header>
-
+          {/* TODO: Add error boundary */}
+          {/* TODO: Add catch boundary */}
           <Outlet />
 
           <footer className="fixed inset-x-0 bottom-0 w-100">
