@@ -2,7 +2,7 @@ import React from "react";
 import { theme } from "tailwind.config";
 
 import { BUTTON_ICON_SIZE_LARGE, BUTTON_ICON_SIZE_MEDIUM, BUTTON_ICON_SIZE_SMALL } from "@app/assets/icons/consts";
-import { Button1, Button2, H6 } from "@app/components/Typography";
+import { Button1, Button2, Title6 } from "@app/components/Typography";
 import { ComponentSize } from "@app/utils/globalTypes";
 import { ButtonWrapper } from "@app/utils/ui/utils";
 
@@ -35,7 +35,7 @@ const TextButton: React.FC<ButtonProps> = ({
     } else if (size === ComponentSize.MEDIUM) {
       return <Button1 color={color}>{children}</Button1>;
     }
-    return <H6 color={color}>{children}</H6>;
+    return <Title6 color={color}>{children}</Title6>;
   };
 
   const renderIcon = (color: string) => {

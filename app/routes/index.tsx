@@ -2,7 +2,7 @@ import { json } from "@remix-run/node";
 import { theme } from "tailwind.config";
 
 import Footer from "@app/components/Footer/Footer";
-import { Body1, H5 } from "@app/components/Typography";
+import { Body1, Title5 } from "@app/components/Typography";
 import Navbar from "@components/Navbar/Navbar";
 
 export async function loader({ request }: { request: any }) {
@@ -23,10 +23,10 @@ export default function Index() {
         <div className="w-100 h-full flex flex-col overflow-scroll">
           <header className="px-2">
             <h1 className="text-center">
-              <H5>the best learning resources for software devs</H5>
+              <Title5>the best learning resources for software devs</Title5>
             </h1>
             <p className="flex flex-row justify-center items-center">
-              <H5 color={theme.colors.primary.DEFAULT}>26,344</H5>
+              <Title5 color={theme.colors.primary.DEFAULT}>26,344</Title5>
               <span className="ml-2">
                 <Body1>links and counting!</Body1>
               </span>

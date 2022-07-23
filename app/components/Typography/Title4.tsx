@@ -3,16 +3,16 @@ import { theme } from "tailwind.config";
 
 import { TypographyProps } from "./types";
 
-const H1Outlined: React.FC<TypographyProps> = ({ children, color = theme.colors.body, selectable = false }) => {
+const Title4: React.FC<TypographyProps> = ({ children, color = theme.colors.body, selectable = false }) => {
   const isSelectable = selectable ? "select-auto" : "select-none";
   return (
     <span
       style={{ color: color }}
-      className={`not-italic font-outline text-h1 font-medium tracking-tight015 ${isSelectable}`}
+      className={`not-italic font-sc text-title4 font-normal tracking-wide0025 ${isSelectable}`}
     >
       {children}
     </span>
   );
 };
 
-export default H1Outlined;
+export default Title4;
