@@ -31,7 +31,6 @@ const NavLinks = () => (
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const navStyles = isMobileMenuOpen ? "bg-background" : "bg-background border-b-2 border-line border-opacity-30";
 
   const renderContent = () => (
     <div className="relative flex h-16 items-center justify-between">
@@ -39,7 +38,6 @@ const Navbar = () => {
         <HomeButton />
         <NavLinks />
       </div>
-      {/*TODO: Make mobile menu modal absolutely positioned*/}
       <div className="absolute inset-y-0 right-0 flex items-center laptop:hidden">
         <MobileMenuButton toggleMobileMenu={setIsMobileMenuOpen} isMobileMenuOpen={isMobileMenuOpen} />
       </div>
@@ -47,7 +45,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className={navStyles}>
+    <nav className={`bg-background border-b-2 border-line border-opacity-${isMobileMenuOpen ? "0" : "30"}`}>
       <div className="px-4 laptop:px-8">{renderContent()}</div>
       <MobileMenu isOpen={isMobileMenuOpen} />
     </nav>

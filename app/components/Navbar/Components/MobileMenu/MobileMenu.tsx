@@ -12,7 +12,7 @@ const renderLinks = () => {
   const { colors } = theme;
 
   return (
-    <div className="space-y-1 px-2 pt-2 pb-3 outline-line outline-4 outline-dotted">
+    <div className="space-y-1 px-2 pt-2 pb-3 outline-line outline-4 outline-dashed">
       {LINKS.map((link) => {
         const current = path === link.path;
         return (
@@ -26,7 +26,7 @@ const renderLinks = () => {
 };
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen }) => (
-  <div className={`${isOpen ? "block" : "hidden"}`} id={ariaControlIds.MOBILE_MENU}>
+  <div className={`${isOpen ? "absolute" : "hidden"} w-full bg-background pb-2`} id={ariaControlIds.MOBILE_MENU}>
     {renderLinks()}
   </div>
 );
