@@ -13,6 +13,7 @@ const TextButton: React.FC<ButtonProps> = ({
   size = ComponentSize.LARGE,
   icon: Icon,
   iconPosition = ButtonIconPosition.RIGHT,
+  externalLink = "",
   isLink = false,
   isNavbarLink = false,
   isDisabled = false,
@@ -102,6 +103,7 @@ const TextButton: React.FC<ButtonProps> = ({
   return (
     <ButtonWrapper
       isNavbarLink={isNavbarLink}
+      externalLink={externalLink}
       isLink={isLink}
       searchParams={searchParams}
       pathName={pathName}

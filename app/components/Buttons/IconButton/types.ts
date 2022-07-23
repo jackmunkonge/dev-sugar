@@ -5,6 +5,7 @@ import { ButtonActionType } from "../types";
 export type IconButtonProps = {
   size?: number;
   icon?: React.FC<IconProps>;
+  externalLink?: string;
   isLink?: boolean;
   isNavbarLink?: boolean;
   isDisabled?: boolean;

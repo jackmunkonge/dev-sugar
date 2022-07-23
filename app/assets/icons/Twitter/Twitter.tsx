@@ -1,0 +1,45 @@
+import * as React from "react";
+import { theme } from "tailwind.config";
+
+import { IconProps } from "../types";
+
+const Twitter: React.FC<IconProps> = ({
+  width = 24,
+  height = 24,
+  isSelected = false,
+  outlineColor = theme.colors.primary.DEFAULT,
+  fillColor = theme.colors.primary.DEFAULT,
+  selectedOutlineColor = theme.colors.primary.light3,
+  selectedFillColor = theme.colors.primary.light3,
+}) => (
+  <svg className="block" width={width} height={height} viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      d="M13 17H8V16H9V15H10V14H9V13H8V11H7V10H6V9H5V8H7V9H10V10H12V9H13V8H14V7H17V8H19V9H18V11H17V14H16V15H15V16H13V17Z"
+      fill={isSelected ? selectedFillColor : fillColor}
+    />
+    <path d="M12 8H13V9H12V8Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M13 7H14V8H13V7Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M19 8H20V9H19V8Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M16 14H17V15H16V14Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M15 15H16V16H15V15Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M7 16H8V17H7V16Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M8 15H9V16H8V15Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M9 14H10V15H9V14Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M8 13H9V14H8V13Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M6 10H7V11H6V10Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M5 9H6V10H5V9Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M4 8H5V9H4V8Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M13 18V17H8V18H13Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M15 17V16H13V17H15Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M18 11H17V14H18V11Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M19 9H18V11H19V9Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M17 7V8H19V7H17Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M14 6V7H17V6H14Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M10 9V10H12V9H10Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M7 8V9H10V8H7Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M5 7V8H7V7H5Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+    <path d="M7 13H8V11H7V13Z" fill={isSelected ? selectedOutlineColor : outlineColor} />
+  </svg>
+);
+
+export default Twitter;

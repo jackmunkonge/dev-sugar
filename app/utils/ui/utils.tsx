@@ -6,6 +6,7 @@ export const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({
   children,
   isNavbarLink,
   isLink,
+  externalLink,
   pathName,
   searchParams = "",
   buttonType,
@@ -14,6 +15,14 @@ export const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({
   clickHandler = () => {},
 }) => {
   const styles = "group";
+
+  if (externalLink) {
+    return (
+      <a href={externalLink} target="_blank">
+        {children}
+      </a>
+    );
+  }
 
   if (isNavbarLink) {
     return (

@@ -10,6 +10,7 @@ const IconButton: React.FC<IconButtonProps> = ({
   size = 56,
   icon: Icon,
   isLink = false,
+  externalLink = "",
   isNavbarLink = false,
   isDisabled = false,
   isLoading = false,
@@ -75,6 +76,7 @@ const IconButton: React.FC<IconButtonProps> = ({
     <ButtonWrapper
       isNavbarLink={isNavbarLink}
       isLink={isLink}
+      externalLink={externalLink}
       searchParams={searchParams}
       pathName={pathName}
       buttonType={buttonType}

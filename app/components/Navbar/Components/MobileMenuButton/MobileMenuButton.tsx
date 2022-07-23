@@ -1,5 +1,5 @@
 import { Cross, Hamburger } from "@app/assets/icons";
-import IconButton from "@app/components/Buttons/IconButton/IconButton";
+import { IconButton } from "@app/components/Buttons";
 import { ariaControlIds } from "@app/components/consts";
 
 import { MobileMenuButtonProps } from "./types";
