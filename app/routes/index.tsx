@@ -1,6 +1,8 @@
-import { json } from "@remix-run/server-runtime";
+import { json } from "@remix-run/node";
+import { theme } from "tailwind.config";
 
 import Footer from "@app/components/Footer/Footer";
+import { Body1, H5 } from "@app/components/Typography";
 import Navbar from "@components/Navbar/Navbar";
 
 export async function loader({ request }: { request: any }) {
@@ -11,17 +13,28 @@ export async function loader({ request }: { request: any }) {
 export default function Index() {
   const contentHeight = "h-[calc(100vh_-_(4rem_+_2px_+_2rem))]"; // Full viewport height -navbar -navbarBorder -footer
   return (
-    <main className="relative min-h-screen bg-background">
-      <div className="inset-x-0 top-0 sticky z-50">
+    <div className="relative min-h-screen bg-background">
+      <header className="inset-x-0 top-0 sticky z-50">
         <Navbar />
-      </div>
+      </header>
 
-      {/* Page Main Content */}
-      <div className={`relative mx-auto max-w-7xl py-6 inset-0 ${contentHeight}`}></div>
+      <main className={`relative mx-auto max-w-7xl py-6 inset-0 ${contentHeight}`}>
+        <header className="px-2">
+          <h1 className="text-center">
+            <H5>the best learning resources for software devs</H5>
+          </h1>
+          <p className="flex flex-row justify-center items-center">
+            <H5 color={theme.colors.primary.DEFAULT}>26,344</H5>
+            <span className="ml-2">
+              <Body1>links and counting!</Body1>
+            </span>
+          </p>
+        </header>
+      </main>
 
-      <div className="relative inset-x-0 bottom-0">
+      <footer className="relative inset-x-0 bottom-0">
         <Footer />
-      </div>
-    </main>
+      </footer>
+    </div>
   );
 }
