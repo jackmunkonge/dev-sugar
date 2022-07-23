@@ -14,6 +14,7 @@ export default function Index() {
   const contentHeight = "h-[calc(100vh_-_(4rem_+_2px_+_2rem))]"; // Full viewport height -navbar -navbarBorder -footer
   return (
     <div className="relative min-h-screen bg-background">
+      {/* TODO: Move global components to root see: https://remix.run/docs/en/v1/guides/routing#index-routes  */}
       <header className="inset-x-0 top-0 sticky z-50">
         <Navbar />
       </header>
