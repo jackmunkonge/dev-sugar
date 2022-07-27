@@ -8,7 +8,7 @@ const Title1Filled: React.FC<TypographyProps> = ({ children, color = theme.color
   return (
     <span
       style={{ color: color }}
-      className={`not-italic font-filled text-h1 font-medium tracking-tight015 ${isSelectable}`}
+      className={`not-italic font-filled text-title1 font-medium tracking-tight015 ${isSelectable}`}
     >
       {children}
     </span>

@@ -7,3 +7,7 @@ export type Navlink = {
   text: string;
   icon: React.FC<IconProps>;
 };
+
+export type NavbarProps = {
+  isNavigational?: boolean;
+};

@@ -2,6 +2,7 @@ import { json } from "@remix-run/node";
 import { theme } from "tailwind.config";
 
 import { Body1, Title5 } from "@app/components/Typography";
+import { CONTENT_HEIGHT } from "@app/utils/globalConsts";
 
 export async function loader({ request }: { request: any }) {
   const url = new URL(request.url);
@@ -9,9 +10,8 @@ export async function loader({ request }: { request: any }) {
 }
 
 export default function Index() {
-  const contentHeight = "h-[calc(100vh_-_(4rem_+_2px_+_2rem))]"; // Full viewport height -navbar -navbarBorder -footer
   return (
-    <main className={`relative mx-auto max-w-7xl py-6 break-words ${contentHeight}`}>
+    <main className={`relative mx-auto max-w-7xl py-6 break-words ${CONTENT_HEIGHT}`}>
       <div className="w-100 h-full flex flex-col overflow-scroll">
         <header className="px-2">
           <h1 className="text-center">
