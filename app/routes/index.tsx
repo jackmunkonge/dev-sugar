@@ -24,7 +24,7 @@ export default function Index() {
             </span>
           </p>
         </header>
-        {/* Categories */}
+        {/* TODO: Categories */}
         <div className="flex-1 bg-secondary-light5"></div>
       </div>
     </main>
