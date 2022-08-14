@@ -10,7 +10,7 @@ const renderLeftContent = () => (
   <div className="flex justify-center items-center h-full px-3">
     {/* Socials */}
     <div className="flex flex-row space-x-3">
-      <IconButton size={22} icon={Twitter} externalLink="https://twitter.com/jackmunkonge" />
+      <IconButton solid size={22} icon={Twitter} externalLink="https://twitter.com/jackmunkonge" />
     </div>
     {/* Divider */}
     <div className="hidden laptop:block border-r-[1px] border-line h-full mx-3"></div>

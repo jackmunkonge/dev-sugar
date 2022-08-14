@@ -9,6 +9,7 @@ import { IconButtonProps } from "./types";
 const IconButton: React.FC<IconButtonProps> = ({
   size = 56,
   icon: Icon,
+  solid = false,
   isLink = false,
   externalLink = "",
   isNavbarLink = false,
@@ -25,6 +26,7 @@ const IconButton: React.FC<IconButtonProps> = ({
   const { colors } = theme;
 
   const renderIcon = (color: string) => {
+    if (solid) return Icon && <Icon width={size} height={size} outlineColor={color} fillColor={color} />;
     return Icon && <Icon width={size} height={size} outlineColor={color} fillColor={colors.transparent} />;
   };
 
