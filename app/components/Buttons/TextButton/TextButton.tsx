@@ -3,16 +3,17 @@ import { theme } from "tailwind.config";
 
 import { BUTTON_ICON_SIZE_LARGE, BUTTON_ICON_SIZE_MEDIUM, BUTTON_ICON_SIZE_SMALL } from "@app/assets/icons/consts";
 import { Button1, Button2, Title6 } from "@app/components/Typography";
-import { ComponentSize } from "@app/utils/globalTypes";
+import { ComponentIconPosition, ComponentSize } from "@app/utils/globalTypes";
 import { ButtonWrapper } from "@app/utils/ui/utils";
 
-import { ButtonIconPosition, ButtonProps, TextProps } from "../types";
+import { ButtonProps, ButtonTextProps } from "../types";
 
+// TODO: Create breadcrumb component with all text sizes
 const TextButton: React.FC<ButtonProps> = ({
   text,
   size = ComponentSize.LARGE,
   icon: Icon,
-  iconPosition = ButtonIconPosition.RIGHT,
+  iconPosition = ComponentIconPosition.RIGHT,
   externalLink = "",
   isLink = false,
   isNavbarLink = false,
@@ -25,11 +26,11 @@ const TextButton: React.FC<ButtonProps> = ({
   ariaExpanded = false,
   clickHandler,
 }) => {
-  const { LEFT, RIGHT } = ButtonIconPosition;
+  const { LEFT, RIGHT } = ComponentIconPosition;
   const { SMALL, MEDIUM, LARGE } = ComponentSize;
   const { colors } = theme;
 
-  const Text: React.FC<TextProps> = ({ children, color }) => {
+  const Text: React.FC<ButtonTextProps> = ({ children, color }) => {
     if (size === ComponentSize.SMALL) {
       return <Button2 color={color}>{children}</Button2>;
     } else if (size === ComponentSize.MEDIUM) {

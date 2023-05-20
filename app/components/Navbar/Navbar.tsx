@@ -1,9 +1,8 @@
 import { useState } from "react";
 
-import { ComponentSize } from "@app/utils/globalTypes";
+import { ComponentIconPosition, ComponentSize } from "@app/utils/globalTypes";
 
 import { TextButton } from "../Buttons";
-import { ButtonIconPosition } from "../Buttons/types";
 import HomeButton from "./Components/HomeButton/HomeButton";
 import MobileMenu from "./Components/MobileMenu/MobileMenu";
 import MobileMenuButton from "./Components/MobileMenuButton/MobileMenuButton";
@@ -19,7 +18,7 @@ const NavLinks = () => (
             key={link.text}
             text={link.text}
             size={ComponentSize.MEDIUM}
-            iconPosition={ButtonIconPosition.LEFT}
+            iconPosition={ComponentIconPosition.LEFT}
             icon={link.icon}
             isNavbarLink
             pathName={link.path}

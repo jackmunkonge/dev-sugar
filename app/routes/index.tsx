@@ -1,6 +1,7 @@
 import { json } from "@remix-run/node";
 import { theme } from "tailwind.config";
 
+import { CategorySearch, Input } from "@app/components";
 import { Body1, Title5 } from "@app/components/Typography";
 import { CONTENT_HEIGHT } from "@app/utils/globalConsts";
 
@@ -23,9 +24,11 @@ export default function Index() {
               <Body1>links and counting!</Body1>
             </span>
           </p>
+          <Input id="testInput" label="Test Label" placeholder="Enter stuff here" />
         </header>
-        {/* TODO: Categories */}
-        <div className="flex-1 bg-secondary-light5"></div>
+        <div className="flex-1 bg-secondary-light5">
+          <CategorySearch />
+        </div>
       </div>
     </main>
   );

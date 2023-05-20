@@ -24,10 +24,14 @@
   src: url("../../public/fonts/pixel-operator/PixelOperatorMono.ttf") format("truetype");
 }
 
-*:focus {
+*:not(input):focus {
   outline: 0px;
   -webkit-animation: pulse 2s infinite;
   animation: pulse 2s infinite;
+}
+
+input:focus {
+  outline: 0px;
 }
 
 @-webkit-keyframes pulse {

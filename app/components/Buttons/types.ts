@@ -1,14 +1,14 @@
 import React, { MouseEventHandler } from "react";
 
 import { IconProps } from "@app/assets/icons/types";
-import { ComponentSize } from "@app/utils/globalTypes";
+import { ComponentIconPosition, ComponentSize } from "@app/utils/globalTypes";
 
 // Props
 export type ButtonProps = {
   text: string;
   size?: ComponentSize;
   icon?: React.FC<IconProps>;
-  iconPosition?: ButtonIconPosition;
+  iconPosition?: ComponentIconPosition;
   externalLink?: string;
   isLink?: boolean;
   isNavbarLink?: boolean;
@@ -22,15 +22,10 @@ export type ButtonProps = {
   clickHandler?: MouseEventHandler<HTMLButtonElement>;
 };
 
-export type TextProps = {
+export type ButtonTextProps = {
   children: React.ReactNode;
   color: string;
 };
 
 // Types
 export type ButtonActionType = "submit" | "button";
-
-export enum ButtonIconPosition {
-  LEFT = "left",
-  RIGHT = "right",
-}

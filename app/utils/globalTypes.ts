@@ -12,3 +12,8 @@ export enum ComponentSize {
   MEDIUM = "medium",
   SMALL = "small",
 }
+
+export enum ComponentIconPosition {
+  LEFT = "left",
+  RIGHT = "right",
+}
