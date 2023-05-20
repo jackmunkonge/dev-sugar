@@ -4,7 +4,7 @@ module.exports = {
     colors: {
       transparent: "transparent",
       current: "currentColor",
-      black: "#000000",
+      black: "#1C1C1C",
       white: "#FFFFFF",
       body: "#7D6F63",
       label: "#927869",
