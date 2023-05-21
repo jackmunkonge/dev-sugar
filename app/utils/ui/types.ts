@@ -4,6 +4,7 @@ export type ButtonActionWrapperProps = {
   classNames?: string;
   children: React.ReactNode;
   isDisabled: boolean;
+  isLoading: boolean;
   isFullWidth?: boolean;
   isNavbarLink: boolean;
   externalLink: string;

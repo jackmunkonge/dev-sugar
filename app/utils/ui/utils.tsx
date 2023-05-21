@@ -8,6 +8,7 @@ export const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({
   classNames = '',
   children,
   isDisabled,
+  isLoading,
   isFullWidth,
   isNavbarLink,
   isLink,
@@ -23,6 +24,7 @@ export const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({
     'group',
     isFullWidth ? 'w-full' : 'w-fit',
     isDisabled && 'opacity-50 pointer-events-none',
+    isLoading && !isDisabled && 'pointer-events-none',
   ), classNames);
 
   if (externalLink) {
