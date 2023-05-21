@@ -143,22 +143,6 @@ const SolidButton: React.FC<ButtonProps> = ({
 //     return Icon && <Icon width={iconSize} height={iconSize} outlineColor={color} fillColor={colors.transparent} />;
 //   };
 
-//   const renderDefault = () => (
-//     <div className="flex items-center justify-center group-hover:hidden group-focus:hidden group-active:hidden">
-//       {iconPosition === LEFT && renderIcon(colors.primary.DEFAULT)}
-//       <Text color={colors.primary.DEFAULT}>{text}</Text>
-//       {iconPosition === RIGHT && renderIcon(colors.primary.DEFAULT)}
-//     </div>
-//   );
-
-//   const renderHover = () => (
-//     <div className="hidden items-center justify-center group-hover:flex group-focus:hidden group-active:hidden">
-//       {iconPosition === LEFT && renderIcon(colors.primary.dark3)}
-//       <Text color={colors.primary.dark3}>{text}</Text>
-//       {iconPosition === RIGHT && renderIcon(colors.primary.dark3)}
-//     </div>
-//   );
-
 //   const renderFocus = () => (
 //     <div className="hidden items-center justify-center group-focus:flex group-active:hidden group-hover:hidden">
 //       {iconPosition === LEFT && renderIcon(colors.info.dark)}
@@ -201,10 +185,10 @@ const SolidButton: React.FC<ButtonProps> = ({
     isFullWidth = false,
     isFullHighlight = false,
     isFullLowlight = false,
-    outlineColor = 'bg-primary-dark5',
-    highlightColor = 'bg-primary-light2',
-    lowlightColor = 'bg-primary-dark2',
-    fillColor = 'bg-primary',
+    outlineColor = 'bg-primary-dark5 group-hover:bg-primary-dark3',
+    highlightColor = 'bg-primary-light2 group-hover:bg-primary-light4',
+    lowlightColor = 'bg-primary-dark2 group-hover:bg-primary',
+    fillColor = 'bg-primary group-hover:bg-primary-light2',
   }: any) => (
     <div className={clsx(
       'flex flex-row h-16',
@@ -254,9 +238,6 @@ const SolidButton: React.FC<ButtonProps> = ({
       ariaExpanded={ariaExpanded}
       clickHandler={clickHandler}
     >
-      {/* {renderHover()}
-      {renderFocus()}
-      {renderActive()} */}
       <Button isFullWidth={isFullWidth} />
     </ButtonWrapper>
   );
