@@ -151,7 +151,7 @@ const SolidButton: React.FC<ButtonProps> = ({
 
   const Content: FC<any> = () => {
     return (
-      <div className="flex flex-row items-center justify-center">
+      <div className="flex flex-row items-center justify-center max-w-[160px]">
         {leadIcon && <ButtonIcon color={colors.background} icon={leadIcon} />}
         <Text color={colors.background}>{text}</Text>
         {trailIcon && <ButtonIcon color={colors.background} icon={trailIcon} />}
