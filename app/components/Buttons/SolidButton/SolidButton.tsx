@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React, { FC } from "react";
 import { theme } from "tailwind.config";
 
@@ -5,7 +6,6 @@ import { Button1, Button2, Title6 } from "@app/components/Typography";
 import { ComponentIconPosition, ComponentSize } from "@app/utils/globalTypes";
 import { ButtonWrapper } from "@app/utils/ui/utils";
 
-import clsx from "clsx";
 import { ButtonProps, ButtonTextProps } from "../types";
 
 // TODO: Create breadcrumb component with all text sizes
@@ -41,7 +41,7 @@ const SolidButton: React.FC<ButtonProps> = ({
   };
 
   const ButtonLeft: FC<any> = ({
-    isFullLowlight,
+    fullLowlightColor,
     outlineColor,
     highlightColor,
     lowlightColor,
@@ -61,7 +61,7 @@ const SolidButton: React.FC<ButtonProps> = ({
           <div className={clsx('w-1 h-1', outlineColor)} />
           <div className={clsx('w-1 h-3', highlightColor)} />
           <div className={clsx('w-1 h-4', fillColor)} />
-          <div className={clsx('w-1 h-2', isFullLowlight ? lowlightColor : fillColor)} />
+          <div className={clsx('w-1 h-2', fullLowlightColor)} />
           <div className={clsx('w-1 h-1', lowlightColor)} />
           <div className={clsx('w-1 h-1', outlineColor)} />
         </div>
@@ -98,9 +98,8 @@ const SolidButton: React.FC<ButtonProps> = ({
   );
 
   const ButtonRight: FC<any> = ({
-    isFullHighlight,
-    isFullLowlight,
-    highlightColor,
+    fullHighlightColor,
+    fullLowlightColor,
     outlineColor,
     lowlightColor,
     fillColor,
@@ -109,7 +108,7 @@ const SolidButton: React.FC<ButtonProps> = ({
       <div className="flex flex-row items-center">
         <div>
           <div className={clsx('w-2 h-1', outlineColor)} />
-          <div className={clsx('w-2 h-1', isFullHighlight ? highlightColor : fillColor)} />
+          <div className={clsx('w-2 h-1', fullHighlightColor)} />
           <div className={clsx('w-2 h-10', fillColor)} />
           <div className={clsx('w-2 h-1', lowlightColor)} />
           <div className={clsx('w-2 h-1', outlineColor)} />
@@ -117,16 +116,16 @@ const SolidButton: React.FC<ButtonProps> = ({
 
         <div>
           <div className={clsx('w-1 h-1', outlineColor)} />
-          <div className={clsx('w-1 h-3', isFullHighlight ? highlightColor : fillColor)} />
+          <div className={clsx('w-1 h-3', fullHighlightColor)} />
           <div className={clsx('w-1 h-4', fillColor)} />
-          <div className={clsx('w-1 h-2', isFullLowlight ? lowlightColor : fillColor)} />
+          <div className={clsx('w-1 h-2', fullLowlightColor)} />
           <div className={clsx('w-1 h-1', lowlightColor)} />
           <div className={clsx('w-1 h-1', outlineColor)} />
         </div>
 
         <div>
           <div className={clsx('w-1 h-3', outlineColor)} />
-          <div className={clsx('w-1 h-4', isFullHighlight ? highlightColor : fillColor)} />
+          <div className={clsx('w-1 h-4', fullHighlightColor)} />
           <div className={clsx('w-1 h-3', outlineColor)} />
         </div>
 
@@ -143,59 +142,35 @@ const SolidButton: React.FC<ButtonProps> = ({
 //     return Icon && <Icon width={iconSize} height={iconSize} outlineColor={color} fillColor={colors.transparent} />;
 //   };
 
-//   const renderFocus = () => (
-//     <div className="hidden items-center justify-center group-focus:flex group-active:hidden group-hover:hidden">
-//       {iconPosition === LEFT && renderIcon(colors.info.dark)}
-//       <Text color={colors.info.dark}>{text}</Text>
-//       {iconPosition === RIGHT && renderIcon(colors.info.dark)}
-//     </div>
-//   );
+  // const renderLoading = () => (
+  //   <div className="flex items-center justify-center">
+  //     <Text color={colors.primary.dark5}>loading...</Text>
+  //   </div>
+  // );
 
-//   const renderActive = () => (
-//     <div className="hidden items-center justify-center group-active:flex group-focus:hidden group-hover:hidden">
-//       {iconPosition === LEFT && renderIcon(colors.primary.dark5)}
-//       <Text color={colors.primary.dark5}>{text}</Text>
-//       {iconPosition === RIGHT && renderIcon(colors.primary.dark5)}
-//     </div>
-//   );
-
-  const renderLoading = () => (
-    <div className="flex items-center justify-center">
-      <Text color={colors.primary.dark5}>loading...</Text>
-    </div>
-  );
-
-  const renderDisabled = () => (
-    <div className="flex items-center justify-center opacity-50">
-      {/* {iconPosition === LEFT && renderIcon(colors.primary.DEFAULT)} */}
-      <Text color={colors.primary.DEFAULT}>{text}</Text>
-      {/* {iconPosition === RIGHT && renderIcon(colors.primary.DEFAULT)} */}
-    </div>
-  );
-
-  if (isLoading) {
-    return <>{renderLoading()}</>;
-  }
-
-  if (isDisabled) {
-    return <>{renderDisabled()}</>;
-  }
+  // const renderDisabled = () => (
+  //   <div className="flex items-center justify-center opacity-50">
+  //     {/* {iconPosition === LEFT && renderIcon(colors.primary.DEFAULT)} */}
+  //     <Text color={colors.primary.DEFAULT}>{text}</Text>
+  //     {/* {iconPosition === RIGHT && renderIcon(colors.primary.DEFAULT)} */}
+  //   </div>
+  // );
 
   const Button = ({
     isFullWidth = false,
-    isFullHighlight = false,
-    isFullLowlight = false,
-    outlineColor = 'bg-primary-dark5 group-hover:bg-primary-dark3',
-    highlightColor = 'bg-primary-light2 group-hover:bg-primary-light4',
-    lowlightColor = 'bg-primary-dark2 group-hover:bg-primary',
-    fillColor = 'bg-primary group-hover:bg-primary-light2',
+    fullHighlightColor = 'bg-primary group-hover:bg-primary-light2 group-focus:bg-primary-dark1 group-active:bg-primary-dark3',
+    fullLowlightColor = 'bg-primary group-hover:bg-primary-light2 group-focus:bg-primary-dark1 group-active:bg-primary-dark3',
+    outlineColor = 'bg-primary-dark5 group-hover:bg-primary-dark3 group-focus:bg-primary-light5 group-active:bg-primary-dark5',
+    highlightColor = 'bg-primary-light2 group-hover:bg-primary-light4 group-focus:bg-primary-dark1 group-active:bg-primary-dark1',
+    lowlightColor = 'bg-primary-dark2 group-hover:bg-primary group-focus:bg-primary-dark1 group-active:bg-primary-dark3',
+    fillColor = 'bg-primary group-hover:bg-primary-light2 group-focus:bg-primary group-active:bg-primary-dark3',
   }: any) => (
     <div className={clsx(
       'flex flex-row h-16',
       isFullWidth ? 'w-full' : 'w-[200px]',
     )}>
       <ButtonLeft
-        isFullLowlight={isFullLowlight}
+        fullLowlightColor={fullLowlightColor}
         outlineColor={outlineColor}
         highlightColor={highlightColor}
         lowlightColor={lowlightColor}
@@ -215,15 +190,22 @@ const SolidButton: React.FC<ButtonProps> = ({
         </div>
       </ButtonMiddle>
       <ButtonRight
-        isFullHighlight={isFullHighlight}
-        isFullLowlight={isFullLowlight}
+        fullHighlightColor={fullHighlightColor}
+        fullLowlightColor={fullLowlightColor}
         outlineColor={outlineColor}
-        highlightColor={highlightColor}
         lowlightColor={lowlightColor}
         fillColor={fillColor}
       />
     </div>
   );
+
+  // if (isLoading) {
+  //   return <>{renderLoading()}</>;
+  // }
+
+  // if (isDisabled) {
+  //   return <>{renderDisabled()}</>;
+  // }
 
   return (
     <ButtonWrapper
