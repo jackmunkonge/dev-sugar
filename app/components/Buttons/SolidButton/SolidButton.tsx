@@ -3,10 +3,13 @@ import React, { FC } from "react";
 import { theme } from "tailwind.config";
 
 import { BUTTON_ICON_SIZE_LARGE, BUTTON_ICON_SIZE_MEDIUM, BUTTON_ICON_SIZE_SMALL } from "@app/assets/icons/consts";
-import { Button1, Button2, Title6 } from "@app/components/Typography";
+import { Button1, Title6 } from "@app/components/Typography";
 import { ComponentSize } from "@app/utils/globalTypes";
 import { ButtonWrapper } from "@app/utils/ui/utils";
 
+import ButtonLeft from "../Components/ButtonLeft";
+import ButtonMiddle from "../Components/ButtonMiddle";
+import ButtonRight from "../Components/ButtonRight";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import { ButtonProps, ButtonTextProps } from "../types";
 
@@ -33,110 +36,15 @@ const SolidButton: React.FC<ButtonProps> = ({
   const { colors } = theme;
 
   const Text: FC<ButtonTextProps> = ({ children, color }) => {
-    let text = <Title6 color={color}>{children}</Title6>;
-    if (size === ComponentSize.SMALL) text = <Button2 color={color}>{children}</Button2>;
-    if (size === ComponentSize.MEDIUM) text = <Button1 color={color}>{children}</Button1>;
+    let text = <Button1 color={color}>{children}</Button1>;
+    if (size === ComponentSize.LARGE) text = <Title6 color={color}>{children}</Title6>;
 
     return (
       <div className={clsx(
-        'w-full text-ellipsis overflow-hidden whitespace-nowrap',
+        'w-full flex items-center overflow-hidden whitespace-nowrap',
         'text-background',
       )}>
         {text}
-      </div>
-    );
-  };
-
-  const ButtonLeft: FC<any> = ({
-    fullLowlightColor,
-    outlineColor,
-    highlightColor,
-    lowlightColor,
-    fillColor,
-  }) => {
-    return (
-      <div className="flex flex-row items-center">
-        <div className={clsx('w-1 h-4', outlineColor)} />
-
-        <div>
-          <div className={clsx('w-1 h-3', outlineColor)} />
-          <div className={clsx('w-1 h-4', highlightColor)} />
-          <div className={clsx('w-1 h-3', outlineColor)} />
-        </div>
-
-        <div>
-          <div className={clsx('w-1 h-1', outlineColor)} />
-          <div className={clsx('w-1 h-3', highlightColor)} />
-          <div className={clsx('w-1 h-4', fillColor)} />
-          <div className={clsx('w-1 h-2', fullLowlightColor)} />
-          <div className={clsx('w-1 h-1', lowlightColor)} />
-          <div className={clsx('w-1 h-1', outlineColor)} />
-        </div>
-
-        <div>
-          <div className={clsx('w-2 h-1', outlineColor)} />
-          <div className={clsx('w-2 h-1', highlightColor)} />
-          <div className={clsx('w-2 h-10', fillColor)} />
-          <div className={clsx('w-2 h-1', lowlightColor)} />
-          <div className={clsx('w-2 h-1', outlineColor)} />
-        </div>
-      </div>
-    );
-  };
-
-  const ButtonMiddle: FC<any> = ({
-    children,
-    outlineColor,
-    highlightColor,
-    lowlightColor,
-    fillColor,
-  }) => (
-    <div className={clsx(
-      "flex flex-col w-full",
-    )}>
-      <div className={clsx('w-full h-1', outlineColor)} />
-      <div className={clsx('w-full h-1', highlightColor)} />
-      <div className={clsx('w-full h-12 flex items-center justify-center', fillColor)}>
-        {children}
-      </div>
-      <div className={clsx('w-full h-1', lowlightColor)} />
-      <div className={clsx('w-full h-1', outlineColor)} />
-    </div>
-  );
-
-  const ButtonRight: FC<any> = ({
-    fullHighlightColor,
-    fullLowlightColor,
-    outlineColor,
-    lowlightColor,
-    fillColor,
-  }) => {
-    return (
-      <div className="flex flex-row items-center">
-        <div>
-          <div className={clsx('w-2 h-1', outlineColor)} />
-          <div className={clsx('w-2 h-1', fullHighlightColor)} />
-          <div className={clsx('w-2 h-10', fillColor)} />
-          <div className={clsx('w-2 h-1', lowlightColor)} />
-          <div className={clsx('w-2 h-1', outlineColor)} />
-        </div>
-
-        <div>
-          <div className={clsx('w-1 h-1', outlineColor)} />
-          <div className={clsx('w-1 h-3', fullHighlightColor)} />
-          <div className={clsx('w-1 h-4', fillColor)} />
-          <div className={clsx('w-1 h-2', fullLowlightColor)} />
-          <div className={clsx('w-1 h-1', lowlightColor)} />
-          <div className={clsx('w-1 h-1', outlineColor)} />
-        </div>
-
-        <div>
-          <div className={clsx('w-1 h-3', outlineColor)} />
-          <div className={clsx('w-1 h-4', fullHighlightColor)} />
-          <div className={clsx('w-1 h-3', outlineColor)} />
-        </div>
-
-        <div className={clsx('w-1 h-4', outlineColor)} />
       </div>
     );
   };
@@ -150,8 +58,15 @@ const SolidButton: React.FC<ButtonProps> = ({
   };
 
   const Content: FC<any> = () => {
+    let maxContentWidth = 'max-w-[160px]';
+    if (size === MEDIUM) maxContentWidth = 'max-w-[168px]';
+    if (size === SMALL) maxContentWidth = 'max-w-[96px]';
+
     return (
-      <div className="flex flex-row items-center justify-center max-w-[160px]">
+      <div className={clsx(
+        "flex flex-row items-center justify-center",
+        maxContentWidth,
+      )}>
         {leadIcon && <ButtonIcon color={colors.background} icon={leadIcon} />}
         <Text color={colors.background}>{text}</Text>
         {trailIcon && <ButtonIcon color={colors.background} icon={trailIcon} />}
@@ -166,36 +81,46 @@ const SolidButton: React.FC<ButtonProps> = ({
     highlightColor = 'bg-primary-light2 group-hover:bg-primary-light4 group-focus:bg-primary-dark1 group-active:bg-primary-dark1',
     lowlightColor = 'bg-primary-dark2 group-hover:bg-primary group-focus:bg-primary-dark1 group-active:bg-primary-dark3',
     fillColor = 'bg-primary group-hover:bg-primary-light2 group-focus:bg-primary group-active:bg-primary-dark3',
-  }: any) => (
-    <div className={clsx(
-      'flex flex-row h-16',
-      isFullWidth ? 'w-full' : 'w-[200px]',
-    )}>
-      <ButtonLeft
-        fullLowlightColor={fullLowlightColor}
-        outlineColor={outlineColor}
-        highlightColor={highlightColor}
-        lowlightColor={lowlightColor}
-        fillColor={fillColor}
-      />
-      <ButtonMiddle
-        outlineColor={outlineColor}
-        highlightColor={highlightColor}
-        lowlightColor={lowlightColor}
-        fillColor={fillColor}
-      >
-        {isLoading && !isDisabled && <LoadingSpinner />}
-        {!isLoading && <Content color={colors.background} />}
-      </ButtonMiddle>
-      <ButtonRight
-        fullHighlightColor={fullHighlightColor}
-        fullLowlightColor={fullLowlightColor}
-        outlineColor={outlineColor}
-        lowlightColor={lowlightColor}
-        fillColor={fillColor}
-      />
-    </div>
-  );
+  }: any) => {
+    const buttonWidth = size === SMALL ? 'w-[120px]' : 'w-[200px]';
+    let buttonHeight = 'h-16';
+    if (size === MEDIUM) buttonHeight = 'h-[56px]';
+    if (size === SMALL) buttonHeight = 'h-[40px]';
+    return (
+      <div className={clsx(
+        'flex flex-row',
+        isFullWidth ? 'w-full' : buttonWidth,
+        buttonHeight,
+      )}>
+        <ButtonLeft
+          size={size}
+          fullLowlightColor={fullLowlightColor}
+          outlineColor={outlineColor}
+          highlightColor={highlightColor}
+          lowlightColor={lowlightColor}
+          fillColor={fillColor}
+        />
+        <ButtonMiddle
+          size={size}
+          outlineColor={outlineColor}
+          highlightColor={highlightColor}
+          lowlightColor={lowlightColor}
+          fillColor={fillColor}
+        >
+          {isLoading && !isDisabled && <LoadingSpinner />}
+          {!isLoading && <Content color={colors.background} />}
+        </ButtonMiddle>
+        <ButtonRight
+          size={size}
+          fullHighlightColor={fullHighlightColor}
+          fullLowlightColor={fullLowlightColor}
+          outlineColor={outlineColor}
+          lowlightColor={lowlightColor}
+          fillColor={fillColor}
+        />
+      </div>
+    );
+  };
 
   return (
     <ButtonWrapper
