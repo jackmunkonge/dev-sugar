@@ -24,7 +24,7 @@
   src: url("../../public/fonts/pixel-operator/PixelOperatorMono.ttf") format("truetype");
 }
 
-*:not(input):focus {
+*:not(input):focus:not(:active) {
   outline: 0px;
   -webkit-animation: pulse 2s infinite;
   animation: pulse 2s infinite;
