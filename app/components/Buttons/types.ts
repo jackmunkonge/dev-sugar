@@ -10,6 +10,7 @@ export type ButtonProps = {
   icon?: React.FC<IconProps>;
   iconPosition?: ComponentIconPosition;
   externalLink?: string;
+  isFullWidth?: boolean;
   isLink?: boolean;
   isNavbarLink?: boolean;
   isDisabled?: boolean;

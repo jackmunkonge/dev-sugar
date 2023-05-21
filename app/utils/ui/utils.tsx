@@ -1,9 +1,13 @@
 import { Link, NavLink } from "@remix-run/react";
+import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
 
 import { ButtonActionWrapperProps } from "./types";
 
 export const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({
+  classNames = '',
   children,
+  isFullWidth = false,
   isNavbarLink,
   isLink,
   externalLink,
@@ -14,7 +18,10 @@ export const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({
   ariaExpanded,
   clickHandler = () => {},
 }) => {
-  const styles = "group";
+  const styles = twMerge(clsx(
+    'group',
+    isFullWidth ? 'w-full' : 'w-fit',
+  ), classNames);
 
   if (externalLink) {
     return (
