@@ -31,6 +31,7 @@ const SolidButton: React.FC<ButtonProps> = ({
   const { LEFT, RIGHT } = ComponentIconPosition;
   const { SMALL, MEDIUM, LARGE } = ComponentSize;
   const { colors } = theme;
+  const isDisabledState = isLoading || isDisabled;
 
   const Text: FC<ButtonTextProps> = ({ children, color }) => {
     let text = <Title6 color={color}>{children}</Title6>;
@@ -189,7 +190,7 @@ const SolidButton: React.FC<ButtonProps> = ({
 
   return (
     <ButtonWrapper
-      isDisabled={isDisabled}
+      isDisabled={isDisabledState}
       isFullWidth={isFullWidth}
       isNavbarLink={isNavbarLink}
       externalLink={externalLink}

@@ -20,8 +20,9 @@ export const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({
   clickHandler = () => {},
 }) => {
   const styles = twMerge(clsx(
-    'group disabled:opacity-50 disabled:pointer-events-none',
+    'group',
     isFullWidth ? 'w-full' : 'w-fit',
+    isDisabled && 'opacity-50 pointer-events-none',
   ), classNames);
 
   if (externalLink) {
