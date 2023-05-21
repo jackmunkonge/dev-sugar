@@ -1,14 +1,14 @@
 import React, { MouseEventHandler } from "react";
 
 import { IconProps } from "@app/assets/icons/types";
-import { ComponentIconPosition, ComponentSize } from "@app/utils/globalTypes";
+import { ComponentSize } from "@app/utils/globalTypes";
 
 // Props
 export type ButtonProps = {
   text: string;
   size?: ComponentSize;
-  icon?: React.FC<IconProps>;
-  iconPosition?: ComponentIconPosition;
+  leadIcon?: React.FC<IconProps>;
+  trailIcon?: React.FC<IconProps>;
   externalLink?: string;
   isFullWidth?: boolean;
   isLink?: boolean;

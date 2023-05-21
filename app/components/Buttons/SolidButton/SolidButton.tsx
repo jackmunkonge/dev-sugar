@@ -2,19 +2,20 @@ import clsx from "clsx";
 import React, { FC } from "react";
 import { theme } from "tailwind.config";
 
+import { BUTTON_ICON_SIZE_LARGE, BUTTON_ICON_SIZE_MEDIUM, BUTTON_ICON_SIZE_SMALL } from "@app/assets/icons/consts";
 import { Button1, Button2, Title6 } from "@app/components/Typography";
-import { ComponentIconPosition, ComponentSize } from "@app/utils/globalTypes";
+import { ComponentSize } from "@app/utils/globalTypes";
 import { ButtonWrapper } from "@app/utils/ui/utils";
 
-import { ButtonProps, ButtonTextProps } from "../types";
 import LoadingSpinner from "../Components/LoadingSpinner";
+import { ButtonProps, ButtonTextProps } from "../types";
 
 // TODO: Create breadcrumb component with all text sizes
 const SolidButton: React.FC<ButtonProps> = ({
   text,
   size = ComponentSize.LARGE,
-  icon: Icon,
-  iconPosition = ComponentIconPosition.RIGHT,
+  leadIcon,
+  trailIcon,
   externalLink = "",
   isFullWidth = false,
   isLink = false,
@@ -28,7 +29,6 @@ const SolidButton: React.FC<ButtonProps> = ({
   ariaExpanded = false,
   clickHandler,
 }) => {
-  const { LEFT, RIGHT } = ComponentIconPosition;
   const { SMALL, MEDIUM, LARGE } = ComponentSize;
   const { colors } = theme;
 
@@ -141,13 +141,23 @@ const SolidButton: React.FC<ButtonProps> = ({
     );
   };
 
-//   const renderIcon = (color: string) => {
-//     let iconSize;
-//     if (size === SMALL) iconSize = BUTTON_ICON_SIZE_SMALL;
-//     if (size === MEDIUM) iconSize = BUTTON_ICON_SIZE_MEDIUM;
-//     if (size === LARGE) iconSize = BUTTON_ICON_SIZE_LARGE;
-//     return Icon && <Icon width={iconSize} height={iconSize} outlineColor={color} fillColor={colors.transparent} />;
-//   };
+  const ButtonIcon: FC<any> = ({ color, icon: Icon }) => {
+    let iconSize;
+    if (size === SMALL) iconSize = BUTTON_ICON_SIZE_SMALL;
+    if (size === MEDIUM) iconSize = BUTTON_ICON_SIZE_MEDIUM;
+    if (size === LARGE) iconSize = BUTTON_ICON_SIZE_LARGE;
+    return <Icon width={iconSize} height={iconSize} outlineColor={color} fillColor={colors.transparent} />;
+  };
+
+  const Content: FC<any> = () => {
+    return (
+      <div className="flex flex-row items-center justify-center">
+        {leadIcon && <ButtonIcon color={colors.background} icon={leadIcon} />}
+        <Text color={colors.background}>{text}</Text>
+        {trailIcon && <ButtonIcon color={colors.background} icon={trailIcon} />}
+      </div>
+    );
+  };
 
   const Button = ({
     fullHighlightColor = 'bg-primary group-hover:bg-primary-light2 group-focus:bg-primary-dark1 group-active:bg-primary-dark3',
@@ -175,7 +185,7 @@ const SolidButton: React.FC<ButtonProps> = ({
         fillColor={fillColor}
       >
         {isLoading && !isDisabled && <LoadingSpinner />}
-        {!isLoading && <Text color={colors.background}>{text}</Text>}
+        {!isLoading && <Content color={colors.background} />}
       </ButtonMiddle>
       <ButtonRight
         fullHighlightColor={fullHighlightColor}

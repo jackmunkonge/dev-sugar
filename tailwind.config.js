@@ -79,7 +79,7 @@ module.exports = {
       caption: ["12px", "16px"],
       overline: ["10px", "16px"],
     },
-    letterSpacing: {
+    letterSpacing: { // TODO: integrate into the font sizes themselves
       tight005: "-0.005em",
       tight015: "-0.015em",
       normal: "0",
