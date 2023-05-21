@@ -27,9 +27,9 @@ module.exports = {
       jsx: true,
     },
   },
-  setings: {
+  settings: {
     react: {
-      version: 18,
+      version: '18',
     },
   },
 };
