@@ -7,7 +7,8 @@ import { ButtonActionWrapperProps } from "./types";
 export const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({
   classNames = '',
   children,
-  isFullWidth = false,
+  isDisabled,
+  isFullWidth,
   isNavbarLink,
   isLink,
   externalLink,
@@ -19,7 +20,7 @@ export const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({
   clickHandler = () => {},
 }) => {
   const styles = twMerge(clsx(
-    'group',
+    'group disabled:opacity-50 disabled:pointer-events-none',
     isFullWidth ? 'w-full' : 'w-fit',
   ), classNames);
 
@@ -58,13 +59,14 @@ export const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({
         onMouseUp={(e) => {
           clickHandler(e);
         }}
+        disabled={isDisabled}
       >
         {children}
       </button>
     );
   }
   return (
-    <button className={styles} type={buttonType}>
+    <button className={styles} type={buttonType} disabled={isDisabled}>
       {children}
     </button>
   );

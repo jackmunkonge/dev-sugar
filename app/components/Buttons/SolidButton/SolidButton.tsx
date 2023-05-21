@@ -32,12 +32,18 @@ const SolidButton: React.FC<ButtonProps> = ({
   const { colors } = theme;
 
   const Text: FC<ButtonTextProps> = ({ children, color }) => {
-    if (size === ComponentSize.SMALL) {
-      return <Button2 color={color}>{children}</Button2>;
-    } else if (size === ComponentSize.MEDIUM) {
-      return <Button1 color={color}>{children}</Button1>;
-    }
-    return <Title6 color={color}>{children}</Title6>;
+    let text = <Title6 color={color}>{children}</Title6>;
+    if (size === ComponentSize.SMALL) text = <Button2 color={color}>{children}</Button2>;
+    if (size === ComponentSize.MEDIUM) text = <Button1 color={color}>{children}</Button1>;
+
+    return (
+      <div className={clsx(
+        'w-full text-ellipsis overflow-hidden whitespace-nowrap',
+        'text-background',
+      )}>
+        {text}
+      </div>
+    );
   };
 
   const ButtonLeft: FC<any> = ({
@@ -142,22 +148,7 @@ const SolidButton: React.FC<ButtonProps> = ({
 //     return Icon && <Icon width={iconSize} height={iconSize} outlineColor={color} fillColor={colors.transparent} />;
 //   };
 
-  // const renderLoading = () => (
-  //   <div className="flex items-center justify-center">
-  //     <Text color={colors.primary.dark5}>loading...</Text>
-  //   </div>
-  // );
-
-  // const renderDisabled = () => (
-  //   <div className="flex items-center justify-center opacity-50">
-  //     {/* {iconPosition === LEFT && renderIcon(colors.primary.DEFAULT)} */}
-  //     <Text color={colors.primary.DEFAULT}>{text}</Text>
-  //     {/* {iconPosition === RIGHT && renderIcon(colors.primary.DEFAULT)} */}
-  //   </div>
-  // );
-
   const Button = ({
-    isFullWidth = false,
     fullHighlightColor = 'bg-primary group-hover:bg-primary-light2 group-focus:bg-primary-dark1 group-active:bg-primary-dark3',
     fullLowlightColor = 'bg-primary group-hover:bg-primary-light2 group-focus:bg-primary-dark1 group-active:bg-primary-dark3',
     outlineColor = 'bg-primary-dark5 group-hover:bg-primary-dark3 group-focus:bg-primary-light5 group-active:bg-primary-dark5',
@@ -182,12 +173,8 @@ const SolidButton: React.FC<ButtonProps> = ({
         lowlightColor={lowlightColor}
         fillColor={fillColor}
       >
-        <div className={clsx(
-          'w-full text-ellipsis overflow-hidden whitespace-nowrap',
-          'text-background',
-        )}>
-          <Text color={colors.background}>{text}</Text>
-        </div>
+        {isLoading && !isDisabled && 'Loading...'}
+        {!isLoading && <Text color={colors.background}>{text}</Text>}
       </ButtonMiddle>
       <ButtonRight
         fullHighlightColor={fullHighlightColor}
@@ -199,16 +186,9 @@ const SolidButton: React.FC<ButtonProps> = ({
     </div>
   );
 
-  // if (isLoading) {
-  //   return <>{renderLoading()}</>;
-  // }
-
-  // if (isDisabled) {
-  //   return <>{renderDisabled()}</>;
-  // }
-
   return (
     <ButtonWrapper
+      isDisabled={isDisabled}
       isFullWidth={isFullWidth}
       isNavbarLink={isNavbarLink}
       externalLink={externalLink}
@@ -220,7 +200,7 @@ const SolidButton: React.FC<ButtonProps> = ({
       ariaExpanded={ariaExpanded}
       clickHandler={clickHandler}
     >
-      <Button isFullWidth={isFullWidth} />
+      <Button />
     </ButtonWrapper>
   );
 };
