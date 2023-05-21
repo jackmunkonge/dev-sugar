@@ -24,26 +24,13 @@
   src: url("../../public/fonts/pixel-operator/PixelOperatorMono.ttf") format("truetype");
 }
 
-*:not(input):focus {
+*:not(input):focus:not(:active) {
   outline: 0px;
-  -webkit-animation: pulse 2s infinite;
-  animation: pulse 2s infinite;
+  @apply animate-pulse
 }
 
 input:focus {
   outline: 0px;
-}
-
-@-webkit-keyframes pulse {
-  50% {
-    opacity: 0.5;
-  }
-}
-
-@keyframes pulse {
-  50% {
-    opacity: 0.5;
-  }
 }
 
 /* Remove coloured background from links when clicked */

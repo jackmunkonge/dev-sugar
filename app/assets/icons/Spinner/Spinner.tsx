@@ -4,6 +4,7 @@ import { theme } from "tailwind.config";
 
 import { IconProps } from "@app/assets/icons/types";
 
+// TODO: Convert to raw CSS
 const rect = {
   animating: {
     opacity: [1, 0, 1],

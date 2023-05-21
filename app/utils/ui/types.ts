@@ -1,7 +1,11 @@
 import { ButtonActionType } from "@app/components/Buttons/types";
 
 export type ButtonActionWrapperProps = {
+  classNames?: string;
   children: React.ReactNode;
+  isDisabled: boolean;
+  isLoading: boolean;
+  isFullWidth?: boolean;
   isNavbarLink: boolean;
   externalLink: string;
   isLink: boolean;

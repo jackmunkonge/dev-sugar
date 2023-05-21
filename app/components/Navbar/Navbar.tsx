@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { ComponentIconPosition, ComponentSize } from "@app/utils/globalTypes";
+import { ComponentSize } from "@app/utils/globalTypes";
 
 import { TextButton } from "../Buttons";
 import HomeButton from "./Components/HomeButton/HomeButton";
@@ -18,8 +18,7 @@ const NavLinks = () => (
             key={link.text}
             text={link.text}
             size={ComponentSize.MEDIUM}
-            iconPosition={ComponentIconPosition.LEFT}
-            icon={link.icon}
+            leadIcon={link.icon}
             isNavbarLink
             pathName={link.path}
           />

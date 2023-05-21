@@ -4,7 +4,7 @@ module.exports = {
     colors: {
       transparent: "transparent",
       current: "currentColor",
-      black: "#000000",
+      black: "#1C1C1C",
       white: "#FFFFFF",
       body: "#7D6F63",
       label: "#927869",
@@ -79,7 +79,7 @@ module.exports = {
       caption: ["12px", "16px"],
       overline: ["10px", "16px"],
     },
-    letterSpacing: {
+    letterSpacing: { // TODO: integrate into the font sizes themselves
       tight005: "-0.005em",
       tight015: "-0.015em",
       normal: "0",
@@ -105,7 +105,26 @@ module.exports = {
       widescreen: { min: "1280px" },
       // => @media (min-width: 1280px) { ... }
     },
-    extend: {},
+    extend: {
+      zIndex: {
+        'spinner-container': '200',
+        'spinner-bar': '210',
+        'spinner-mask': '220',
+      },
+      keyframes: {
+        scroll: {
+          '0%': {
+            transform: 'translateX(0px)',
+          },
+          '100%': {
+            transform: 'translateX(12px)',
+          },
+        }
+      },
+      animation: {
+        'scrolling-bar': 'scroll 0.5s steps(3, jump-start) infinite',
+      },
+    },
   },
   plugins: [require("tailwind-scrollbar")],
 };

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { theme } from "tailwind.config";
 
 import { Cross } from "@app/assets/icons";
-import { ComponentIconPosition, ComponentSize } from "@app/utils/globalTypes";
+import { ComponentSize } from "@app/utils/globalTypes";
 
 import { IconButton } from "../Buttons";
 import { Caption } from "../Typography";
@@ -22,12 +22,10 @@ const Input: React.FC<InputProps> = ({
   value = "",
   size = ComponentSize.LARGE,
   icon: Icon,
-  iconPosition = ComponentIconPosition.RIGHT,
   isDisabled = false,
   isRequired = false,
   clickHandler: inputClickHandler,
 }) => {
-  // const { LEFT, RIGHT } = ComponentIconPosition;
   // const { SMALL, LARGE } = ComponentSize;
   // const { colors } = theme;
 
