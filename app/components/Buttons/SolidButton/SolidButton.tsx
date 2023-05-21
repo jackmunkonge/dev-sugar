@@ -7,6 +7,7 @@ import { ComponentIconPosition, ComponentSize } from "@app/utils/globalTypes";
 import { ButtonWrapper } from "@app/utils/ui/utils";
 
 import { ButtonProps, ButtonTextProps } from "../types";
+import LoadingSpinner from "../Components/LoadingSpinner";
 
 // TODO: Create breadcrumb component with all text sizes
 const SolidButton: React.FC<ButtonProps> = ({
@@ -173,7 +174,7 @@ const SolidButton: React.FC<ButtonProps> = ({
         lowlightColor={lowlightColor}
         fillColor={fillColor}
       >
-        {isLoading && !isDisabled && 'Loading...'}
+        {isLoading && !isDisabled && <LoadingSpinner />}
         {!isLoading && <Text color={colors.background}>{text}</Text>}
       </ButtonMiddle>
       <ButtonRight
