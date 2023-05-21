@@ -105,7 +105,24 @@ module.exports = {
       widescreen: { min: "1280px" },
       // => @media (min-width: 1280px) { ... }
     },
-    extend: {},
+    extend: {
+      // keyframes: {
+        // scroll: {
+        //   '0%': {
+        //     transform: 'translateX(0px)',
+        //   },
+        //   '50%': {
+        //     transform: 'translateX(32px)',
+        //   },
+        //   '100%': {
+        //     transform: 'translateX(64px)',
+        //   },
+        // }
+      // },
+      // animation: {
+      //   'scrolling-bar': 'scroll 4s linear infinite',
+      // },
+    },
   },
   plugins: [require("tailwind-scrollbar")],
 };
