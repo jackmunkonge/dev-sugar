@@ -13,7 +13,6 @@ import ButtonRight from "../Components/ButtonRight";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import { ButtonProps, ButtonTextProps } from "../types";
 
-// TODO: Create breadcrumb component with all text sizes
 const SolidButton: React.FC<ButtonProps> = ({
   text,
   size = ComponentSize.LARGE,
