@@ -19,6 +19,7 @@ export default function Index() {
             <Title5>the best learning resources for software devs</Title5>
           </h1>
           <p className="flex flex-row justify-center items-center">
+            {/* TODO: Add real links counter */}
             <Title5 color={theme.colors.primary.DEFAULT}>26,344</Title5>
             <span className="ml-2">
               <Body1>links and counting!</Body1>
