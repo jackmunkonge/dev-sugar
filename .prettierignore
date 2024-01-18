@@ -1,0 +1,9 @@
+# SENSITIVE INFO
+.env
+
+# root
+node_modules
+
+# build artifacts
+/build
+/public/build
