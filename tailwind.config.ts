@@ -130,33 +130,126 @@ const config: Config = {
       mono: ['var(--font-mono)'],
     },
     fontSize: {
-      title1: ['96px', '128px'],
-      title2: ['60px', '80px'],
-      title3: ['48px', '64px'],
-      title4: ['34px', '48px'],
-      title5: ['24px', '32px'],
-      title6: ['20px', '28px'],
-      subtitle1: ['16px', '24px'],
-      subtitle2: ['14px', '20px'],
-      body1: ['16px', '24px'],
-      body2: ['14px', '20px'],
-      button1: ['14px', '20px'],
-      button2: ['12px', '16px'],
-      caption: ['12px', '16px'],
-      overline: ['10px', '16px'],
-    },
-    letterSpacing: {
-      tight005: '-0.005em',
-      tight015: '-0.015em',
-      normal: '0',
-      wide001: '0.001em',
-      wide005: '0.005em',
-      wide0015: '0.0015em',
-      wide0025: '0.0025em',
-      wide004: '0.004em',
-      wide015: '0.015em',
-      wide025: '0.025em',
-      wide05: '0.05em',
+      headline1: [
+        '96px',
+        {
+          lineHeight: '128px',
+          letterSpacing: '-0.015em',
+          fontWeight: '400',
+        },
+      ],
+      headlineout1: [
+        '96px',
+        {
+          lineHeight: '128px',
+          letterSpacing: '-0.015em',
+          fontWeight: '500',
+        },
+      ],
+      headline2: [
+        '60px',
+        {
+          lineHeight: '80px',
+          letterSpacing: '-0.005em',
+          fontWeight: '400',
+        },
+      ],
+      headline3: [
+        '48px',
+        {
+          lineHeight: '64px',
+          letterSpacing: '0em',
+          fontWeight: '400',
+        },
+      ],
+      headline4: [
+        '34px',
+        {
+          lineHeight: '48px',
+          letterSpacing: '0.0025em',
+          fontWeight: '400',
+        },
+      ],
+      headline5: [
+        '24px',
+        {
+          lineHeight: '32px',
+          letterSpacing: '0em',
+          fontWeight: '400',
+        },
+      ],
+      headline6: [
+        '20px',
+        {
+          lineHeight: '28px',
+          letterSpacing: '0.0015em',
+          fontWeight: '400',
+        },
+      ],
+      subtitle1: [
+        '16px',
+        {
+          lineHeight: '24px',
+          letterSpacing: '0.0015em',
+          fontWeight: '400',
+        },
+      ],
+      subtitle2: [
+        '14px',
+        {
+          lineHeight: '20px',
+          letterSpacing: '0.001em',
+          fontWeight: '400',
+        },
+      ],
+      body1: [
+        '16px',
+        {
+          lineHeight: '24px',
+          letterSpacing: '0.005em',
+          fontWeight: '400',
+        },
+      ],
+      body2: [
+        '14px',
+        {
+          lineHeight: '20px',
+          letterSpacing: '0.0025em',
+          fontWeight: '400',
+        },
+      ],
+      button1: [
+        '14px',
+        {
+          lineHeight: '20px',
+          letterSpacing: '0.05em',
+          fontWeight: '700',
+        },
+      ],
+      button2: [
+        '12px',
+        {
+          lineHeight: '16px',
+          letterSpacing: '0.025em',
+          fontWeight: '700',
+        },
+      ],
+      caption: [
+        '12px',
+        {
+          lineHeight: '16px',
+          letterSpacing: '0.004em',
+          fontWeight: '400',
+        },
+      ],
+      overline: [
+        '10px',
+        {
+          lineHeight: '16px',
+          letterSpacing: '0.015em',
+          fontWeight: '400',
+        },
+      ],
     },
     screens: {
       tablet: { min: '480px' },
