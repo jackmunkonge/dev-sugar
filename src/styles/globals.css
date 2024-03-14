@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*:not(input):focus:not(:active) {
+  outline: 0px;
+  @apply animate-pulse;
+}
+
+input:focus {
+  outline: 0px;
+}
+
+/* Remove coloured background from links when clicked */
+button,
+textarea,
+input,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

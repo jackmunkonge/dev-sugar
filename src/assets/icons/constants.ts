@@ -1,0 +1,3 @@
+export const BUTTON_ICON_SIZE_LARGE = 40;
+export const BUTTON_ICON_SIZE_MEDIUM = 32;
+export const BUTTON_ICON_SIZE_SMALL = 32;
