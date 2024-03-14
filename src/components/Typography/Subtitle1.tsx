@@ -7,10 +7,7 @@ import { TypographyProps } from './types';
 const Subtitle1: React.FC<TypographyProps> = ({ children, color = theme.colors.body, selectable = false }) => {
   const isSelectable = selectable ? 'select-auto' : 'select-none';
   return (
-    <span
-      style={{ color: color }}
-      className={`font-default tracking-wide0015 text-subtitle1 font-normal not-italic ${isSelectable}`}
-    >
+    <span style={{ color: color }} className={`font-header text-subtitle1 not-italic ${isSelectable}`}>
       {children}
     </span>
   );

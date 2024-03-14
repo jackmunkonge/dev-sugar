@@ -7,10 +7,7 @@ import { TypographyProps } from './types';
 const Body2: React.FC<TypographyProps> = ({ children, color = theme.colors.body, selectable = false }) => {
   const isSelectable = selectable ? 'select-auto' : 'select-none';
   return (
-    <span
-      style={{ color: color }}
-      className={`font-default tracking-wide0025 text-body2 font-normal not-italic ${isSelectable}`}
-    >
+    <span style={{ color: color }} className={`font-body text-body2 not-italic ${isSelectable}`}>
       {children}
     </span>
   );
