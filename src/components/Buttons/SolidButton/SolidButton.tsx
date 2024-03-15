@@ -34,9 +34,9 @@ const SolidButton: React.FC<ButtonProps> = ({
   const { SMALL, MEDIUM, LARGE } = ComponentSize;
   const { colors } = theme;
 
-  const Text: FC<ButtonTextProps> = ({ children, color }) => {
-    let text = <Button1 color={color}>{children}</Button1>;
-    if (size === ComponentSize.LARGE) text = <Headline6 color={color}>{children}</Headline6>;
+  const Text: FC<ButtonTextProps> = ({ className = '', children }) => {
+    let text = <Button1 className={className}>{children}</Button1>;
+    if (size === ComponentSize.LARGE) text = <Headline6 className={className}>{children}</Headline6>;
 
     return (
       <div className={clsx('flex w-full items-center overflow-hidden whitespace-nowrap', 'text-background')}>
@@ -61,7 +61,7 @@ const SolidButton: React.FC<ButtonProps> = ({
     return (
       <div className={clsx('flex flex-row items-center justify-center', maxContentWidth)}>
         {leadIcon && <ButtonIcon color={colors.background} icon={leadIcon} />}
-        <Text color={colors.background}>{text}</Text>
+        <Text className="text-background">{text}</Text>
         {trailIcon && <ButtonIcon color={colors.background} icon={trailIcon} />}
       </div>
     );

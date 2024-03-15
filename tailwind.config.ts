@@ -1,3 +1,4 @@
+import { extendTailwindMerge } from 'tailwind-merge';
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
@@ -292,3 +293,11 @@ const config: Config = {
   plugins: [require('tailwind-scrollbar')],
 };
 export default config;
+
+export const twMerge = extendTailwindMerge({
+  extend: {
+    classGroups: {
+      'font-size': Object.keys(config.theme?.fontSize).map((key) => `text-${key}`),
+    },
+  },
+});

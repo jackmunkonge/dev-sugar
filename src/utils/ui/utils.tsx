@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import Link from 'next/link';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from 'tailwind.config';
 
 import { ButtonActionWrapperProps } from './types';
 
@@ -20,6 +20,7 @@ export const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({
   ariaExpanded,
   clickHandler = () => {},
 }) => {
+  'use client';
   const styles = twMerge(
     clsx(
       'group',

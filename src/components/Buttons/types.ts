@@ -25,7 +25,7 @@ export type ButtonProps = {
 
 export type ButtonTextProps = {
   children: React.ReactNode;
-  color: string;
+  className?: string;
 };
 
 // Types

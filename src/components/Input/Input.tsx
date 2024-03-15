@@ -1,30 +1,28 @@
+'use client';
+
 import React from 'react';
 
 import { Cross } from '@assets/icons';
-import { theme } from '@utils/globalConstants';
 import { ComponentSize } from '@utils/globalTypes';
 
 import { IconButton } from '../Buttons';
 import { Caption } from '../Typography';
 import { InputProps } from './types';
 
-// TODO: Make generic input (default and icon)
 const Input: React.FC<InputProps> = ({
-  id,
-  name = id,
+  field: { name },
+  form: { touched, errors },
   type = 'text',
   placeholder = '',
   autoComplete = 'off',
   isFocusedOnLoad = false,
-  error = '',
-  ariaInvalid,
   label,
-  value = '',
   size = ComponentSize.LARGE,
   icon: Icon,
   isDisabled = false,
   isRequired = false,
   clickHandler: inputClickHandler,
+  ...restProps
 }) => {
   // const { SMALL, LARGE } = ComponentSize;
   // const { colors } = theme;
@@ -62,8 +60,8 @@ const Input: React.FC<InputProps> = ({
 
     return (
       <div>
-        <label htmlFor={id} className="block">
-          <Caption color={theme.colors.label}>{label}</Caption>
+        <label htmlFor={name} className="block">
+          <Caption className="text-label">{label}</Caption>
         </label>
         <div className="relative">
           {/* Clear input button */}
@@ -73,29 +71,26 @@ const Input: React.FC<InputProps> = ({
               icon={Cross}
               solid
               buttonType="button"
-              ariaControlId={id}
+              ariaControlId={name}
               srOnlyText="Clear input"
-              clickHandler={() => (value = '')}
+              clickHandler={() => {}}
             />
           </span>
           <input
-            // ref={inputRef}
-            id={id}
+            className="font-body w-full border-b-4 border-primary bg-transparent pr-4 text-body1 not-italic text-primary caret-line selection:bg-line selection:bg-opacity-50 placeholder:text-line focus:border-primary-dark5 focus:text-primary-dark5"
+            id={name}
             required={isRequired}
             autoFocus={isFocusedOnLoad}
             name={name}
-            value={value}
             placeholder={placeholder}
             type={type}
             autoComplete={autoComplete}
-            aria-invalid={ariaInvalid}
-            aria-describedby="input-error"
-            className="font-default tracking-wide005 w-full border-b-4 border-primary bg-transparent pr-4 text-body1 font-normal not-italic text-primary caret-line selection:bg-line selection:bg-opacity-50 placeholder:text-line focus:border-primary-dark5 focus:text-primary-dark5"
             onClick={inputClickHandler}
+            {...restProps}
           />
-          {error.length > 0 && (
+          {touched[name] && errors[name] && typeof errors[name] === 'string' && (
             <div className="pt-1" id="input-error">
-              <Caption color={theme.colors.error.DEFAULT}>{error}</Caption>
+              <Caption className="text-error">{errors[name]}</Caption>
             </div>
           )}
         </div>

@@ -1,5 +1,4 @@
 import { Twitter } from '@assets/icons';
-import { theme } from '@utils/globalConstants';
 import { ComponentSize } from '@utils/globalTypes';
 
 import { IconButton, TextButton } from '../Buttons';
@@ -31,7 +30,7 @@ const renderRightContent = () => {
   const currentDate = new Date();
   return (
     <div className="hidden h-full items-center justify-center px-3 tablet:flex">
-      <Body2 color={theme.colors.primary.dark3}>&copy; {currentDate.getFullYear()} jack munkonge</Body2>
+      <Body2 className="text-primary-dark3">&copy; {currentDate.getFullYear()} jack munkonge</Body2>
     </div>
   );
 };
