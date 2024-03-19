@@ -36,7 +36,7 @@ const Input: React.FC<InputProps> = ({
   const { setFieldValue } = useFormikContext();
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const getCrossColor = () => {
+  const getIconColor = () => {
     if (!isSuccess && touched[name] && errors[name]) {
       return theme.colors.error.DEFAULT;
     }
@@ -107,7 +107,7 @@ const Input: React.FC<InputProps> = ({
                 touched[name] &&
                 errors[name] &&
                 'border-error text-error caret-error-light3 selection:bg-error-light3 selection:bg-opacity-50 placeholder:text-error-light3 focus:border-error-dark3 focus:text-error-dark3',
-              'font-body border-b-4 w-full pr-4 text-body1 not-italic',
+              'font-body border-b-4 w-full pl-7 pr-4 text-body1 not-italic',
               'disabled:cursor-not-allowed',
             )}
             id={name}
@@ -122,12 +122,12 @@ const Input: React.FC<InputProps> = ({
             {...restProps}
           />
           {/* Clear input button */}
-          <span className="group-focus-within:flex absolute inset-y-0 right-0 hidden items-center pl-1">
+          <div className="group-focus-within:flex absolute inset-y-0 right-0 hidden items-center pl-1">
             <IconButton
               size={12}
               icon={Cross}
               solid
-              color={getCrossColor()}
+              color={getIconColor()}
               buttonType="button"
               ariaControlId={name}
               srOnlyText="Clear input"
@@ -139,7 +139,13 @@ const Input: React.FC<InputProps> = ({
                 }
               }}
             />
-          </span>
+          </div>
+          {/* Left icon */}
+          {Icon && (
+            <div className="flex absolute inset-y-0 left-0 items-center pb-1">
+              <Icon isSelected={false} outlineColor={getIconColor()} fillColor={theme.colors.transparent} />
+            </div>
+          )}
         </div>
       </div>
     );

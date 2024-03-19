@@ -3,6 +3,7 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 
+import { Heart } from '@assets/icons';
 import { Caption } from '@components/Typography';
 
 import { Input } from '..';
@@ -24,6 +25,7 @@ const TestForm: React.FC<any> = ({ className = '' }) => (
             id="categorySearchQuery"
             name="categorySearchQuery"
             label="Test Label"
+            icon={Heart}
             placeholder="Enter stuff here"
             isDisabled={false}
             isSuccess={false}
