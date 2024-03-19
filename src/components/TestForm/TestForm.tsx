@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 
 import { Heart } from '@assets/icons';
 import { Caption } from '@components/Typography';
+import { ComponentSize } from '@utils/globalTypes';
 
 import { Input } from '..';
 
@@ -29,6 +30,7 @@ const TestForm: React.FC<any> = ({ className = '' }) => (
             placeholder="Enter stuff here"
             isDisabled={false}
             isSuccess={false}
+            size={ComponentSize.SMALL}
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.categorySearchQuery}

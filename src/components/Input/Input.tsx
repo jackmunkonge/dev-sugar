@@ -32,6 +32,7 @@ const Input: React.FC<InputProps> = ({
 }) => {
   const { name } = field;
   const { touched, errors } = form;
+  const { SMALL } = ComponentSize;
 
   const { setFieldValue } = useFormikContext();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -46,43 +47,11 @@ const Input: React.FC<InputProps> = ({
     return null;
   };
 
-  // const { SMALL, LARGE } = ComponentSize;
-
-  //   const Text: React.FC<TextProps> = ({ children, color }) => {
-  //     if (size === ComponentSize.SMALL) {
-  //       return <Button2 color={color}>{children}</Button2>;
-  //     } else if (size === ComponentSize.MEDIUM) {
-  //       return <Button1 color={color}>{children}</Button1>;
-  //     }
-  //     return <Title6 color={color}>{children}</Title6>;
-  //   };
-
-  // const renderIcon = (color: string) => {
-  //   let iconSize;
-  //   if (size === SMALL) iconSize = BUTTON_ICON_SIZE_SMALL;
-  //   if (size === MEDIUM) iconSize = BUTTON_ICON_SIZE_MEDIUM;
-  //   if (size === LARGE) iconSize = BUTTON_ICON_SIZE_LARGE;
-  //   return Icon && <Icon width={iconSize} height={iconSize} outlineColor={color} fillColor={colors.transparent} />;
-  // };
-
   const renderDefault = () => {
-    // <div className="flex items-center justify-center group-hover:hidden group-focus:hidden group-active:hidden">
-    //   {iconPosition === LEFT && renderIcon(colors.primary.DEFAULT)}
-    //   <Text color={colors.primary.DEFAULT}>{text}</Text>
-    //   {iconPosition === RIGHT && renderIcon(colors.primary.DEFAULT)}
-    // </div>
-    // const inputRef = useRef();
-
-    // useEffect(() => {
-    //   if (inputRef && inputRef.current && inputRef.current.value) {
-    //     inputRef.current.value = value;
-    //   }
-    // }, [value]);
-
     return (
       <div className={twMerge(clsx(isDisabled && 'opacity-50'), className)}>
         {/* Field label */}
-        <label htmlFor={name} className="block">
+        <label htmlFor={name} className={clsx('block', size === SMALL && '-mb-2')}>
           <Caption
             className={clsx(
               !isSuccess && 'text-label',
@@ -107,8 +76,11 @@ const Input: React.FC<InputProps> = ({
                 touched[name] &&
                 errors[name] &&
                 'border-error text-error caret-error-light3 selection:bg-error-light3 selection:bg-opacity-50 placeholder:text-error-light3 focus:border-error-dark3 focus:text-error-dark3',
-              'font-body border-b-4 w-full pl-7 pr-4 text-body1 not-italic',
-              'disabled:cursor-not-allowed',
+              size !== SMALL && 'text-body1 pr-4',
+              size === SMALL && 'text-body2 pr-3',
+              size !== SMALL && Icon && 'text-body1 pr-4 pl-7',
+              size === SMALL && Icon && 'text-body2 pr-3 pl-6',
+              'font-body border-b-4 w-full not-italic disabled:cursor-not-allowed',
             )}
             id={name}
             required={isRequired}
@@ -124,7 +96,7 @@ const Input: React.FC<InputProps> = ({
           {/* Clear input button */}
           <div className="group-focus-within:flex absolute inset-y-0 right-0 hidden items-center pl-1">
             <IconButton
-              size={12}
+              size={size === SMALL ? 8 : 12}
               icon={Cross}
               solid
               color={getIconColor()}
@@ -142,8 +114,14 @@ const Input: React.FC<InputProps> = ({
           </div>
           {/* Left icon */}
           {Icon && (
-            <div className="flex absolute inset-y-0 left-0 items-center pb-1">
-              <Icon isSelected={false} outlineColor={getIconColor()} fillColor={theme.colors.transparent} />
+            <div className={clsx(size !== SMALL && 'pb-1', 'flex absolute inset-y-0 left-0 items-center')}>
+              <Icon
+                width={size === SMALL ? 20 : 24}
+                height={size === SMALL ? 20 : 24}
+                isSelected={false}
+                outlineColor={getIconColor()}
+                fillColor={theme.colors.transparent}
+              />
             </div>
           )}
         </div>
