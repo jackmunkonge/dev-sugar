@@ -10,6 +10,7 @@ const IconButton: React.FC<IconButtonProps> = ({
   size = 56,
   icon: Icon,
   solid = false,
+  color,
   isLink = false,
   externalLink = '',
   isNavbarLink = false,
@@ -32,25 +33,25 @@ const IconButton: React.FC<IconButtonProps> = ({
 
   const renderDefault = () => (
     <div className="flex items-center justify-center group-hover:hidden group-focus:hidden group-active:hidden">
-      {renderIcon(colors.primary.DEFAULT)}
+      {renderIcon(color || colors.primary.DEFAULT)}
     </div>
   );
 
   const renderHover = () => (
     <div className="hidden items-center justify-center group-hover:flex group-focus:hidden group-active:hidden">
-      {renderIcon(colors.primary.dark3)}
+      {renderIcon(color || colors.primary.dark3)}
     </div>
   );
 
   const renderFocus = () => (
     <div className="hidden items-center justify-center group-hover:hidden group-focus:flex group-active:hidden">
-      {renderIcon(colors.info.dark)}
+      {renderIcon(color || colors.info.dark)}
     </div>
   );
 
   const renderActive = () => (
     <div className="hidden items-center justify-center group-hover:hidden group-focus:hidden group-active:flex">
-      {renderIcon(colors.primary.dark5)}
+      {renderIcon(color || colors.primary.dark5)}
     </div>
   );
 
@@ -62,7 +63,7 @@ const IconButton: React.FC<IconButtonProps> = ({
 
   const renderDisabled = () => (
     <div style={{ width: size, height: size }} className="flex items-center justify-center opacity-50">
-      {renderIcon(colors.primary.DEFAULT)}
+      {renderIcon(color || colors.primary.DEFAULT)}
     </div>
   );
 

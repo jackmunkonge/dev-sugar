@@ -1,4 +1,9 @@
-import React from 'react';
+'use client';
+
+import clsx from 'clsx';
+import { useFormikContext } from 'formik';
+import React, { useRef } from 'react';
+import { twMerge } from 'tailwind.config';
 
 import { Cross } from '@assets/icons';
 import { theme } from '@utils/globalConstants';
@@ -8,94 +13,115 @@ import { IconButton } from '../Buttons';
 import { Caption } from '../Typography';
 import { InputProps } from './types';
 
-// TODO: Make generic input (default and icon)
 const Input: React.FC<InputProps> = ({
-  id,
-  name = id,
+  className = '',
+  field,
+  form,
   type = 'text',
   placeholder = '',
   autoComplete = 'off',
   isFocusedOnLoad = false,
-  error = '',
-  ariaInvalid,
   label,
-  value = '',
   size = ComponentSize.LARGE,
   icon: Icon,
   isDisabled = false,
   isRequired = false,
+  isSuccess = false,
   clickHandler: inputClickHandler,
+  ...restProps
 }) => {
-  // const { SMALL, LARGE } = ComponentSize;
-  // const { colors } = theme;
+  const { name } = field;
+  const { touched, errors } = form;
+  const { SMALL } = ComponentSize;
 
-  //   const Text: React.FC<TextProps> = ({ children, color }) => {
-  //     if (size === ComponentSize.SMALL) {
-  //       return <Button2 color={color}>{children}</Button2>;
-  //     } else if (size === ComponentSize.MEDIUM) {
-  //       return <Button1 color={color}>{children}</Button1>;
-  //     }
-  //     return <Title6 color={color}>{children}</Title6>;
-  //   };
+  const { setFieldValue } = useFormikContext();
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  // const renderIcon = (color: string) => {
-  //   let iconSize;
-  //   if (size === SMALL) iconSize = BUTTON_ICON_SIZE_SMALL;
-  //   if (size === MEDIUM) iconSize = BUTTON_ICON_SIZE_MEDIUM;
-  //   if (size === LARGE) iconSize = BUTTON_ICON_SIZE_LARGE;
-  //   return Icon && <Icon width={iconSize} height={iconSize} outlineColor={color} fillColor={colors.transparent} />;
-  // };
+  const getIconColor = () => {
+    if (!isSuccess && touched[name] && errors[name]) {
+      return theme.colors.error.DEFAULT;
+    }
+    if (isSuccess) {
+      return theme.colors.success.DEFAULT;
+    }
+    return null;
+  };
 
   const renderDefault = () => {
-    // <div className="flex items-center justify-center group-hover:hidden group-focus:hidden group-active:hidden">
-    //   {iconPosition === LEFT && renderIcon(colors.primary.DEFAULT)}
-    //   <Text color={colors.primary.DEFAULT}>{text}</Text>
-    //   {iconPosition === RIGHT && renderIcon(colors.primary.DEFAULT)}
-    // </div>
-    // const inputRef = useRef();
-
-    // useEffect(() => {
-    //   if (inputRef && inputRef.current && inputRef.current.value) {
-    //     inputRef.current.value = value;
-    //   }
-    // }, [value]);
-
     return (
-      <div>
-        <label htmlFor={id} className="block">
-          <Caption color={theme.colors.label}>{label}</Caption>
+      <div className={twMerge(clsx(isDisabled && 'opacity-50'), className)}>
+        {/* Field label */}
+        <label htmlFor={name} className={clsx('block', size === SMALL && '-mb-2')}>
+          <Caption
+            className={clsx(
+              !isSuccess && 'text-label',
+              isSuccess && 'text-success',
+              !isSuccess && touched[name] && errors[name] && 'text-error',
+            )}
+          >
+            {label}
+          </Caption>
         </label>
-        <div className="relative">
-          {/* Clear input button */}
-          <span className="absolute inset-y-0 right-0 flex items-center pl-1">
-            <IconButton
-              size={12}
-              icon={Cross}
-              solid
-              buttonType="button"
-              ariaControlId={id}
-              srOnlyText="Clear input"
-              clickHandler={() => (value = '')}
-            />
-          </span>
+        <div className="relative group">
+          {/* Text input */}
           <input
-            // ref={inputRef}
-            id={id}
+            ref={inputRef}
+            className={clsx(
+              'bg-transparent',
+              !isSuccess &&
+                'border-primary text-primary caret-line selection:bg-line selection:bg-opacity-50 placeholder:text-line focus:border-primary-dark5 focus:text-primary-dark5',
+              isSuccess &&
+                'border-success text-success caret-success-light3 selection:bg-success-light3 selection:bg-opacity-50 placeholder:text-success-light3 focus:border-success-dark3 focus:text-success-dark3',
+              !isSuccess &&
+                touched[name] &&
+                errors[name] &&
+                'border-error text-error caret-error-light3 selection:bg-error-light3 selection:bg-opacity-50 placeholder:text-error-light3 focus:border-error-dark3 focus:text-error-dark3',
+              size !== SMALL && 'text-body1 pr-4',
+              size === SMALL && 'text-body2 pr-3',
+              size !== SMALL && Icon && 'text-body1 pr-4 pl-7',
+              size === SMALL && Icon && 'text-body2 pr-3 pl-6',
+              'font-body border-b-4 w-full not-italic disabled:cursor-not-allowed',
+            )}
+            id={name}
             required={isRequired}
             autoFocus={isFocusedOnLoad}
             name={name}
-            value={value}
             placeholder={placeholder}
             type={type}
             autoComplete={autoComplete}
-            aria-invalid={ariaInvalid}
-            aria-describedby="input-error"
-            className="font-default tracking-wide005 w-full border-b-4 border-primary bg-transparent pr-4 text-body1 font-normal not-italic text-primary caret-line selection:bg-line selection:bg-opacity-50 placeholder:text-line focus:border-primary-dark5 focus:text-primary-dark5"
             onClick={inputClickHandler}
+            disabled={isDisabled}
+            {...restProps}
           />
-          {error.length > 0 && (
-            <div className="pt-1" id="input-error">
-              <Caption color={theme.colors.error.DEFAULT}>{error}</Caption>
+          {/* Clear input button */}
+          <div className="group-focus-within:flex absolute inset-y-0 right-0 hidden items-center pl-1">
+            <IconButton
+              size={size === SMALL ? 8 : 12}
+              icon={Cross}
+              solid
+              color={getIconColor()}
+              buttonType="button"
+              ariaControlId={name}
+              srOnlyText="Clear input"
+              isDisabled={isDisabled}
+              clickHandler={() => {
+                setFieldValue(name, '', false);
+                if (inputRef.current) {
+                  inputRef.current.focus();
+                }
+              }}
+            />
+          </div>
+          {/* Left icon */}
+          {Icon && (
+            <div className={clsx(size !== SMALL && 'pb-1', 'flex absolute inset-y-0 left-0 items-center')}>
+              <Icon
+                width={size === SMALL ? 20 : 24}
+                height={size === SMALL ? 20 : 24}
+                isSelected={false}
+                outlineColor={getIconColor()}
+                fillColor={theme.colors.transparent}
+              />
             </div>
           )}
         </div>
@@ -103,53 +129,7 @@ const Input: React.FC<InputProps> = ({
     );
   };
 
-  // const renderHover = () => (
-  //   <div className="hidden items-center justify-center group-hover:flex group-focus:hidden group-active:hidden">
-  //     {iconPosition === LEFT && renderIcon(colors.primary.dark3)}
-  //     <Text color={colors.primary.dark3}>{text}</Text>
-  //     {iconPosition === RIGHT && renderIcon(colors.primary.dark3)}
-  //   </div>
-  // );
-
-  // const renderFocus = () => (
-  //   <div className="hidden items-center justify-center group-focus:flex group-active:hidden group-hover:hidden">
-  //     {iconPosition === LEFT && renderIcon(colors.info.dark)}
-  //     <Text color={colors.info.dark}>{text}</Text>
-  //     {iconPosition === RIGHT && renderIcon(colors.info.dark)}
-  //   </div>
-  // );
-
-  // const renderActive = () => (
-  //   <div className="hidden items-center justify-center group-active:flex group-focus:hidden group-hover:hidden">
-  //     {iconPosition === LEFT && renderIcon(colors.primary.dark5)}
-  //     <Text color={colors.primary.dark5}>{text}</Text>
-  //     {iconPosition === RIGHT && renderIcon(colors.primary.dark5)}
-  //   </div>
-  // );
-
-  // const renderLoading = () => (
-  //   <div className="flex items-center justify-center">
-  //     <Text color={colors.primary.dark5}>loading...</Text>
-  //   </div>
-  // );
-
-  // const renderDisabled = () => (
-  //   <div className="flex items-center justify-center opacity-50">
-  //     {iconPosition === LEFT && renderIcon(colors.primary.DEFAULT)}
-  //     <Text color={colors.primary.DEFAULT}>{text}</Text>
-  //     {iconPosition === RIGHT && renderIcon(colors.primary.DEFAULT)}
-  //   </div>
-  // );
-
-  // if (isLoading) {
-  //   return <>{renderLoading()}</>;
-  // }
-
-  // if (isDisabled) {
-  //   return <>{renderDisabled()}</>;
-  // }
-
-  return <>{renderDefault()}</>;
+  return renderDefault();
 };
 
 export default Input;

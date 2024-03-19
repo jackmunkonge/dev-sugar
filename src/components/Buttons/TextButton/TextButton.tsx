@@ -29,13 +29,13 @@ const TextButton: React.FC<ButtonProps> = ({
   const { SMALL, MEDIUM, LARGE } = ComponentSize;
   const { colors } = theme;
 
-  const Text: React.FC<ButtonTextProps> = ({ children, color }) => {
+  const Text: React.FC<ButtonTextProps> = ({ className = '', children }) => {
     if (size === ComponentSize.SMALL) {
-      return <Button2 color={color}>{children}</Button2>;
+      return <Button2 className={className}>{children}</Button2>;
     } else if (size === ComponentSize.MEDIUM) {
-      return <Button1 color={color}>{children}</Button1>;
+      return <Button1 className={className}>{children}</Button1>;
     }
-    return <Headline6 color={color}>{children}</Headline6>;
+    return <Headline6 className={className}>{children}</Headline6>;
   };
 
   const renderLeadIcon = (color: string) => {
@@ -61,7 +61,7 @@ const TextButton: React.FC<ButtonProps> = ({
   const renderDefault = () => (
     <div className="flex items-center justify-center group-hover:hidden group-focus:hidden group-active:hidden">
       {renderLeadIcon(colors.primary.DEFAULT)}
-      <Text color={colors.primary.DEFAULT}>{text}</Text>
+      <Text className="text-primary">{text}</Text>
       {renderTrailIcon(colors.primary.DEFAULT)}
     </div>
   );
@@ -69,37 +69,37 @@ const TextButton: React.FC<ButtonProps> = ({
   const renderHover = () => (
     <div className="hidden items-center justify-center group-hover:flex group-focus:hidden group-active:hidden">
       {renderLeadIcon(colors.primary.dark3)}
-      <Text color={colors.primary.dark3}>{text}</Text>
+      <Text className="text-primary-dark3">{text}</Text>
       {renderTrailIcon(colors.primary.dark3)}
     </div>
   );
 
   const renderFocus = () => (
     <div className="hidden items-center justify-center group-hover:hidden group-focus:flex group-active:hidden">
-      {renderLeadIcon(colors.info.dark)}
-      <Text color={colors.info.dark}>{text}</Text>
-      {renderTrailIcon(colors.info.dark)}
+      {renderLeadIcon(colors.info.DEFAULT)}
+      <Text className="text-info">{text}</Text>
+      {renderTrailIcon(colors.info.DEFAULT)}
     </div>
   );
 
   const renderActive = () => (
     <div className="hidden items-center justify-center group-hover:hidden group-focus:hidden group-active:flex">
       {renderLeadIcon(colors.primary.dark5)}
-      <Text color={colors.primary.dark5}>{text}</Text>
+      <Text className="text-primary-dark5">{text}</Text>
       {renderTrailIcon(colors.primary.dark5)}
     </div>
   );
 
   const renderLoading = () => (
     <div className="flex items-center justify-center">
-      <Text color={colors.primary.dark5}>loading...</Text>
+      <Text className="text-primary-dark5">loading...</Text>
     </div>
   );
 
   const renderDisabled = () => (
     <div className="flex items-center justify-center opacity-50">
       {renderLeadIcon(colors.primary.DEFAULT)}
-      <Text color={colors.primary.DEFAULT}>{text}</Text>
+      <Text className="text-primary">{text}</Text>
       {renderTrailIcon(colors.primary.DEFAULT)}
     </div>
   );

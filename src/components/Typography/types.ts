@@ -1,7 +1,6 @@
-import React from 'react';
-
 export type TypographyProps = {
-  children: React.ReactNode;
+  className?: string;
+  children: any;
   color?: string;
   selectable?: boolean;
 };

@@ -1,13 +1,12 @@
 import React from 'react';
-
-import { theme } from '@utils/globalConstants';
+import { twMerge } from 'tailwind.config';
 
 import { TypographyProps } from './types';
 
-const Title3: React.FC<TypographyProps> = ({ children, color = theme.colors.body, selectable = false }) => {
+const Title3: React.FC<TypographyProps> = ({ className = '', children, selectable = false }) => {
   const isSelectable = selectable ? 'select-auto' : 'select-none';
   return (
-    <span style={{ color: color }} className={`font-header text-headline3 not-italic ${isSelectable}`}>
+    <span className={twMerge(`text-body font-header text-headline3 not-italic ${isSelectable}`, className)}>
       {children}
     </span>
   );
