@@ -1,12 +1,23 @@
 'use client';
 
-import { Field, Form, Formik } from 'formik';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import * as Yup from 'yup';
+
+import { Caption } from '@components/Typography';
 
 import { Input } from '..';
 
+const Schema = Yup.object().shape({
+  categorySearchQuery: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
+});
+
 const TestForm: React.FC<any> = ({ className = '' }) => (
   <div className={className}>
-    <Formik initialValues={{ categorySearchQuery: '' }} onSubmit={(values, { setSubmitting }) => {}}>
+    <Formik
+      validationSchema={Schema}
+      initialValues={{ categorySearchQuery: '' }}
+      onSubmit={(values, { setSubmitting }) => {}}
+    >
       {({ handleChange, handleBlur, values }) => (
         <Form>
           <Field
@@ -21,6 +32,9 @@ const TestForm: React.FC<any> = ({ className = '' }) => (
             value={values.categorySearchQuery}
             component={Input}
           />
+          <ErrorMessage name="categorySearchQuery">
+            {(msg) => <Caption className="mt-1 text-error">{msg}</Caption>}
+          </ErrorMessage>
         </Form>
       )}
     </Formik>

@@ -36,6 +36,16 @@ const Input: React.FC<InputProps> = ({
   const { setFieldValue } = useFormikContext();
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const getCrossColor = () => {
+    if (!isSuccess && touched[name] && errors[name]) {
+      return theme.colors.error.DEFAULT;
+    }
+    if (isSuccess) {
+      return theme.colors.success.DEFAULT;
+    }
+    return null;
+  };
+
   // const { SMALL, LARGE } = ComponentSize;
 
   //   const Text: React.FC<TextProps> = ({ children, color }) => {
@@ -72,8 +82,16 @@ const Input: React.FC<InputProps> = ({
     return (
       <div className={twMerge(clsx(isDisabled && 'opacity-50'), className)}>
         {/* Field label */}
-        <label htmlFor={name} className="block pl-2">
-          <Caption className={clsx(!isSuccess && 'text-label', isSuccess && 'text-success')}>{label}</Caption>
+        <label htmlFor={name} className="block">
+          <Caption
+            className={clsx(
+              !isSuccess && 'text-label',
+              isSuccess && 'text-success',
+              !isSuccess && touched[name] && errors[name] && 'text-error',
+            )}
+          >
+            {label}
+          </Caption>
         </label>
         <div className="relative group">
           {/* Text input */}
@@ -84,8 +102,12 @@ const Input: React.FC<InputProps> = ({
               !isSuccess &&
                 'border-primary text-primary caret-line selection:bg-line selection:bg-opacity-50 placeholder:text-line focus:border-primary-dark5 focus:text-primary-dark5',
               isSuccess &&
-                'border-success text-success caret-success-light3 selection:bg-success-light3 selection:bg-opacity-50 placeholder:text-success-light3 focus:border-success-dark5 focus:text-success-dark5',
-              'font-body border-b-4 pl-2 w-full pr-4 text-body1 not-italic',
+                'border-success text-success caret-success-light3 selection:bg-success-light3 selection:bg-opacity-50 placeholder:text-success-light3 focus:border-success-dark3 focus:text-success-dark3',
+              !isSuccess &&
+                touched[name] &&
+                errors[name] &&
+                'border-error text-error caret-error-light3 selection:bg-error-light3 selection:bg-opacity-50 placeholder:text-error-light3 focus:border-error-dark3 focus:text-error-dark3',
+              'font-body border-b-4 w-full pr-4 text-body1 not-italic',
               'disabled:cursor-not-allowed',
             )}
             id={name}
@@ -99,19 +121,13 @@ const Input: React.FC<InputProps> = ({
             disabled={isDisabled}
             {...restProps}
           />
-          {/* Error text */}
-          {!isSuccess && touched[name] && errors[name] && typeof errors[name] === 'string' && (
-            <div className="pt-1" id="input-error">
-              <Caption className="text-error">{errors[name]}</Caption>
-            </div>
-          )}
           {/* Clear input button */}
           <span className="group-focus-within:flex absolute inset-y-0 right-0 hidden items-center pl-1">
             <IconButton
               size={12}
               icon={Cross}
               solid
-              color={isSuccess ? theme.colors.success.DEFAULT : null}
+              color={getCrossColor()}
               buttonType="button"
               ariaControlId={name}
               srOnlyText="Clear input"
