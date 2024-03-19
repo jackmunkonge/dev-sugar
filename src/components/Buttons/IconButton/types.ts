@@ -6,6 +6,7 @@ export type IconButtonProps = {
   size?: number;
   icon?: React.FC<IconProps>;
   solid?: boolean;
+  color?: string;
   externalLink?: string;
   isLink?: boolean;
   isNavbarLink?: boolean;

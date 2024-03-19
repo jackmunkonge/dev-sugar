@@ -17,7 +17,7 @@ export default function Index() {
           </span>
         </p>
 
-        <TestForm />
+        <TestForm className="px-48" />
       </header>
       <div className="flex-1 bg-secondary-light5 mt-2">
         <CategorySearch />

@@ -1,10 +1,12 @@
 'use client';
 
+import clsx from 'clsx';
 import { useFormikContext } from 'formik';
 import React, { useRef } from 'react';
 import { twMerge } from 'tailwind.config';
 
 import { Cross } from '@assets/icons';
+import { theme } from '@utils/globalConstants';
 import { ComponentSize } from '@utils/globalTypes';
 
 import { IconButton } from '../Buttons';
@@ -24,6 +26,7 @@ const Input: React.FC<InputProps> = ({
   icon: Icon,
   isDisabled = false,
   isRequired = false,
+  isSuccess = false,
   clickHandler: inputClickHandler,
   ...restProps
 }) => {
@@ -34,7 +37,6 @@ const Input: React.FC<InputProps> = ({
   const inputRef = useRef<HTMLInputElement>(null);
 
   // const { SMALL, LARGE } = ComponentSize;
-  // const { colors } = theme;
 
   //   const Text: React.FC<TextProps> = ({ children, color }) => {
   //     if (size === ComponentSize.SMALL) {
@@ -68,16 +70,24 @@ const Input: React.FC<InputProps> = ({
     // }, [value]);
 
     return (
-      <div className={twMerge('', className)}>
+      <div className={twMerge(clsx(isDisabled && 'opacity-50'), className)}>
         {/* Field label */}
         <label htmlFor={name} className="block pl-2">
-          <Caption className="text-label">{label}</Caption>
+          <Caption className={clsx(!isSuccess && 'text-label', isSuccess && 'text-success')}>{label}</Caption>
         </label>
         <div className="relative group">
           {/* Text input */}
           <input
             ref={inputRef}
-            className="font-body pl-2 w-full border-b-4 border-primary bg-transparent pr-4 text-body1 not-italic text-primary caret-line selection:bg-line selection:bg-opacity-50 placeholder:text-line focus:border-primary-dark5 focus:text-primary-dark5"
+            className={clsx(
+              'bg-transparent',
+              !isSuccess &&
+                'border-primary text-primary caret-line selection:bg-line selection:bg-opacity-50 placeholder:text-line focus:border-primary-dark5 focus:text-primary-dark5',
+              isSuccess &&
+                'border-success text-success caret-success-light3 selection:bg-success-light3 selection:bg-opacity-50 placeholder:text-success-light3 focus:border-success-dark5 focus:text-success-dark5',
+              'font-body border-b-4 pl-2 w-full pr-4 text-body1 not-italic',
+              'disabled:cursor-not-allowed',
+            )}
             id={name}
             required={isRequired}
             autoFocus={isFocusedOnLoad}
@@ -86,10 +96,11 @@ const Input: React.FC<InputProps> = ({
             type={type}
             autoComplete={autoComplete}
             onClick={inputClickHandler}
+            disabled={isDisabled}
             {...restProps}
           />
           {/* Error text */}
-          {touched[name] && errors[name] && typeof errors[name] === 'string' && (
+          {!isSuccess && touched[name] && errors[name] && typeof errors[name] === 'string' && (
             <div className="pt-1" id="input-error">
               <Caption className="text-error">{errors[name]}</Caption>
             </div>
@@ -100,9 +111,11 @@ const Input: React.FC<InputProps> = ({
               size={12}
               icon={Cross}
               solid
+              color={isSuccess ? theme.colors.success.DEFAULT : null}
               buttonType="button"
               ariaControlId={name}
               srOnlyText="Clear input"
+              isDisabled={isDisabled}
               clickHandler={() => {
                 setFieldValue(name, '', false);
                 if (inputRef.current) {
@@ -116,53 +129,7 @@ const Input: React.FC<InputProps> = ({
     );
   };
 
-  // const renderHover = () => (
-  //   <div className="hidden items-center justify-center group-hover:flex group-focus:hidden group-active:hidden">
-  //     {iconPosition === LEFT && renderIcon(colors.primary.dark3)}
-  //     <Text color={colors.primary.dark3}>{text}</Text>
-  //     {iconPosition === RIGHT && renderIcon(colors.primary.dark3)}
-  //   </div>
-  // );
-
-  // const renderFocus = () => (
-  //   <div className="hidden items-center justify-center group-focus:flex group-active:hidden group-hover:hidden">
-  //     {iconPosition === LEFT && renderIcon(colors.info.dark)}
-  //     <Text color={colors.info.dark}>{text}</Text>
-  //     {iconPosition === RIGHT && renderIcon(colors.info.dark)}
-  //   </div>
-  // );
-
-  // const renderActive = () => (
-  //   <div className="hidden items-center justify-center group-active:flex group-focus:hidden group-hover:hidden">
-  //     {iconPosition === LEFT && renderIcon(colors.primary.dark5)}
-  //     <Text color={colors.primary.dark5}>{text}</Text>
-  //     {iconPosition === RIGHT && renderIcon(colors.primary.dark5)}
-  //   </div>
-  // );
-
-  // const renderLoading = () => (
-  //   <div className="flex items-center justify-center">
-  //     <Text color={colors.primary.dark5}>loading...</Text>
-  //   </div>
-  // );
-
-  // const renderDisabled = () => (
-  //   <div className="flex items-center justify-center opacity-50">
-  //     {iconPosition === LEFT && renderIcon(colors.primary.DEFAULT)}
-  //     <Text color={colors.primary.DEFAULT}>{text}</Text>
-  //     {iconPosition === RIGHT && renderIcon(colors.primary.DEFAULT)}
-  //   </div>
-  // );
-
-  // if (isLoading) {
-  //   return <>{renderLoading()}</>;
-  // }
-
-  // if (isDisabled) {
-  //   return <>{renderDisabled()}</>;
-  // }
-
-  return <>{renderDefault()}</>;
+  return renderDefault();
 };
 
 export default Input;

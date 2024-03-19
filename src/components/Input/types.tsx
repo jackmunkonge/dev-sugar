@@ -17,6 +17,7 @@ export type InputProps = {
   icon?: React.FC<IconProps>;
   isDisabled?: boolean;
   isRequired?: boolean;
+  isSuccess?: boolean;
   clickHandler?: (event: React.MouseEvent<HTMLInputElement, MouseEvent>) => void;
   [restProps: string]: any;
 };
