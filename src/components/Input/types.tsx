@@ -5,6 +5,7 @@ import { IconProps } from '@assets/icons/types';
 import { ComponentSize } from '@utils/globalTypes';
 
 export type InputProps = {
+  className?: string;
   field: FieldInputProps<any>;
   form: FormikProps<any>;
   type?: HTMLInputTypeAttribute;

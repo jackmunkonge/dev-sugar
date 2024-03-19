@@ -62,12 +62,7 @@ export const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({
         type={buttonType}
         aria-controls={ariaControlId}
         aria-expanded={ariaExpanded}
-        onPointerDown={(e) => {
-          e.currentTarget.blur();
-        }}
-        onMouseUp={(e) => {
-          clickHandler(e);
-        }}
+        onClick={clickHandler}
         disabled={isDisabled}
       >
         {children}

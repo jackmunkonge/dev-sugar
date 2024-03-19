@@ -1,6 +1,8 @@
 'use client';
 
-import React from 'react';
+import { useFormikContext } from 'formik';
+import React, { useRef } from 'react';
+import { twMerge } from 'tailwind.config';
 
 import { Cross } from '@assets/icons';
 import { ComponentSize } from '@utils/globalTypes';
@@ -10,8 +12,9 @@ import { Caption } from '../Typography';
 import { InputProps } from './types';
 
 const Input: React.FC<InputProps> = ({
-  field: { name },
-  form: { touched, errors },
+  className = '',
+  field,
+  form,
   type = 'text',
   placeholder = '',
   autoComplete = 'off',
@@ -24,6 +27,12 @@ const Input: React.FC<InputProps> = ({
   clickHandler: inputClickHandler,
   ...restProps
 }) => {
+  const { name } = field;
+  const { touched, errors } = form;
+
+  const { setFieldValue } = useFormikContext();
+  const inputRef = useRef<HTMLInputElement>(null);
+
   // const { SMALL, LARGE } = ComponentSize;
   // const { colors } = theme;
 
@@ -59,25 +68,16 @@ const Input: React.FC<InputProps> = ({
     // }, [value]);
 
     return (
-      <div>
-        <label htmlFor={name} className="block">
+      <div className={twMerge('', className)}>
+        {/* Field label */}
+        <label htmlFor={name} className="block pl-2">
           <Caption className="text-label">{label}</Caption>
         </label>
-        <div className="relative">
-          {/* Clear input button */}
-          <span className="absolute inset-y-0 right-0 flex items-center pl-1">
-            <IconButton
-              size={12}
-              icon={Cross}
-              solid
-              buttonType="button"
-              ariaControlId={name}
-              srOnlyText="Clear input"
-              clickHandler={() => {}}
-            />
-          </span>
+        <div className="relative group">
+          {/* Text input */}
           <input
-            className="font-body w-full border-b-4 border-primary bg-transparent pr-4 text-body1 not-italic text-primary caret-line selection:bg-line selection:bg-opacity-50 placeholder:text-line focus:border-primary-dark5 focus:text-primary-dark5"
+            ref={inputRef}
+            className="font-body pl-2 w-full border-b-4 border-primary bg-transparent pr-4 text-body1 not-italic text-primary caret-line selection:bg-line selection:bg-opacity-50 placeholder:text-line focus:border-primary-dark5 focus:text-primary-dark5"
             id={name}
             required={isRequired}
             autoFocus={isFocusedOnLoad}
@@ -88,11 +88,29 @@ const Input: React.FC<InputProps> = ({
             onClick={inputClickHandler}
             {...restProps}
           />
+          {/* Error text */}
           {touched[name] && errors[name] && typeof errors[name] === 'string' && (
             <div className="pt-1" id="input-error">
               <Caption className="text-error">{errors[name]}</Caption>
             </div>
           )}
+          {/* Clear input button */}
+          <span className="group-focus-within:flex absolute inset-y-0 right-0 hidden items-center pl-1">
+            <IconButton
+              size={12}
+              icon={Cross}
+              solid
+              buttonType="button"
+              ariaControlId={name}
+              srOnlyText="Clear input"
+              clickHandler={() => {
+                setFieldValue(name, '', false);
+                if (inputRef.current) {
+                  inputRef.current.focus();
+                }
+              }}
+            />
+          </span>
         </div>
       </div>
     );

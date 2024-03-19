@@ -5,7 +5,7 @@ import { CategorySearch } from '@components/index';
 export default function Index() {
   return (
     <div className="flex flex-col">
-      <header className="px-2">
+      <header>
         <h1 className="text-center">
           <Headline5>the best learning resources for software devs</Headline5>
         </h1>
@@ -19,7 +19,7 @@ export default function Index() {
 
         <TestForm />
       </header>
-      <div className="flex-1 bg-secondary-light5">
+      <div className="flex-1 bg-secondary-light5 mt-2">
         <CategorySearch />
       </div>
     </div>
