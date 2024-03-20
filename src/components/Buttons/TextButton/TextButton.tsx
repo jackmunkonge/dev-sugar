@@ -37,7 +37,12 @@ const TextButton: React.FC<ButtonProps> = ({
   if (size === MEDIUM) buttonHeight = 'h-[56px]';
   if (size === SMALL) buttonHeight = 'h-[40px]';
 
-  const commonClass = twMerge(isFullWidth ? 'w-full' : buttonWidth, buttonHeight, contentClassName);
+  const commonClass = twMerge(
+    isFullWidth ? 'w-full' : buttonWidth,
+    buttonHeight,
+    contentClassName,
+    isDisabled && 'pointer-events-none',
+  );
 
   const Text: React.FC<ButtonTextProps> = ({ className = '', children }) => {
     let text = <Headline6 className={className}>{children}</Headline6>;
