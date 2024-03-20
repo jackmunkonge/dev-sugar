@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import React, { FC } from 'react';
+import { twMerge } from 'tailwind.config';
 
 import { BUTTON_ICON_SIZE_LARGE, BUTTON_ICON_SIZE_MEDIUM, BUTTON_ICON_SIZE_SMALL } from '@assets/icons/constants';
 import { Button1, Headline6 } from '@components/Typography';
@@ -64,7 +65,9 @@ const OutlineButton: React.FC<ButtonProps> = ({
         )}
       >
         {leadIcon && <ButtonIcon color={colors.primary.DEFAULT} icon={leadIcon} />}
-        <Text className="text-primary group-hover:text-primary-dark3 group-active:text-primary-dark5">{text}</Text>
+        <Text className="text-primary group-hover:text-primary-dark3 group-active:text-primary-dark5 text-ellipsis overflow-hidden">
+          {text}
+        </Text>
         {trailIcon && <ButtonIcon color={colors.primary.DEFAULT} icon={trailIcon} />}
       </div>
     );
@@ -77,7 +80,9 @@ const OutlineButton: React.FC<ButtonProps> = ({
         )}
       >
         {leadIcon && <ButtonIcon color={colors.primary.DEFAULT} icon={leadIcon} />}
-        <Text className="text-primary group-hover:text-primary-dark3 group-active:text-primary-dark5">{text}</Text>
+        <Text className="text-ellipsis overflow-hidden text-primary group-hover:text-primary-dark3 group-active:text-primary-dark5">
+          {text}
+        </Text>
         {trailIcon && <ButtonIcon color={colors.primary.DEFAULT} icon={trailIcon} />}
       </div>
     );
@@ -90,7 +95,9 @@ const OutlineButton: React.FC<ButtonProps> = ({
         )}
       >
         {leadIcon && <ButtonIcon color={colors.primary.DEFAULT} icon={leadIcon} />}
-        <Text className="text-primary group-hover:text-primary-dark3 group-active:text-primary-dark5">{text}</Text>
+        <Text className="text-ellipsis overflow-hidden text-primary group-hover:text-primary-dark3 group-active:text-primary-dark5">
+          {text}
+        </Text>
         {trailIcon && <ButtonIcon color={colors.primary.DEFAULT} icon={trailIcon} />}
       </div>
     );
@@ -103,7 +110,9 @@ const OutlineButton: React.FC<ButtonProps> = ({
         )}
       >
         {leadIcon && <ButtonIcon color={colors.primary.DEFAULT} icon={leadIcon} />}
-        <Text className="text-primary group-hover:text-primary-dark3 group-active:text-primary-dark5">{text}</Text>
+        <Text className="text-ellipsis overflow-hidden text-primary group-hover:text-primary-dark3 group-active:text-primary-dark5">
+          {text}
+        </Text>
         {trailIcon && <ButtonIcon color={colors.primary.DEFAULT} icon={trailIcon} />}
       </div>
     );
@@ -127,6 +136,8 @@ const OutlineButton: React.FC<ButtonProps> = ({
     let buttonHeight = 'h-16';
     if (size === MEDIUM) buttonHeight = 'h-[56px]';
     if (size === SMALL) buttonHeight = 'h-[40px]';
+    if (isLoading) outlineColor = twMerge(outlineColor, 'bg-primary-dark5');
+
     return (
       <div
         className={clsx(

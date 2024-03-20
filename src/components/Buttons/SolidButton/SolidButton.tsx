@@ -59,7 +59,7 @@ const SolidButton: React.FC<ButtonProps> = ({
     return (
       <div className={clsx('flex flex-row items-center justify-center', maxContentWidth)}>
         {leadIcon && <ButtonIcon color={colors.background} icon={leadIcon} />}
-        <Text className="text-background">{text}</Text>
+        <Text className="text-background text-ellipsis overflow-hidden">{text}</Text>
         {trailIcon && <ButtonIcon color={colors.background} icon={trailIcon} />}
       </div>
     );

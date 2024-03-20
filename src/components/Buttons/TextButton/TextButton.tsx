@@ -52,9 +52,7 @@ const TextButton: React.FC<ButtonProps> = ({
       text = <Button1 className={className}>{children}</Button1>;
     }
 
-    return (
-      <div className={clsx('flex w-fit items-center justify-center overflow-hidden whitespace-nowrap')}>{text}</div>
-    );
+    return <div className={clsx('flex w-fit items-center overflow-hidden whitespace-nowrap')}>{text}</div>;
   };
 
   const ButtonIcon: React.FC<any> = ({ color, icon: Icon }) => {
@@ -73,7 +71,7 @@ const TextButton: React.FC<ButtonProps> = ({
       )}
     >
       {leadIcon && <ButtonIcon color={colors.primary.DEFAULT} icon={leadIcon} />}
-      <Text className="text-primary">{text}</Text>
+      <Text className="text-primary text-ellipsis overflow-hidden">{text}</Text>
       {trailIcon && <ButtonIcon color={colors.primary.DEFAULT} icon={trailIcon} />}
     </div>
   );
@@ -86,7 +84,7 @@ const TextButton: React.FC<ButtonProps> = ({
       )}
     >
       {leadIcon && <ButtonIcon color={colors.primary.dark3} icon={leadIcon} />}
-      <Text className="text-primary-dark3">{text}</Text>
+      <Text className="text-primary-dark3 text-ellipsis overflow-hidden">{text}</Text>
       {trailIcon && <ButtonIcon color={colors.primary.dark3} icon={trailIcon} />}
     </div>
   );
@@ -98,9 +96,9 @@ const TextButton: React.FC<ButtonProps> = ({
         commonClass,
       )}
     >
-      {leadIcon && <ButtonIcon color={colors.info.DEFAULT} icon={leadIcon} />}
-      <Text className="text-info">{text}</Text>
-      {trailIcon && <ButtonIcon color={colors.info.DEFAULT} icon={trailIcon} />}
+      {leadIcon && <ButtonIcon color={colors.info.dark3} icon={leadIcon} />}
+      <Text className="text-info-dark3 text-ellipsis overflow-hidden">{text}</Text>
+      {trailIcon && <ButtonIcon color={colors.info.dark3} icon={trailIcon} />}
     </div>
   );
 
@@ -112,21 +110,21 @@ const TextButton: React.FC<ButtonProps> = ({
       )}
     >
       {leadIcon && <ButtonIcon color={colors.primary.dark5} icon={leadIcon} />}
-      <Text className="text-primary-dark5">{text}</Text>
+      <Text className="text-primary-dark5 text-ellipsis overflow-hidden">{text}</Text>
       {trailIcon && <ButtonIcon color={colors.primary.dark5} icon={trailIcon} />}
     </div>
   );
 
   const renderLoading = () => (
     <div className={clsx('flex items-center justify-center', commonClass)}>
-      <Text className="text-primary-dark5">loading...</Text>
+      <Text className="text-primary-dark5 text-ellipsis overflow-hidden">loading...</Text>
     </div>
   );
 
   const renderDisabled = () => (
     <div className={clsx('flex items-center justify-center opacity-50', commonClass)}>
       {leadIcon && <ButtonIcon color={colors.primary.DEFAULT} icon={leadIcon} />}
-      <Text className="text-primary">{text}</Text>
+      <Text className="text-primary text-ellipsis overflow-hidden">{text}</Text>
       {trailIcon && <ButtonIcon color={colors.primary.DEFAULT} icon={trailIcon} />}
     </div>
   );
