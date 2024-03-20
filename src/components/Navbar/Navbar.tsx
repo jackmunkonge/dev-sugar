@@ -17,6 +17,7 @@ const NavLinks = () => (
       {LINKS.map((link) => {
         return (
           <TextButton
+            contentClassName="w-fit"
             key={link.text}
             text={link.text}
             size={ComponentSize.MEDIUM}

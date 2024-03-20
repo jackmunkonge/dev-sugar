@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
+import { twMerge } from 'tailwind.config';
 
 import { BUTTON_ICON_SIZE_LARGE, BUTTON_ICON_SIZE_MEDIUM, BUTTON_ICON_SIZE_SMALL } from '@assets/icons/constants';
 import { Button1, Button2, Headline6 } from '@components/Typography';
@@ -11,6 +12,7 @@ import { ButtonProps, ButtonTextProps } from '../types';
 
 // TODO: Create breadcrumb component with all text sizes
 const TextButton: React.FC<ButtonProps> = ({
+  contentClassName = '',
   text,
   size = ComponentSize.LARGE,
   leadIcon,
@@ -35,7 +37,7 @@ const TextButton: React.FC<ButtonProps> = ({
   if (size === MEDIUM) buttonHeight = 'h-[56px]';
   if (size === SMALL) buttonHeight = 'h-[40px]';
 
-  const commonClass = clsx(isFullWidth ? 'w-full' : buttonWidth, buttonHeight);
+  const commonClass = twMerge(isFullWidth ? 'w-full' : buttonWidth, buttonHeight, contentClassName);
 
   const Text: React.FC<ButtonTextProps> = ({ className = '', children }) => {
     let text = <Headline6 className={className}>{children}</Headline6>;
@@ -46,7 +48,7 @@ const TextButton: React.FC<ButtonProps> = ({
     }
 
     return (
-      <div className={clsx('flex w-full items-center justify-center overflow-hidden whitespace-nowrap')}>{text}</div>
+      <div className={clsx('flex w-fit items-center justify-center overflow-hidden whitespace-nowrap')}>{text}</div>
     );
   };
 

@@ -39,9 +39,7 @@ const SolidButton: React.FC<ButtonProps> = ({
     if (size === ComponentSize.LARGE) text = <Headline6 className={className}>{children}</Headline6>;
 
     return (
-      <div className={clsx('flex w-full items-center overflow-hidden whitespace-nowrap', 'text-background')}>
-        {text}
-      </div>
+      <div className={clsx('flex w-fit items-center overflow-hidden whitespace-nowrap', 'text-background')}>{text}</div>
     );
   };
 
