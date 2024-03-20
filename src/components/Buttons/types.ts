@@ -5,6 +5,7 @@ import { ComponentSize } from '@utils/globalTypes';
 
 // Props
 export type ButtonProps = {
+  contentClassName?: string;
   text: string;
   size?: ComponentSize;
   leadIcon?: React.FC<IconProps>;

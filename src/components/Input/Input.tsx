@@ -18,7 +18,7 @@ const Input: React.FC<InputProps> = ({
   field,
   form,
   type = 'text',
-  placeholder = '',
+  placeholder = 'Type here...',
   autoComplete = 'off',
   isFocusedOnLoad = false,
   label,
@@ -34,7 +34,7 @@ const Input: React.FC<InputProps> = ({
   const { touched, errors } = form;
   const { SMALL } = ComponentSize;
 
-  const { setFieldValue } = useFormikContext();
+  const { setFieldValue, handleChange, handleBlur } = useFormikContext();
   const inputRef = useRef<HTMLInputElement>(null);
 
   const getIconColor = () => {
@@ -69,6 +69,7 @@ const Input: React.FC<InputProps> = ({
             className={clsx(
               'bg-transparent',
               !isSuccess &&
+                (!touched[name] || !errors[name]) &&
                 'border-primary text-primary caret-line selection:bg-line selection:bg-opacity-50 placeholder:text-line focus:border-primary-dark5 focus:text-primary-dark5',
               isSuccess &&
                 'border-success text-success caret-success-light3 selection:bg-success-light3 selection:bg-opacity-50 placeholder:text-success-light3 focus:border-success-dark3 focus:text-success-dark3',
@@ -90,6 +91,8 @@ const Input: React.FC<InputProps> = ({
             type={type}
             autoComplete={autoComplete}
             onClick={inputClickHandler}
+            onChange={handleChange}
+            onBlur={handleBlur}
             disabled={isDisabled}
             {...restProps}
           />

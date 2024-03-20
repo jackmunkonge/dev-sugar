@@ -5,7 +5,7 @@ import { twMerge } from 'tailwind.config';
 import { ButtonActionWrapperProps } from './types';
 
 export const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({
-  classNames = '',
+  className = '',
   children,
   isDisabled,
   isLoading,
@@ -28,7 +28,7 @@ export const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({
       isDisabled && 'opacity-50 pointer-events-none',
       isLoading && !isDisabled && 'pointer-events-none',
     ),
-    classNames,
+    className,
   );
 
   if (externalLink) {

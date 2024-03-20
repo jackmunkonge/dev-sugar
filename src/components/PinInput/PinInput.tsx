@@ -1,3 +1,5 @@
+'use client';
+
 import PinInputComponent from 'react-pin-input';
 
 import { theme } from '@utils/globalConstants';
