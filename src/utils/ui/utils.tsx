@@ -25,8 +25,8 @@ export const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({
     clsx(
       'group',
       isFullWidth ? 'w-full' : 'w-fit',
-      isDisabled && 'opacity-50 pointer-events-none',
-      isLoading && !isDisabled && 'pointer-events-none',
+      isDisabled && 'opacity-50',
+      (isLoading || isDisabled) && 'pointer-events-none',
     ),
     className,
   );

@@ -1,5 +1,5 @@
 import { Cross, Hamburger } from '@assets/icons';
-import { IconButton } from '@components/Buttons';
+import { IconOnlyButton } from '@components/Buttons';
 import { ariaControlIds } from '@components/constants';
 
 import { MobileMenuButtonProps } from './types';
@@ -10,7 +10,7 @@ const MobileMenuButton: React.FC<MobileMenuButtonProps> = ({ toggleMobileMenu, i
     toggleMobileMenu(!isMobileMenuOpen);
   };
   return (
-    <IconButton
+    <IconOnlyButton
       size={44}
       icon={isMobileMenuOpen ? Cross : Hamburger}
       buttonType="button"
