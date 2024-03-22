@@ -20,8 +20,8 @@ const TestForm: React.FC<any> = ({ className = '' }) => (
       {({ values }) => (
         <Form>
           <div className="flex flex-col space-y-2 items-start">
-            <TextButton text="Text" isLoading />
-            <TextButton text="Text" isDisabled />
+            <TextButton isFullWidth text="Text" isLoading />
+            <TextButton isFullWidth text="Text" isDisabled />
           </div>
         </Form>
       )}

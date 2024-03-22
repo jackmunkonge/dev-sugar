@@ -39,7 +39,7 @@ const TextButton: React.FC<ButtonProps> = ({
   if (size === SMALL) buttonHeight = 'h-[40px]';
 
   const commonClass = twMerge(
-    isFullWidth ? 'w-full' : buttonWidth,
+    isFullWidth ? buttonWidth : 'w-fit',
     buttonHeight,
     contentClassName,
     isDisabled && 'opacity-50',
