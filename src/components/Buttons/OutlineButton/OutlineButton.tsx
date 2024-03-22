@@ -14,8 +14,6 @@ import ButtonMiddle from './Components/ButtonMiddle';
 import ButtonRight from './Components/ButtonRight';
 import LoadingSpinner from './Components/LoadingSpinner';
 
-// TODO: solid and outline change colour for loading state
-
 const OutlineButton: React.FC<ButtonProps> = ({
   text,
   size = ComponentSize.LARGE,

@@ -4,9 +4,9 @@ import { Spinner } from '@assets/icons';
 import { theme } from '@utils/globalConstants';
 import { ButtonWrapper } from '@utils/ui/utils';
 
-import { IconButtonProps } from './types';
+import { IconButtonProps } from '../types';
 
-const IconButton: React.FC<IconButtonProps> = ({
+const IconOnlyButton: React.FC<IconButtonProps> = ({
   size = 56,
   icon: Icon,
   solid = false,
@@ -98,4 +98,4 @@ const IconButton: React.FC<IconButtonProps> = ({
   );
 };
 
-export default IconButton;
+export default IconOnlyButton;

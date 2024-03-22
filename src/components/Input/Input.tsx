@@ -9,7 +9,7 @@ import { Cross } from '@assets/icons';
 import { theme } from '@utils/globalConstants';
 import { ComponentSize } from '@utils/globalTypes';
 
-import { IconButton } from '../Buttons';
+import { IconOnlyButton } from '../Buttons';
 import { Caption } from '../Typography';
 import { InputProps } from './types';
 
@@ -98,7 +98,7 @@ const Input: React.FC<InputProps> = ({
           />
           {/* Clear input button */}
           <div className="group-focus-within:flex absolute inset-y-0 right-0 hidden items-center pl-1">
-            <IconButton
+            <IconOnlyButton
               size={size === SMALL ? 8 : 12}
               icon={Cross}
               solid

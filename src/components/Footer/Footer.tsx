@@ -1,14 +1,14 @@
 import { Twitter } from '@assets/icons';
 import { ComponentSize } from '@utils/globalTypes';
 
-import { IconButton, TextButton } from '../Buttons';
+import { IconOnlyButton, TextButton } from '../Buttons';
 import { Body2 } from '../Typography';
 
 const renderLeftContent = () => (
   <div className="flex h-full items-center justify-center px-3">
     {/* Socials */}
     <div className="flex flex-row space-x-3">
-      <IconButton solid size={22} icon={Twitter} externalLink="https://twitter.com/jackmunkonge" />
+      <IconOnlyButton solid size={22} icon={Twitter} externalLink="https://twitter.com/jackmunkonge" />
     </div>
     {/* Divider */}
     <div className="mx-3 hidden h-full border-r-[1px] border-line laptop:block"></div>
