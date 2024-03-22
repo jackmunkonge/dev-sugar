@@ -3,6 +3,7 @@ import React from 'react';
 import { twMerge } from 'tailwind.config';
 
 import { BUTTON_ICON_SIZE_LARGE, BUTTON_ICON_SIZE_MEDIUM, BUTTON_ICON_SIZE_SMALL } from '@assets/icons/constants';
+import AnimatedTextCharacter from '@components/AnimatedTextCharacter/AnimatedTextCharacter';
 import { Button1, Button2, Headline6 } from '@components/Typography';
 import { theme } from '@utils/globalConstants';
 import { ComponentSize } from '@utils/globalTypes';
@@ -118,7 +119,12 @@ const TextButton: React.FC<ButtonProps> = ({
 
   const renderLoading = () => (
     <div className={clsx('flex items-center justify-center', commonClass)}>
-      <Text className="text-primary-dark5 text-ellipsis overflow-hidden">loading...</Text>
+      <Text className="text-primary-dark5 text-ellipsis overflow-hidden">
+        <div className="flex items-center">
+          <span>loading</span>
+          <AnimatedTextCharacter text="..." />
+        </div>
+      </Text>
     </div>
   );
 
