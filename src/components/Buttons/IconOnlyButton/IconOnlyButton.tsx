@@ -56,13 +56,16 @@ const IconOnlyButton: React.FC<IconButtonProps> = ({
   );
 
   const renderLoading = () => (
-    <div style={{ width: size, height: size }} className="flex items-center justify-center">
+    <div style={{ width: size, height: size }} className="flex items-center justify-center pointer-events-none">
       <Spinner />
     </div>
   );
 
   const renderDisabled = () => (
-    <div style={{ width: size, height: size }} className="flex items-center justify-center opacity-50">
+    <div
+      style={{ width: size, height: size }}
+      className="flex items-center justify-center opacity-50 pointer-events-none"
+    >
       {renderIcon(color || colors.primary.DEFAULT)}
     </div>
   );

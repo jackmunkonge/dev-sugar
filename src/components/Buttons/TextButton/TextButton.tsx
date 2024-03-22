@@ -41,7 +41,8 @@ const TextButton: React.FC<ButtonProps> = ({
     isFullWidth ? 'w-full' : buttonWidth,
     buttonHeight,
     contentClassName,
-    isDisabled && 'pointer-events-none',
+    isDisabled && 'opacity-50',
+    (isDisabled || isLoading) && 'pointer-events-none',
   );
 
   const Text: React.FC<ButtonTextProps> = ({ className = '', children }) => {
@@ -122,7 +123,7 @@ const TextButton: React.FC<ButtonProps> = ({
   );
 
   const renderDisabled = () => (
-    <div className={clsx('flex items-center justify-center opacity-50', commonClass)}>
+    <div className={clsx('flex items-center justify-center', commonClass)}>
       {leadIcon && <ButtonIcon color={colors.primary.DEFAULT} icon={leadIcon} />}
       <Text className="text-primary text-ellipsis overflow-hidden">{text}</Text>
       {trailIcon && <ButtonIcon color={colors.primary.DEFAULT} icon={trailIcon} />}

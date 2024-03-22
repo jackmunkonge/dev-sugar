@@ -42,7 +42,7 @@ const SolidIconButton: React.FC<IconButtonProps> = ({
     lowlightColor = 'bg-primary-dark2 group-hover:bg-primary group-focus:bg-primary-dark1 group-active:bg-primary-dark3',
     fillColor = 'bg-primary group-hover:bg-primary-light2 group-focus:bg-primary group-active:bg-primary-dark3',
   }: any) => (
-    <div className={clsx('relative flex flex-row h-14 w-14', isDisabled && 'pointer-events-none opacity-50')}>
+    <div className={clsx('relative flex flex-row h-14 w-14')}>
       <ButtonLeft
         fullLowlightColor={fullLowlightColor}
         outlineColor={outlineColor}

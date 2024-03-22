@@ -137,14 +137,7 @@ const OutlineButton: React.FC<ButtonProps> = ({
     if (isLoading) outlineColor = twMerge(outlineColor, 'bg-primary-dark5');
 
     return (
-      <div
-        className={clsx(
-          'flex flex-row',
-          isFullWidth ? 'w-full' : buttonWidth,
-          buttonHeight,
-          isDisabled && 'pointer-events-none',
-        )}
-      >
+      <div className={clsx('flex flex-row', isFullWidth ? 'w-full' : buttonWidth, buttonHeight)}>
         <ButtonLeft
           size={size}
           fullLowlightColor={fullLowlightColor}

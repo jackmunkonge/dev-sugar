@@ -78,14 +78,7 @@ const SolidButton: React.FC<ButtonProps> = ({
     if (size === MEDIUM) buttonHeight = 'h-[56px]';
     if (size === SMALL) buttonHeight = 'h-[40px]';
     return (
-      <div
-        className={clsx(
-          'flex flex-row',
-          isFullWidth ? 'w-full' : buttonWidth,
-          buttonHeight,
-          isDisabled && 'pointer-events-none',
-        )}
-      >
+      <div className={clsx('flex flex-row', isFullWidth ? 'w-full' : buttonWidth, buttonHeight)}>
         <ButtonLeft
           size={size}
           fullLowlightColor={fullLowlightColor}
