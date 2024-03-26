@@ -333,24 +333,24 @@ const YellowJar: React.FC<CustomImageProps> = ({ width = 128, height = 160 }) =>
         <rect x="24" y="8" width="8" height="8" fill="#EBCEA1" />
         <rect x="16" y="8" width="8" height="8" fill="#EBCEA1" />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M16 24V32H8V40H0V144H8V152H16V160H112V152H120V144H128V40H120V32H112V24H104V32H112V40H120V144H112V152H16V144H8V40H16V32H24V24H16Z"
           fill="#9EA5A4"
-          fill-opacity="0.3"
+          fillOpacity="0.3"
         />
-        <rect x="104" y="24" width="8" height="8" fill="#9EA5A4" fill-opacity="0.4" />
-        <rect x="112" y="32" width="8" height="8" fill="#9EA5A4" fill-opacity="0.4" />
-        <rect x="120" y="40" width="8" height="40" fill="#9EA5A4" fill-opacity="0.4" />
-        <path d="M72 32V24H96V40H104V48H112V80H88V40H80V32H72Z" fill="#C4C4C4" fill-opacity="0.4" />
+        <rect x="104" y="24" width="8" height="8" fill="#9EA5A4" fillOpacity="0.4" />
+        <rect x="112" y="32" width="8" height="8" fill="#9EA5A4" fillOpacity="0.4" />
+        <rect x="120" y="40" width="8" height="40" fill="#9EA5A4" fillOpacity="0.4" />
+        <path d="M72 32V24H96V40H104V48H112V80H88V40H80V32H72Z" fill="#C4C4C4" fillOpacity="0.4" />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M112 92H104V108H96V116H32V108H24V92H16V136H24V144H104V136H112V92Z"
           fill="#C4C4C4"
-          fill-opacity="0.4"
+          fillOpacity="0.4"
         />
-        <path d="M104 24H24V32H16V40H8V144H16V152H112V144H120V40H112V32H104V24Z" fill="#C6CFCE" fill-opacity="0.1" />
+        <path d="M104 24H24V32H16V40H8V144H16V152H112V144H120V40H112V32H104V24Z" fill="#C6CFCE" fillOpacity="0.1" />
       </g>
     </g>
     <defs>
