@@ -3,6 +3,7 @@
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 
+import { BlueJar, BrownJar, EmptyJar, GreenJar, OrangeJar, PinkJar, RedJar, YellowJar } from '@assets/images/Jars';
 import { SolidButton } from '@components/Buttons';
 
 const Schema = Yup.object().shape({
@@ -21,6 +22,14 @@ const TestForm: React.FC<any> = ({ className = '' }) => (
         <Form>
           <div className="flex flex-col space-y-2 items-start">
             <SolidButton text="Solid" />
+            <EmptyJar />
+            <RedJar />
+            <OrangeJar />
+            <YellowJar />
+            <GreenJar />
+            <BlueJar />
+            <PinkJar />
+            <BrownJar />
           </div>
         </Form>
       )}
