@@ -2,9 +2,8 @@
 
 import clsx from 'clsx';
 import { Metadata, Viewport } from 'next';
-import Image from 'next/image';
 
-import sadJar from '@assets/images/SadJar.png';
+import { SadJar } from '@assets/images';
 import { Headline2, Headline3, Headline5 } from '@components/Typography';
 import { Footer, Navbar } from '@components/index';
 import { theme } from '@utils/globalConstants';
@@ -58,7 +57,7 @@ export default function NotFound() {
             </header>
 
             <div className="flex flex-1 items-center justify-center px-8">
-              <Image src={sadJar} width={500} height={500} alt={heading} />
+              <SadJar width={500} height={500} />
             </div>
           </div>
         </main>

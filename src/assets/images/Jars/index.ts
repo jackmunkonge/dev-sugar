@@ -1,0 +1,8 @@
+export { default as BlueJar } from './BlueJar';
+export { default as BrownJar } from './BrownJar';
+export { default as EmptyJar } from './EmptyJar';
+export { default as GreenJar } from './GreenJar';
+export { default as OrangeJar } from './OrangeJar';
+export { default as PinkJar } from './PinkJar';
+export { default as RedJar } from './RedJar';
+export { default as YellowJar } from './YellowJar';

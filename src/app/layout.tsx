@@ -30,12 +30,12 @@ const fonts = `
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={clsx(fonts, 'h-full')}>
-      <body className="relative min-h-screen bg-background font-body">
-        <header className="sticky inset-x-0 top-0 z-50">
+      <body className="relative min-h-screen bg-background font-body flex flex-col items-center">
+        <header className="sticky w-full inset-x-0 top-0 z-50">
           <Navbar />
         </header>
-        <main className="relative mx-auto mb-8 max-w-7xl flex-1 break-words py-6">{children}</main>
-        <footer className="fixed inset-x-0 bottom-0 w-full">
+        <main className={`relative mb-8 max-w-7xl w-full flex-1 break-words py-6`}>{children}</main>
+        <footer className="fixed flex inset-x-0 bottom-0 w-full">
           <Footer />
         </footer>
       </body>
