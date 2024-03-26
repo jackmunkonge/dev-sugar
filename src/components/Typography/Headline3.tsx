@@ -6,9 +6,9 @@ import { TypographyProps } from './types';
 const Title3: React.FC<TypographyProps> = ({ className = '', children, selectable = false }) => {
   const isSelectable = selectable ? 'select-auto' : 'select-none';
   return (
-    <span className={twMerge(`text-body font-header text-headline3 not-italic ${isSelectable}`, className)}>
+    <h3 className={twMerge(`text-body font-header text-headline3 not-italic ${isSelectable}`, className)}>
       {children}
-    </span>
+    </h3>
   );
 };
 

@@ -50,17 +50,15 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
         <main className="relative mx-auto mb-8 max-w-7xl flex-1 break-words py-6">
           <div className="flex flex-col">
             <header className="flex flex-1 items-end justify-center px-2 text-center">
-              <h1>
-                <div className="hidden laptop:block">
-                  <Headline2>{heading}</Headline2>
-                </div>
-                <div className="hidden tablet:block laptop:hidden">
-                  <Headline3>{heading}</Headline3>
-                </div>
-                <div className="tablet:hidden">
-                  <Headline5>{heading}</Headline5>
-                </div>
-              </h1>
+              <div className="hidden laptop:block">
+                <Headline2>{heading}</Headline2>
+              </div>
+              <div className="hidden tablet:block laptop:hidden">
+                <Headline3>{heading}</Headline3>
+              </div>
+              <div className="tablet:hidden">
+                <Headline5>{heading}</Headline5>
+              </div>
             </header>
 
             <div className="flex flex-1 items-center justify-center px-8">
@@ -68,15 +66,9 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
             </div>
 
             <div className="flex flex-1 items-start justify-center px-2 text-center">
-              <p className="hidden laptop:block">
-                <Headline4>{message}</Headline4>
-              </p>
-              <p className="hidden tablet:block laptop:hidden">
-                <Headline5>{message}</Headline5>
-              </p>
-              <p className="tablet:hidden">
-                <Body1>{message}</Body1>
-              </p>
+              <Headline4 className="hidden laptop:block">{message}</Headline4>
+              <Headline5 className="hidden tablet:block laptop:hidden">{message}</Headline5>
+              <Body1 className="tablet:hidden">{message}</Body1>
             </div>
 
             <div className="flex flex-1 items-start justify-center px-2">

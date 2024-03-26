@@ -1,28 +1,29 @@
-import TestForm from '@components/TestForm/TestForm';
-import { Body1, Headline5 } from '@components/Typography';
+import { Body1, Headline2, Headline5 } from '@components/Typography';
 import { CategorySearch } from '@components/index';
 
 export default function Index() {
-  return (
-    <div className="flex flex-col">
-      <header>
-        <h1 className="text-center">
-          <Headline5>the best learning resources for software devs</Headline5>
-        </h1>
-        <p className="flex flex-row items-center justify-center">
-          {/* TODO: Add real links counter */}
-          <Headline5 className="text-primary">26,344</Headline5>
-          <span className="ml-2">
-            <Body1>links and counting!</Body1>
-          </span>
-        </p>
-      </header>
-
-      <TestForm className="mt-2" />
-
-      <div className="flex-1 bg-secondary-light5 mt-2">
-        <CategorySearch />
+  const SiteIntro = () => (
+    <header>
+      <Headline5 className="text-center">the best learning resources for software devs</Headline5>
+      <div className="flex flex-row items-center justify-center space-x-2">
+        {/* TODO: Add real links counter */}
+        <Headline5 className="text-primary">26,344</Headline5>
+        <span>
+          <Body1>links and counting!</Body1>
+        </span>
       </div>
+    </header>
+  );
+
+  // TODO: Replace headline with breadcrumb component
+
+  return (
+    <div className="flex flex-col flex-1">
+      <SiteIntro />
+
+      <Headline2 className="text-primary-dark1">Categories</Headline2>
+
+      <CategorySearch className="bg-secondary-light5 mt-8" />
     </div>
   );
 }
