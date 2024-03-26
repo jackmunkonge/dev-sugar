@@ -16,9 +16,10 @@ export default function Index() {
             <Body1>links and counting!</Body1>
           </span>
         </p>
-
-        <TestForm />
       </header>
+
+      <TestForm className="mt-2" />
+
       <div className="flex-1 bg-secondary-light5 mt-2">
         <CategorySearch />
       </div>
