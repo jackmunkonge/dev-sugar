@@ -1,4 +1,5 @@
 export * as Buttons from './Buttons';
+export { default as CategoryJar } from './CategoryJar/CategoryJar';
 export { default as CategorySearch } from './CategorySearch/CategorySearch';
 export { default as FieldController } from './FieldController/FieldController';
 export { default as Footer } from './Footer/Footer';

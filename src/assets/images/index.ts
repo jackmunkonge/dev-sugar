@@ -1,3 +1,3 @@
-export { default as SadJar } from './SadJar';
-export { default as EmptySticker } from './EmptySticker';
+export { default as JarSticker } from './JarSticker';
 export * as Jars from './Jars';
+export { default as SadJar } from './SadJar';

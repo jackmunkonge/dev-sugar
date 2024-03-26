@@ -2,9 +2,9 @@ import * as React from 'react';
 
 import { CustomImageProps } from './types';
 
-const EmptySticker: React.FC<CustomImageProps> = ({ width = 104, height = 72 }) => (
+const JarSticker: React.FC<CustomImageProps> = ({ width = 104, height = 72 }) => (
   <svg width={width} height={height} viewBox="0 0 104 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#empty_sticker)">
+    <g clip-path="url(#jar_sticker)">
       <path d="M8 0V4H4V8H0V64H4V68H8V72H96V68H100V64H104V8H100V4H96V0H8Z" fill="#F7F6EF" />
       <path
         fillRule="evenodd"
@@ -20,11 +20,11 @@ const EmptySticker: React.FC<CustomImageProps> = ({ width = 104, height = 72 }) 
       />
     </g>
     <defs>
-      <clipPath id="empty_sticker">
+      <clipPath id="jar_sticker">
         <rect width={width} height={height} fill="white" />
       </clipPath>
     </defs>
   </svg>
 );
 
-export default EmptySticker;
+export default JarSticker;
