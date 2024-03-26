@@ -2,10 +2,9 @@
 
 import clsx from 'clsx';
 import { Metadata, Viewport } from 'next';
-import Image from 'next/image';
 import { useEffect } from 'react';
 
-import sadJar from '@assets/images/SadJar.png';
+import { SadJar } from '@assets/images';
 import { Body1, Headline2, Headline3, Headline4, Headline5 } from '@components/Typography';
 import { Footer, Navbar } from '@components/index';
 import { theme } from '@utils/globalConstants';
@@ -65,7 +64,7 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
             </header>
 
             <div className="flex flex-1 items-center justify-center px-8">
-              <Image src={sadJar} width={500} height={500} alt={heading} />
+              <SadJar width={500} height={500} />
             </div>
 
             <div className="flex flex-1 items-start justify-center px-2 text-center">
