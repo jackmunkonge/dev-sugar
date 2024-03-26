@@ -36,7 +36,7 @@ const renderRightContent = () => {
 };
 
 const Footer = () => (
-  <div className="flex h-8 items-center justify-between border-t-2 border-line border-opacity-30 bg-input px-4 py-2">
+  <div className="flex h-8 w-full items-center justify-between border-t-2 border-line border-opacity-30 bg-input px-4 py-2">
     {renderLeftContent()}
     {renderCenterContent()}
     {renderRightContent()}
