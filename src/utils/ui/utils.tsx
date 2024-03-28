@@ -33,25 +33,27 @@ export const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({
 
   if (externalLink) {
     return (
-      <a href={externalLink} target="_blank">
-        {children}
-      </a>
+      <div className={styles}>
+        <a href={externalLink} target="_blank">
+          {children}
+        </a>
+      </div>
     );
   }
 
   if (isNavbarLink) {
     return (
-      <Link className={styles} href={pathName}>
-        {children}
-      </Link>
+      <div className={styles}>
+        <Link href={pathName}>{children}</Link>
+      </div>
     );
   }
 
   if (isLink) {
     return (
-      <Link className={styles} href={pathName}>
-        {children}
-      </Link>
+      <div className={styles}>
+        <Link href={pathName}>{children}</Link>
+      </div>
     );
   }
 

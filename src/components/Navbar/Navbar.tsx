@@ -23,6 +23,7 @@ const NavLinks = () => (
             size={ComponentSize.MEDIUM}
             leadIcon={link.icon}
             isNavbarLink
+            isIconFilled
             pathName={link.path}
           />
         );
