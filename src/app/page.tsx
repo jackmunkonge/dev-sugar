@@ -1,4 +1,4 @@
-import { Body1, Headline2, Headline5 } from '@components/Typography';
+import { Body1, Headline5 } from '@components/Typography';
 import { CategorySearch } from '@components/index';
 
 export default function Index() {
@@ -15,15 +15,11 @@ export default function Index() {
     </header>
   );
 
-  // TODO: Replace headline with breadcrumb component
-
   return (
     <div className="flex flex-col flex-1">
       <SiteIntro />
 
-      <Headline2 className="text-primary-dark1">Categories</Headline2>
-
-      <CategorySearch className="bg-secondary-light5 mt-8" />
+      <CategorySearch className="border border-secondary-light5 mt-8" />
     </div>
   );
 }
