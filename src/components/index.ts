@@ -1,3 +1,4 @@
+export { default as ButtonWrapper } from './ButtonWrapper/ButtonWrapper';
 export * as Buttons from './Buttons';
 export { default as CategoryJar } from './CategoryJar/CategoryJar';
 export { default as CategorySearch } from './CategorySearch/CategorySearch';

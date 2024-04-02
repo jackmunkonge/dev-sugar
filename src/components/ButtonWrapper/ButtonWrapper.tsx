@@ -1,10 +1,13 @@
+'use client';
+
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { twMerge } from 'tailwind.config';
 
 import { ButtonActionWrapperProps } from './types';
 
-export const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({
+const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({
   className = '',
   children,
   isDisabled = false,
@@ -19,8 +22,8 @@ export const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({
   ariaControlId,
   ariaExpanded,
   clickHandler = () => {},
+  ...restProps
 }) => {
-  'use client';
   const styles = twMerge(
     clsx(
       'group',
@@ -33,47 +36,50 @@ export const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({
 
   if (externalLink) {
     return (
-      <div className={styles}>
+      <motion.div className={styles} {...restProps}>
         <a href={externalLink} target="_blank">
           {children}
         </a>
-      </div>
+      </motion.div>
     );
   }
 
   if (isNavbarLink) {
     return (
-      <div className={styles}>
+      <motion.div className={styles} {...restProps}>
         <Link href={pathName}>{children}</Link>
-      </div>
+      </motion.div>
     );
   }
 
   if (isLink) {
     return (
-      <div className={styles}>
+      <motion.div className={styles} {...restProps}>
         <Link href={pathName}>{children}</Link>
-      </div>
+      </motion.div>
     );
   }
 
   if (buttonType === 'button') {
     return (
-      <button
+      <motion.button
         className={styles}
         type={buttonType}
         aria-controls={ariaControlId}
         aria-expanded={ariaExpanded}
         onClick={clickHandler}
         disabled={isDisabled}
+        {...restProps}
       >
         {children}
-      </button>
+      </motion.button>
     );
   }
   return (
-    <button className={styles} type={buttonType} disabled={isDisabled}>
+    <motion.button className={styles} type={buttonType} disabled={isDisabled} {...restProps}>
       {children}
-    </button>
+    </motion.button>
   );
 };
+
+export default ButtonWrapper;

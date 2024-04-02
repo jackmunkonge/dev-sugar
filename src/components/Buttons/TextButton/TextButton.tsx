@@ -5,9 +5,9 @@ import { twMerge } from 'tailwind.config';
 import { BUTTON_ICON_SIZE_LARGE, BUTTON_ICON_SIZE_MEDIUM, BUTTON_ICON_SIZE_SMALL } from '@assets/icons/constants';
 import AnimatedTextCharacter from '@components/AnimatedTextCharacter/AnimatedTextCharacter';
 import { Button1, Button2, Headline6 } from '@components/Typography';
+import { ButtonWrapper } from '@components/index';
 import { theme } from '@utils/globalConstants';
 import { ComponentSize } from '@utils/globalTypes';
-import { ButtonWrapper } from '@utils/ui/utils';
 
 import { ButtonProps, ButtonTextProps } from '../types';
 

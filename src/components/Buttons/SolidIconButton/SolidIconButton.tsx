@@ -2,8 +2,8 @@ import clsx from 'clsx';
 import React from 'react';
 
 import { Spinner } from '@assets/icons';
+import { ButtonWrapper } from '@components/index';
 import { theme } from '@utils/globalConstants';
-import { ButtonWrapper } from '@utils/ui/utils';
 
 import { IconButtonProps } from '../types';
 import ButtonLeft from './Components/ButtonLeft';

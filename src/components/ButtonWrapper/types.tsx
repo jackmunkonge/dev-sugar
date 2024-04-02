@@ -15,4 +15,5 @@ export type ButtonActionWrapperProps = {
   buttonType?: ButtonActionType;
   ariaControlId?: string;
   ariaExpanded?: boolean;
+  [restProps: string]: any;
 };
