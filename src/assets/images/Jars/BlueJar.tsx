@@ -4,8 +4,8 @@ import { CustomImageProps } from '../types';
 
 const BlueJar: React.FC<CustomImageProps> = ({ width = 128, height = 160 }) => (
   <svg width={width} height={height} viewBox="0 0 128 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#blue_jar)">
-      <g clip-path="url(#blue_jar)">
+    <g clipPath="url(#blue_jar)">
+      <g clipPath="url(#blue_jar)">
         <path d="M8 80H120V144H8V80Z" fill="#A5B8FC" />
         <path d="M16 144H112V152H16V144Z" fill="#A5B8FC" />
         <rect x="44" y="88" width="8" height="4" fill="#A8D3F2" />

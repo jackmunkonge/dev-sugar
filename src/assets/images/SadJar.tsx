@@ -5,8 +5,8 @@ import { CustomImageProps } from './types';
 const SadJar: React.FC<CustomImageProps> = ({ width = 300, height = 300 }) => (
   <svg width={width} height={height} viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
     <ellipse opacity="0.2" cx="150" cy="220" rx="146" ry="44" fill="#BFB3A4" />
-    <g clip-path="url(#clip0_768_120975)">
-      <g clip-path="url(#clip1_768_120975)">
+    <g clipPath="url(#clip0_768_120975)">
+      <g clipPath="url(#clip1_768_120975)">
         <rect x="203.844" y="70.5415" width="8" height="8" transform="rotate(6.97481 203.844 70.5415)" fill="#806D4F" />
         <rect x="202.873" y="78.4824" width="8" height="8" transform="rotate(6.97481 202.873 78.4824)" fill="#806D4F" />
         <rect x="194.932" y="77.5107" width="8" height="8" transform="rotate(6.97481 194.932 77.5107)" fill="#806D4F" />
