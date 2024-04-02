@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import type { Metadata, Viewport } from 'next';
 
 import { Footer, Navbar } from '@components/index';
-import { theme } from '@utils/globalConstants';
+import { CONTENT_HEIGHT, theme } from '@utils/globalConstants';
 
 import '../styles/globals.css';
 import { arcadeFill, arcadeOutline, pixelBody, pixelCaps, pixelHeader, pixelMono } from './fonts';
@@ -30,12 +30,16 @@ const fonts = `
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={clsx(fonts, 'h-full')}>
-      <body className="relative min-h-screen bg-background font-body flex flex-col items-center">
-        <header className="sticky w-full inset-x-0 top-0 z-50">
+      <body className="relative h-screen w-full bg-background font-body flex flex-col items-center overflow-hidden m-0">
+        <header className="w-full">
           <Navbar />
         </header>
-        <main className={`relative mb-8 max-w-7xl w-full flex-1 flex break-words py-6`}>{children}</main>
-        <footer className="fixed flex inset-x-0 bottom-0 w-full">
+        <main
+          className={`relative mb-8 max-w-7xl w-full flex-1 ${CONTENT_HEIGHT} overflow-hidden flex break-words py-6`}
+        >
+          {children}
+        </main>
+        <footer className="w-full">
           <Footer />
         </footer>
       </body>
