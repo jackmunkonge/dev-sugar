@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import { SadJar } from '@assets/images';
 import { Body1, Headline2, Headline3, Headline4, Headline5 } from '@components/Typography';
 import { Footer, Navbar } from '@components/index';
-import { theme } from '@utils/globalConstants';
+import { CONTENT_HEIGHT, theme } from '@utils/globalConstants';
 
 import { arcadeFill, arcadeOutline, pixelBody, pixelCaps, pixelHeader, pixelMono } from './fonts';
 
@@ -42,12 +42,14 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
 
   return (
     <html lang="en" className={clsx(fonts, 'h-full')}>
-      <body className="relative min-h-screen bg-background font-body">
-        <header className="sticky inset-x-0 top-0 z-50">
+      <body className="relative h-screen w-full bg-background font-body flex flex-col items-center overflow-hidden m-0">
+        <header className="w-full">
           <Navbar isNavigational={false} />
         </header>
 
-        <main className="relative mx-auto mb-8 max-w-7xl flex-1 break-words py-6">
+        <main
+          className={`relative mb-8 max-w-7xl w-full flex-1 ${CONTENT_HEIGHT} overflow-hidden flex break-words py-6`}
+        >
           <div className="flex flex-col">
             <header className="flex flex-1 items-end justify-center px-2 text-center">
               <div className="hidden laptop:block">
@@ -77,7 +79,7 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
           </div>
         </main>
 
-        <footer className="fixed inset-x-0 bottom-0">
+        <footer className="w-full">
           <Footer />
         </footer>
       </body>
