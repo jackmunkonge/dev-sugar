@@ -18,8 +18,7 @@ export default function Index() {
   return (
     <div className="flex flex-col flex-1">
       <SiteIntro />
-
-      <CategorySearch className="border border-secondary-light5 mt-8" />
+      <CategorySearch className="mt-8" />
     </div>
   );
 }

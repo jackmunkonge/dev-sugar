@@ -40,23 +40,136 @@ const SearchBar: React.FC<any> = ({ className = '' }) => (
   </div>
 );
 
+const JarGrid: React.FC<any> = ({ className = '' }) => (
+  <div
+    className={twMerge(
+      className,
+      'grid grid-cols-2 tablet:grid-cols-4 desktop:grid-cols-7',
+      'overflow-y-scroll overflow-x-hidden',
+    )}
+  >
+    <ButtonWrapper
+      className="p-2"
+      isDisabled={false}
+      isLoading={false}
+      isFullWidth={false}
+      pathName="/"
+      clickHandler={() => {}}
+      whileHover={{ scale: 1.1 }}
+    >
+      <CategoryJar color={JarColor.BLUE} stickerText="React" />
+    </ButtonWrapper>
+
+    <ButtonWrapper
+      className="p-2"
+      isDisabled={false}
+      isLoading={false}
+      isFullWidth={false}
+      pathName="/"
+      clickHandler={() => {}}
+      whileHover={{ scale: 1.1 }}
+    >
+      <CategoryJar color={JarColor.BLUE} stickerText="React" />
+    </ButtonWrapper>
+
+    <ButtonWrapper
+      className="p-2"
+      isDisabled={false}
+      isLoading={false}
+      isFullWidth={false}
+      pathName="/"
+      clickHandler={() => {}}
+      whileHover={{ scale: 1.1 }}
+    >
+      <CategoryJar color={JarColor.BLUE} stickerText="React" />
+    </ButtonWrapper>
+
+    <ButtonWrapper
+      className="p-2"
+      isDisabled={false}
+      isLoading={false}
+      isFullWidth={false}
+      pathName="/"
+      clickHandler={() => {}}
+      whileHover={{ scale: 1.1 }}
+    >
+      <CategoryJar color={JarColor.BLUE} stickerText="React" />
+    </ButtonWrapper>
+
+    <ButtonWrapper
+      className="p-2"
+      isDisabled={false}
+      isLoading={false}
+      isFullWidth={false}
+      pathName="/"
+      clickHandler={() => {}}
+      whileHover={{ scale: 1.1 }}
+    >
+      <CategoryJar color={JarColor.BLUE} stickerText="React" />
+    </ButtonWrapper>
+
+    <ButtonWrapper
+      className="p-2"
+      isDisabled={false}
+      isLoading={false}
+      isFullWidth={false}
+      pathName="/"
+      clickHandler={() => {}}
+      whileHover={{ scale: 1.1 }}
+    >
+      <CategoryJar color={JarColor.BLUE} stickerText="React" />
+    </ButtonWrapper>
+
+    <ButtonWrapper
+      className="p-2"
+      isDisabled={false}
+      isLoading={false}
+      isFullWidth={false}
+      pathName="/"
+      clickHandler={() => {}}
+      whileHover={{ scale: 1.1 }}
+    >
+      <CategoryJar color={JarColor.BLUE} stickerText="React" />
+    </ButtonWrapper>
+
+    <ButtonWrapper
+      className="p-2"
+      isDisabled={false}
+      isLoading={false}
+      isFullWidth={false}
+      pathName="/"
+      clickHandler={() => {}}
+      whileHover={{ scale: 1.1 }}
+    >
+      <CategoryJar color={JarColor.BLUE} stickerText="React" />
+    </ButtonWrapper>
+
+    <ButtonWrapper
+      className="p-2"
+      isDisabled={false}
+      isLoading={false}
+      isFullWidth={false}
+      pathName="/"
+      clickHandler={() => {}}
+      whileHover={{ scale: 1.1 }}
+    >
+      <CategoryJar color={JarColor.BLUE} stickerText="React" />
+    </ButtonWrapper>
+  </div>
+);
+
+// TODO: Use library to make text dynamic sized
+
 const CategorySearch: React.FC<CategorySearchProps> = ({ className = '' }) => {
   return (
-    <div className={twMerge(className, 'flex-1 flex flex-col')}>
-      <Headline2>Categories</Headline2>
+    <div className={twMerge(className, 'flex flex-col overflow-hidden')}>
+      <Headline2 className="hidden desktop:block px-2">Categories</Headline2>
 
-      <SearchBar className="mt-8 w-[220px]" />
+      <div className="mt-8 w-full flex justify-center desktop:w-fit ml-2">
+        <SearchBar className="w-full px-4 tablet:px-40 desktop:px-0 desktop:w-[220px]" />
+      </div>
 
-      <ButtonWrapper
-        isDisabled={false}
-        isLoading={false}
-        isFullWidth={false}
-        pathName="/"
-        clickHandler={() => {}}
-        whileHover={{ scale: 1.1 }}
-      >
-        <CategoryJar color={JarColor.BLUE} stickerText="React" />
-      </ButtonWrapper>
+      <JarGrid className="mt-6 p-2" />
     </div>
   );
 };
