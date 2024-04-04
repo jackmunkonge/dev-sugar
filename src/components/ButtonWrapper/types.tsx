@@ -11,7 +11,7 @@ export type ButtonActionWrapperProps = {
   isLink?: boolean;
   clickHandler?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   searchParams?: URLSearchParams;
-  pathName: string;
+  pathName?: string;
   buttonType?: ButtonActionType;
   ariaControlId?: string;
   ariaExpanded?: boolean;

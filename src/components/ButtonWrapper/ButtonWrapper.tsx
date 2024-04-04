@@ -44,7 +44,7 @@ const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({
     );
   }
 
-  if (isNavbarLink) {
+  if (isNavbarLink && pathName) {
     return (
       <motion.div className={styles} {...restProps}>
         <Link href={pathName}>{children}</Link>
@@ -52,7 +52,7 @@ const ButtonWrapper: React.FC<ButtonActionWrapperProps> = ({
     );
   }
 
-  if (isLink) {
+  if (isLink && pathName) {
     return (
       <motion.div className={styles} {...restProps}>
         <Link href={pathName}>{children}</Link>
