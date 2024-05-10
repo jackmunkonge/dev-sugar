@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "React",
+    "color": 1,
+    "subcategories": []
+  },
+  {
+    "id": 2,
+    "name": "JavaScript",
+    "color": 2,
+    "subcategories": []
+  },
+  {
+    "id": 3,
+    "name": "TypeScript",
+    "color": 3,
+    "subcategories": []
+  },
+  {
+    "id": 4,
+    "name": "Figma",
+    "color": 4,
+    "subcategories": []
+  },
+  {
+    "id": 5,
+    "name": "Git",
+    "color": 5,
+    "subcategories": []
+  },
+  {
+    "id": 6,
+    "name": "React Native",
+    "color": 6,
+    "subcategories": []
+  },
+  {
+    "id": 7,
+    "name": "HTML",
+    "color": 7,
+    "subcategories": []
+  },
+  {
+    "id": 8,
+    "name": "CSS",
+    "color": 7,
+    "subcategories": []
+  }
+]
