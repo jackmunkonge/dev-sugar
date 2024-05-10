@@ -3,7 +3,17 @@
 import { twMerge } from 'tailwind.config';
 
 import { JarSticker } from '@assets/images';
-import { BlueJar, BrownJar, EmptyJar, GreenJar, OrangeJar, PinkJar, RedJar, YellowJar } from '@assets/images/Jars';
+import {
+  BlueJar,
+  BrownJar,
+  EmptyJar,
+  GreenJar,
+  OrangeJar,
+  PinkJar,
+  RedJar,
+  SilverJar,
+  YellowJar,
+} from '@assets/images/Jars';
 import { Body1, Body2 } from '@components/Typography';
 
 import { CategoryJarProps, JarColor } from './types';
@@ -35,6 +45,9 @@ const CategoryJar: React.FC<CategoryJarProps> = ({ className = '', color = JarCo
       break;
     case JarColor.BROWN:
       Jar = BrownJar;
+      break;
+    case JarColor.SILVER:
+      Jar = SilverJar;
       break;
     default:
       break;
