@@ -3,8 +3,8 @@ import { CategorySearch } from '@components/index';
 import { HOME_PAGE_MOTTO_1, HOME_PAGE_MOTTO_2, TOTAL_LINKS } from '@utils/globalConstants';
 
 export default function Index() {
-  const SiteIntro = () => (
-    <header>
+  const SiteIntro = ({ className = '' }) => (
+    <header className={className}>
       <Headline5 className="text-center">{HOME_PAGE_MOTTO_1}</Headline5>
       <div className="flex flex-row items-center justify-center space-x-2">
         <Headline5 className="text-primary">{TOTAL_LINKS.toLocaleString()}</Headline5>
@@ -17,7 +17,7 @@ export default function Index() {
 
   return (
     <div className="flex flex-col flex-1">
-      <SiteIntro />
+      <SiteIntro className="px-2" />
       <CategorySearch className="mt-8" />
     </div>
   );

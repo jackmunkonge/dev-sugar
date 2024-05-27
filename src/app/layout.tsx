@@ -36,7 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Navbar />
         </header>
         <main
-          className={`relative mb-8 max-w-7xl w-full flex-1 ${CONTENT_HEIGHT} overflow-hidden flex break-words py-6`}
+          className={`relative mb-0 tablet:mb-8 max-w-7xl w-full flex-1 ${CONTENT_HEIGHT} overflow-hidden flex break-words py-2 tablet:py-6`}
         >
           {children}
         </main>
