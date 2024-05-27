@@ -1,6 +1,7 @@
 'use client';
 
 import { Field, Form, Formik } from 'formik';
+import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 import { twMerge } from 'tailwind.config';
 import * as Yup from 'yup';
 
@@ -41,27 +42,27 @@ const SearchBar: React.FC<any> = ({ className = '' }) => (
 );
 
 const JarGrid: React.FC<any> = ({ className = '' }) => (
-  <div
-    className={twMerge(
-      className,
-      'grid grid-cols-2 tablet:grid-cols-4 desktop:grid-cols-4',
-      'overflow-y-scroll overflow-x-hidden',
-    )}
+  <OverlayScrollbarsComponent
+    defer
+    className="os-theme-dark os-theme-custom"
+    options={{ scrollbars: { autoHide: 'leave' } }}
   >
-    {categories.map(({ id, name, color, subcategories }) => (
-      <ButtonWrapper
-        key={id}
-        className="p-2"
-        isDisabled={false}
-        isLoading={false}
-        isFullWidth={false}
-        clickHandler={() => {}}
-        whileHover={{ y: -8 }}
-      >
-        <CategoryJar color={color} stickerText={name} />
-      </ButtonWrapper>
-    ))}
-  </div>
+    <div className={twMerge(className, 'grid grid-cols-2 tablet:grid-cols-4 desktop:grid-cols-4')}>
+      {categories.map(({ id, name, color, subcategories }) => (
+        <ButtonWrapper
+          key={id}
+          className="p-2"
+          isDisabled={false}
+          isLoading={false}
+          isFullWidth={false}
+          clickHandler={() => {}}
+          whileHover={{ y: -8 }}
+        >
+          <CategoryJar color={color} stickerText={name} />
+        </ButtonWrapper>
+      ))}
+    </div>
+  </OverlayScrollbarsComponent>
 );
 
 // TODO: Use library to make text dynamic sized

@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import type { Metadata, Viewport } from 'next';
+import 'overlayscrollbars/overlayscrollbars.css';
 
 import { Footer, Navbar } from '@components/index';
 import { CONTENT_HEIGHT, theme } from '@utils/globalConstants';

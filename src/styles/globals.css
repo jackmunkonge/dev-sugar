@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-*:not(input):focus:not(:active) {
+*:not(input, div):focus:not(:active) {
   outline: 0px;
   @apply animate-pulse;
 }
 
-input:focus {
+input, div:focus:not(:active) {
   outline: 0px;
 }
 
@@ -24,4 +24,13 @@ a {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.os-theme-dark.os-theme-custom > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle {
+  border-radius: 0px;
+  @apply bg-line;
+}
+
+.os-theme-dark.os-theme-custom > .os-scrollbar > .os-scrollbar-track > .os-scrollbar-handle:hover {
+  @apply bg-primary-light4;
 }
