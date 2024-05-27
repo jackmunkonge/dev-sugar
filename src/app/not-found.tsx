@@ -1,6 +1,13 @@
+import { Metadata } from 'next';
+
 import { SadJar } from '@assets/images';
 import { SolidButton } from '@components/Buttons';
 import { Headline2, Headline3, Headline5 } from '@components/Typography';
+
+export const metadata: Metadata = {
+  title: 'Dev Sugar | Not Found',
+  description: 'The ultimate hub for dev resources',
+};
 
 export default function NotFound() {
   const heading = "The resource you're looking for wasn't found";
