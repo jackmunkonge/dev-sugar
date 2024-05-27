@@ -4,8 +4,8 @@ import { CustomImageProps } from '../types';
 
 const EmptyJar: React.FC<CustomImageProps> = ({ width = 128, height = 160 }) => (
   <svg width={width} height={height} viewBox="0 0 128 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#empty_jar)">
-      <g clip-path="url(#empty_jar)">
+    <g clipPath="url(#empty_jar)">
+      <g clipPath="url(#empty_jar)">
         <rect x="112" y="8" width="8" height="8" fill="#806D4F" />
         <rect x="112" y="16" width="8" height="8" fill="#806D4F" />
         <rect x="104" y="16" width="8" height="8" fill="#806D4F" />

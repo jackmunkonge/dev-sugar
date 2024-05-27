@@ -25,7 +25,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen }) => {
   const path = usePathname();
 
   return (
-    <div className={`${isOpen ? 'absolute' : 'hidden'} w-full bg-background pb-2`} id={ariaControlIds.MOBILE_MENU}>
+    <div className={`${isOpen ? 'absolute' : 'hidden'} w-full bg-background pb-2 z-50`} id={ariaControlIds.MOBILE_MENU}>
       {renderLinks(path)}
     </div>
   );

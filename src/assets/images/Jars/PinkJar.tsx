@@ -4,8 +4,8 @@ import { CustomImageProps } from '../types';
 
 const PinkJar: React.FC<CustomImageProps> = ({ width = 128, height = 160 }) => (
   <svg width={width} height={height} viewBox="0 0 128 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#pink_jar)">
-      <g clip-path="url(#pink_jar)">
+    <g clipPath="url(#pink_jar)">
+      <g clipPath="url(#pink_jar)">
         <path d="M8 80H120V144H8V80Z" fill="#FF8AD0" />
         <path d="M16 144H112V152H16V144Z" fill="#FF8AD0" />
         <rect x="44" y="88" width="8" height="4" fill="#F493D9" />

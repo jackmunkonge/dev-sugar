@@ -5,15 +5,16 @@ import { twMerge } from 'tailwind.config';
 import { BUTTON_ICON_SIZE_LARGE, BUTTON_ICON_SIZE_MEDIUM, BUTTON_ICON_SIZE_SMALL } from '@assets/icons/constants';
 import AnimatedTextCharacter from '@components/AnimatedTextCharacter/AnimatedTextCharacter';
 import { Button1, Button2, Headline6 } from '@components/Typography';
+import { ButtonWrapper } from '@components/index';
 import { theme } from '@utils/globalConstants';
 import { ComponentSize } from '@utils/globalTypes';
-import { ButtonWrapper } from '@utils/ui/utils';
 
 import { ButtonProps, ButtonTextProps } from '../types';
 
 // TODO: Create breadcrumb component with all text sizes
 const TextButton: React.FC<ButtonProps> = ({
   contentClassName = '',
+  textClassName = '',
   text,
   size = ComponentSize.LARGE,
   leadIcon,
@@ -24,11 +25,13 @@ const TextButton: React.FC<ButtonProps> = ({
   isDisabled = false,
   isLoading = false,
   isFullWidth = false,
+  isIconFilled = false,
   searchParams,
   pathName = '/',
   buttonType = 'submit',
   ariaControlId = '',
   ariaExpanded = false,
+  customTypography: CustomTypography,
   clickHandler,
 }) => {
   const { SMALL, MEDIUM, LARGE } = ComponentSize;
@@ -52,9 +55,13 @@ const TextButton: React.FC<ButtonProps> = ({
       text = <Button2 className={className}>{children}</Button2>;
     } else if (size === ComponentSize.MEDIUM) {
       text = <Button1 className={className}>{children}</Button1>;
+    } else if (!!CustomTypography) {
+      text = <CustomTypography className={className}>{children}</CustomTypography>;
     }
 
-    return <div className={clsx('flex w-fit items-center overflow-hidden whitespace-nowrap')}>{text}</div>;
+    return (
+      <div className={twMerge('flex w-fit items-center overflow-hidden whitespace-nowrap', textClassName)}>{text}</div>
+    );
   };
 
   const ButtonIcon: React.FC<any> = ({ color, icon: Icon }) => {
@@ -62,7 +69,14 @@ const TextButton: React.FC<ButtonProps> = ({
     if (size === SMALL) iconSize = BUTTON_ICON_SIZE_SMALL;
     if (size === MEDIUM) iconSize = BUTTON_ICON_SIZE_MEDIUM;
     if (size === LARGE) iconSize = BUTTON_ICON_SIZE_LARGE;
-    return <Icon width={iconSize} height={iconSize} outlineColor={color} fillColor={colors.transparent} />;
+    return (
+      <Icon
+        width={iconSize}
+        height={iconSize}
+        outlineColor={color}
+        fillColor={isIconFilled ? colors.offwhite : colors.transparent}
+      />
+    );
   };
 
   const renderDefault = () => (

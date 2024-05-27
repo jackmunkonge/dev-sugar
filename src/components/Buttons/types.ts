@@ -1,11 +1,13 @@
 import React, { MouseEventHandler } from 'react';
 
 import { IconProps } from '@assets/icons/types';
+import { TypographyProps } from '@components/Typography/types';
 import { ComponentSize } from '@utils/globalTypes';
 
 // Props
 export type ButtonProps = {
   contentClassName?: string;
+  textClassName?: string;
   text: string;
   size?: ComponentSize;
   leadIcon?: React.FC<IconProps>;
@@ -16,12 +18,14 @@ export type ButtonProps = {
   isNavbarLink?: boolean;
   isDisabled?: boolean;
   isLoading?: boolean;
+  isIconFilled?: boolean;
   searchParams?: URLSearchParams;
   pathName?: string;
   buttonType?: ButtonActionType;
   ariaControlId?: string;
   ariaExpanded?: boolean;
   clickHandler?: MouseEventHandler<HTMLButtonElement>;
+  customTypography?: React.FC<TypographyProps>;
 };
 
 export type ButtonTextProps = {

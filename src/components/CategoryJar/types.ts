@@ -13,4 +13,5 @@ export enum JarColor {
   BLUE,
   PINK,
   BROWN,
+  SILVER,
 }

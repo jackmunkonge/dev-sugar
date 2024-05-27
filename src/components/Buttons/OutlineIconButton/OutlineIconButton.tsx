@@ -3,8 +3,8 @@ import React from 'react';
 import { twMerge } from 'tailwind.config';
 
 import { Spinner } from '@assets/icons';
+import { ButtonWrapper } from '@components/index';
 import { theme } from '@utils/globalConstants';
-import { ButtonWrapper } from '@utils/ui/utils';
 
 import { IconButtonProps } from '../types';
 import ButtonLeft from './Components/ButtonLeft';
